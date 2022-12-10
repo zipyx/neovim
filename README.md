@@ -10,6 +10,10 @@ paru nerd-fonts-git
 ```
 
 - Language Servers (https://microsoft.github.io/language-server-protocol/implementors/servers/)
+- Window Buffers (https://github.com/c60cb859/bufMov.nvim/blob/main/doc/bufMov.txt)
+- Sending HTTP Requests (https://github.com/rest-nvim/rest.nvim)
+- SQL Server Protocol (https://github.com/joe-re/sql-language-server)
+- Databases (https://github.com/dinhhuy258/vim-databas)
 
 ## Installation (Linux)
 Brief workflow on installing `Neovim` if for the first time.
