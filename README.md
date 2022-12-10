@@ -15,6 +15,25 @@ paru nerd-fonts-git
 - SQL Server Protocol (https://github.com/joe-re/sql-language-server)
 - Databases (https://github.com/dinhhuy258/vim-databas)
 
+Other useful commands to check against your neovim configuration.
+- Check all keymaps currently in use (inclusive plugin keymaps)
+
+First command
+```bash
+# Run command in command mode
+# Hit enter after each line of command
+:redir! > vim_keys.txt
+```
+Second command
+```bash
+:silent verbose map
+```
+
+Third command
+```bash
+:redir END
+```
+
 ## Installation (Linux)
 Brief workflow on installing `Neovim` if for the first time.
 
