@@ -3,8 +3,16 @@
 For instructions on getting started using `Lua` for Neovim. The following guide is useful:
 - https://github.com/nanotee/nvim-lua-guide
 
+Other useful information related to my setup.
+- Fonts (https://aur.archlinux.org/packages/nerd-fonts-git)
+```bash
+paru nerd-fonts-git
+```
+
+- Language Servers (https://microsoft.github.io/language-server-protocol/implementors/servers/)
+
 ## Installation (Linux)
-Brief workflow on installing Neovim if for the first time.
+Brief workflow on installing `Neovim` if for the first time.
 
 ### Clone The Repository
 ```bash
