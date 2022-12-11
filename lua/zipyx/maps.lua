@@ -1,7 +1,6 @@
 local keymap = vim.keymap
 local builtin = require('telescope.builtin')
 
-
 -- Set leader key
 vim.g.mapleader = " "
 
@@ -71,6 +70,8 @@ keymap.set('n', '<leader>ta', ':FloatermToggle<CR>')
 keymap.set('n', '<leader>td', ':FloatermKill<CR>')
 keymap.set('n', '<leader>tk', ':FloatermNext<CR>')
 keymap.set('n', '<leader>tj', ':FloatermPrev<CR>')
+keymap.set('n', '<leader>to',
+  ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=browser --autoclose=0 --border=curved browsh<CR>') -- Browser
 keymap.set('t', '<leader>tn', '<C-\\><C-n>:FloatermNew<CR>')
 keymap.set('t', '<leader>ta', '<C-\\><C-n>:FloatermToggle<CR>')
 keymap.set('t', '<leader>td', '<C-\\><C-n>:FloatermKill<CR>')
@@ -83,16 +84,19 @@ keymap.set('n', '<leader>tc', ':NvimTreeCollapse<CR>')
 keymap.set('n', '<leader>tb', ':NvimTreeCollapseKeepBuffers<CR>')
 keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>')
 
+-- [Plugin] Neovim utility calendar
+keymap.set('n', '<leader>uc', ':Calendar<CR>')
+
 -- [Plugin] Moving window buffers
 keymap.set('n', '<C-j>', "<cmd>lua require('bufMov').movBuf('down')<CR>", { noremap = true })
 keymap.set('n', '<C-k>', ':MoveBufferUp<CR>')
 keymap.set('n', '<C-h>', ':MoveBufferLeft<CR>')
 keymap.set('n', '<C-l>', ':MoveBufferRight<CR>')
+-- Other helpful window buffer tips
 -- mA = Mark window buffer with A
 -- mB = Mark window buffer with B
 -- 'A = Switch current buffer with buffer marked with A
 -- 'B = Switch current buffer with buffer marked with B
--- Other helpful window buffer tips
 
 -- [PlugIn] Telescope
 keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -106,6 +110,10 @@ keymap.set('n', '<leader>gg', builtin.git_status, {})
 -- keymap.set('n', '<leader>gb', builtin.git_branches, {})
 keymap.set('n', '<leader>gc', builtin.git_commits, {})
 
+-- [Plugin] Jester - running unit tests for javascript/typescript
+keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>')
+keymap.set('n', '<leader>rf', ':lua require"jester".run_file()<CR>')
+keymap.set('n', '<leader>ro', ':lua require"jester".run_last()<CR>')
 
 -- [Plugin] Commenting stuff out
 keymap.set('n', '<leader>;;', '<Plug>Commentary')
@@ -138,7 +146,7 @@ keymap.set('n', '<leader>gB', ':Gitsigns toggle_current_line_blame<CR>')
 
 -- [PlugIn] Database
 keymap.set('n', '<leader>du', ':VDToggleDatabase<CR>')
-keymap.set('n', '<leader>dq', ':VDToggleQuery<CR>')
+keymap.set('n', '<leader>rq', ':VDToggleQuery<CR>')
 -- keymap.set('n', '<leader>du', ':DBUIToggle<CR>')
 -- keymap.set('n', '<leader>df', ':DBUIFindBuffer<CR>')
 -- keymap.set('n', '<leader>dr', ':DBUIRenameBuffer<CR>')

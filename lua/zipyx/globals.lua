@@ -24,3 +24,7 @@ vim.g.mkdp_theme = ''
 -- Neovim file tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Neovim utility plugins - calendar
+vim.g.calendar_google_calendar = 1
+vim.g.calendar_google_task = 1

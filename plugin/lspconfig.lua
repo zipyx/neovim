@@ -150,10 +150,10 @@ nvim_lsp.gopls.setup {
   capabilities = capabilities
 }
 
-nvim_lsp.sqlls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+-- nvim_lsp.sqlls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
 
 nvim_lsp.pyright.setup {
   on_attach = on_attach,

@@ -36,6 +36,7 @@ packer.startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
+  use 'itchyny/calendar.vim' -- Utility plugins open mail
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope.nvim' -- Browsing, fuzzy finder etc
   use 'nvim-telescope/telescope-file-browser.nvim' -- File Browser
@@ -48,12 +49,15 @@ packer.startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
   use 'akinsho/nvim-bufferline.lua'
-  -- use 'github/copilot.vim'
+  use 'github/copilot.vim'
 
   -- Database
   use 'dinhhuy258/vim-database'
   -- use 'tpope/vim-dadbod' -- Imported from vim
   -- use 'kristijanhusak/vim-dadbod-ui' -- Imported from vim
+
+  -- Running unit tests for javascript / typescript
+  use 'David-Kunz/jester'
 
   -- Commenting stuff out
   use 'tpope/vim-commentary'
@@ -69,6 +73,9 @@ packer.startup(function(use)
 
   -- Moving window buffers
   use 'c60cb859/bufMov.nvim'
+
+  -- Presentations (slides)
+  use 'Chaitanyabsprip/present.nvim'
 
   -- Git
   use 'tpope/vim-fugitive' -- Git actions
