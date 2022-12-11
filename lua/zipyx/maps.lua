@@ -78,10 +78,10 @@ keymap.set('t', '<leader>tk', '<C-\\><C-n>:FloatermNext<CR>')
 keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>')
 
 -- [Plugin] Neovim file tree
-keymap.set('n', '<leader>ut', ':NvimTreeToggle')
-keymap.set('n', '<leader>utc', ':NvimTreeCollapse')
-keymap.set('n', '<leader>utb', ':NvimTreeCollapseKeepBuffers')
-keymap.set('n', '<leader>utff', ':NvimTreeFindFile')
+keymap.set('n', '<leader>ut', ':NvimTreeToggle<CR>')
+keymap.set('n', '<leader>utc', ':NvimTreeCollapse<CR>')
+keymap.set('n', '<leader>utb', ':NvimTreeCollapseKeepBuffers<CR>')
+keymap.set('n', '<leader>utff', ':NvimTreeFindFile<CR>')
 
 -- [Plugin] Moving window buffers
 keymap.set('n', '<C-j>', "<cmd>lua require('bufMov').movBuf('down')<CR>", { noremap = true })
