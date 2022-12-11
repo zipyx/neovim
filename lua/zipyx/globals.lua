@@ -20,3 +20,7 @@ vim.g.mkdp_port = ''
 vim.g.mkdp_page_title = '${name}'
 vim.g.mkdp_filetypes = { 'markdown' }
 vim.g.mkdp_theme = ''
+
+-- Neovim file tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
