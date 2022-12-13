@@ -1,6 +1,3 @@
-
-
-
 n  gi          *@<Cmd>lua vim.lsp.buf.implementation()<CR>
 	Last set from Lua
 n  gD          *@<Cmd>lua vim.lsp.buf.declaration()<CR>
