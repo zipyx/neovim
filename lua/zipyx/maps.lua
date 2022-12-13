@@ -49,8 +49,8 @@ keymap.set('n', '<leader>wl', ':vertical resize +7<CR>')
 keymap.set('n', '<leader>wh', ':vertical resize -4<CR>')
 keymap.set('n', '<leader>wk', ':resize +7<CR>')
 keymap.set('n', '<leader>wj', ':resize -4<CR>')
-keymap.set('n', '<leader>wi', '<C-W>_ \\| <C-W>\\|<CR>')
-keymap.set('n', '<leader>wo', '<C-W>=<CR>')
+keymap.set('n', '<leader>zi', '<C-W>_ \\| <C-W>\\|<CR>')
+keymap.set('n', '<leader>zo', '<C-W>=<CR>')
 
 -- Move lines
 keymap.set('n', '<C-u>', ':m .-2<CR>==')

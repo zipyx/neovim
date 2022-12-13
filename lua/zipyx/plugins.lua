@@ -74,9 +74,6 @@ packer.startup(function(use)
   -- Moving window buffers
   use 'c60cb859/bufMov.nvim'
 
-  -- Presentations (slides)
-  use 'Chaitanyabsprip/present.nvim'
-
   -- Git
   use 'tpope/vim-fugitive' -- Git actions
   use 'lewis6991/gitsigns.nvim' -- Git signs along lines
