@@ -7,10 +7,6 @@ n  gD          *@<Cmd>lua vim.lsp.buf.declaration()<CR>
 	Last set from Lua
 n  <Tab>       * <Cmd>BufferLineCycleNext<CR>
 	Last set from Lua
-n  <Space>gR   * <Cmd>lua require('git.revert').open(true)<CR>
-	Last set from Lua
-n  <Space>gr   * <Cmd>lua require('git.revert').open(false)<CR>
-	Last set from Lua
 n  <Space>gD   * <Cmd>lua require('git.diff').close()<CR>
 	Last set from Lua
 n  <Space>gd   * <Cmd>lua require('git.diff').open()<CR>
@@ -23,6 +19,24 @@ n  <Space>go   * <Cmd>lua require('git.browse').open(false)<CR>
 	Last set from Lua
 n  <Space>gb   * <Cmd>lua require('git.blame').blame()<CR>
 	Last set from Lua
+n  <Space>w<Space>m   <Plug>VimwikiMakeTomorrowDiaryNote
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>w<Space>y   <Plug>VimwikiMakeYesterdayDiaryNote
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>w<Space>t   <Plug>VimwikiTabMakeDiaryNote
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>w<Space>w   <Plug>VimwikiMakeDiaryNote
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>w<Space>i   <Plug>VimwikiDiaryGenerateLinks
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>wi     <Plug>VimwikiDiaryIndex
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>ws     <Plug>VimwikiUISelect
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>wt     <Plug>VimwikiTabIndex
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
+n  <Space>ww     <Plug>VimwikiIndex
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/autoload/vimwiki/u.vim line 217
 n  <Space>sp   * :ScratchPreview<CR>
 	Last set from Lua
 n  <Space>si   * :ScratchInsert<CR>
@@ -35,15 +49,51 @@ n  <Space>rl   * <Plug>RestNvimLast
 	Last set from Lua
 n  <Space>rn   * <Plug>RestNvim
 	Last set from Lua
-n  <Space>dq   * :VDToggleQuery<CR>
+n  <Space>rq   * :VDToggleQuery<CR>
 	Last set from Lua
 n  <Space>du   * :VDToggleDatabase<CR>
 	Last set from Lua
+n  <Space>gB   * :Gitsigns toggle_current_line_blame<CR>
+	Last set from Lua
+n  <Space>gU   * :Gitsigns reset_buffer_index<CR>
+	Last set from Lua
+n  <Space>gR   * <Cmd>lua require('git.revert').open(true)<CR>
+	Last set from Lua
+n  <Space>gS   * :Gitsigns stage_buffer<CR>
+	Last set from Lua
+n  <Space>gu   * :Gitsigns undo_hunk<CR>
+	Last set from Lua
+n  <Space>gr   * <Cmd>lua require('git.revert').open(false)<CR>
+	Last set from Lua
+n  <Space>gs   * :Gitsigns stage_hunk<CR>
+	Last set from Lua
+n  <Space>gk   * :Gitsigns prev_hunk<CR>
+	Last set from Lua
+n  <Space>gj   * :Gitsigns next_hunk<CR>
+	Last set from Lua
 n  <Space>gp   * <Cmd>lua require('git.browse').pull_request()<CR>
 	Last set from Lua
-n  <Space>gs   * :G<CR>
+n  <Space>ga   * :LazyGit<CR>
 	Last set from Lua
-n  <Space>gc   * <Lua 11: ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/init.lua:483>
+n  <Space>mpt  * <Plug>MarkdownPreviewToggle
+	Last set from Lua
+n  <Space>mps  * <Plug>MarkdownPreviewStop
+	Last set from Lua
+n  <Space>mp   * <Plug>MarkdownPreview
+	Last set from Lua
+o  <Space>;;   * <Plug>Commentary
+	Last set from Lua
+x  <Space>;;   * <Plug>Commentary
+	Last set from Lua
+n  <Space>;;   * <Plug>CommentaryLine
+	Last set from Lua
+n  <Space>ro   * :lua require"jester".run_last()<CR>
+	Last set from Lua
+n  <Space>rf   * :lua require"jester".run_file()<CR>
+	Last set from Lua
+n  <Space>ra   * :lua require"jester".run()<CR>
+	Last set from Lua
+n  <Space>gc   * :Git commit<CR>
 	Last set from Lua
 n  <Space>gg   * <Lua 10: ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/init.lua:483>
 	Last set from Lua
@@ -61,6 +111,18 @@ n  <Space>fg   * <Lua 4: ~/.local/share/nvim/site/pack/packer/start/telescope.nv
 	Last set from Lua
 n  <Space>ff   * <Lua 3: ~/.local/share/nvim/site/pack/packer/start/telescope.nvim/lua/telescope/builtin/init.lua:483>
 	Last set from Lua
+n  <Space>uc   * :Calendar<CR>
+	Last set from Lua
+n  <Space>tf   * :NvimTreeFindFile<CR>
+	Last set from Lua
+n  <Space>tb   * :NvimTreeCollapseKeepBuffers<CR>
+	Last set from Lua
+n  <Space>tc   * :NvimTreeCollapse<CR>
+	Last set from Lua
+n  <Space>tt   * :NvimTreeToggle<CR>
+	Last set from Lua
+n  <Space>to   * :FloatermNew --wintype=float --height=0.8 --width=0.8 --name=browser --autoclose=0 --border=curved browsh<CR>
+	Last set from Lua
 n  <Space>tj   * :FloatermPrev<CR>
 	Last set from Lua
 n  <Space>tk   * :FloatermNext<CR>
@@ -70,6 +132,10 @@ n  <Space>td   * :FloatermKill<CR>
 n  <Space>ta   * :FloatermToggle<CR>
 	Last set from Lua
 n  <Space>tn   * :FloatermNew<CR>
+	Last set from Lua
+n  <Space>zo   * <C-W>=<CR>
+	Last set from Lua
+n  <Space>zi   * <C-W>_ \| <C-W>\|<CR>
 	Last set from Lua
 n  <Space>wj   * :resize -4<CR>
 	Last set from Lua
@@ -100,15 +166,15 @@ n  +           * <C-A>
 	Last set from Lua
 n  -           * <C-X>
 	Last set from Lua
-n  ;e          * <Lua 207: ~/.config/nvim/after/plugin/telescope.rc.lua:64>
+n  ;e          * <Lua 291: ~/.config/nvim/after/plugin/telescope.rc.lua:64>
 	Last set from Lua
-n  ;;          * <Lua 206: ~/.config/nvim/after/plugin/telescope.rc.lua:61>
+n  ;;          * <Lua 290: ~/.config/nvim/after/plugin/telescope.rc.lua:61>
 	Last set from Lua
-n  ;t          * <Lua 205: ~/.config/nvim/after/plugin/telescope.rc.lua:58>
+n  ;t          * <Lua 289: ~/.config/nvim/after/plugin/telescope.rc.lua:58>
 	Last set from Lua
-n  ;r          * <Lua 201: ~/.config/nvim/after/plugin/telescope.rc.lua:52>
+n  ;r          * <Lua 285: ~/.config/nvim/after/plugin/telescope.rc.lua:52>
 	Last set from Lua
-n  ;f          * <Lua 192: ~/.config/nvim/after/plugin/telescope.rc.lua:46>
+n  ;f          * <Lua 276: ~/.config/nvim/after/plugin/telescope.rc.lua:46>
 	Last set from Lua
 n  K           * <Cmd>Lspsaga hover_doc<CR>
 	Last set from Lua
@@ -121,7 +187,7 @@ x  [%            <Plug>(MatchitVisualMultiBackward)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 79
 n  [%            <Plug>(MatchitNormalMultiBackward)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 77
-n  \\          * <Lua 204: ~/.config/nvim/after/plugin/telescope.rc.lua:55>
+n  \\          * <Lua 288: ~/.config/nvim/after/plugin/telescope.rc.lua:55>
 	Last set from Lua
 o  ]%            <Plug>(MatchitOperationMultiForward)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 82
@@ -133,6 +199,16 @@ x  a%            <Plug>(MatchitVisualTextObject)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 85
 n  dw          * vb"_d
 	Last set from Lua
+n  gcu           <Plug>Commentary<Plug>Commentary
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 118
+n  gcc           <Plug>CommentaryLine
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 117
+o  gc            <Plug>Commentary
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 116
+n  gc            <Plug>Commentary
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 115
+x  gc            <Plug>Commentary
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 114
 n  gZzZz       * gs
 	Last set from ~/.local/share/nvim/site/pack/packer/start/scratch.vim/plugin/scratch.vim line 44
 x  gS            <Plug>(scratch-selection-clear)
@@ -149,17 +225,13 @@ n  gp          * <Cmd>Lspsaga peek_definition<CR>
 	Last set from Lua
 n  gd          * <Cmd>Lspsaga lsp_finder<CR>
 	Last set from Lua
-x  gx            <Plug>NetrwBrowseXVis
-	Last set from /usr/share/nvim/runtime/plugin/netrwPlugin.vim line 88
-n  gx            <Plug>NetrwBrowseX
-	Last set from /usr/share/nvim/runtime/plugin/netrwPlugin.vim line 82
 o  g%            <Plug>(MatchitOperationBackward)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 74
 x  g%            <Plug>(MatchitVisualBackward)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 72
 n  g%            <Plug>(MatchitNormalBackward)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 70
-n  sf          * <Lua 208: ~/.config/nvim/after/plugin/telescope.rc.lua:67>
+n  sf          * <Lua 292: ~/.config/nvim/after/plugin/telescope.rc.lua:67>
 	Last set from Lua
 n  sp          * :split<CR><C-W>w
 	Last set from Lua
@@ -187,10 +259,40 @@ n  <C-W>o      * <Cmd>ZenMode<CR>
 	Last set from Lua
 n  <S-Tab>     * <Cmd>BufferLineCyclePrev<CR>
 	Last set from Lua
+n  <Plug>VimwikiMakeTomorrowDiaryNote & :<C-U>call vimwiki#diary#make_note(v:count, 0, vimwiki#diary#diary_date_link(localtime(), 1))<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 403
+n  <Plug>VimwikiMakeYesterdayDiaryNote & :<C-U>call vimwiki#diary#make_note(v:count, 0, vimwiki#diary#diary_date_link(localtime(), -1))<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 400
+n  <Plug>VimwikiTabMakeDiaryNote & :<C-U>call vimwiki#diary#make_note(v:count, 1)<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 398
+n  <Plug>VimwikiMakeDiaryNote & :<C-U>call vimwiki#diary#make_note(v:count, 5)<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 396
+n  <Plug>VimwikiDiaryGenerateLinks & :VimwikiDiaryGenerateLinks<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 394
+n  <Plug>VimwikiDiaryIndex & :<C-U>call vimwiki#diary#goto_diary_index(v:count)<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 392
+n  <Plug>VimwikiUISelect & :VimwikiUISelect<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 390
+n  <Plug>VimwikiTabIndex & :<C-U>call vimwiki#base#goto_index(v:count, 1)<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 388
+n  <Plug>VimwikiIndex & :<C-U>call vimwiki#base#goto_index(v:count)<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vimwiki/plugin/vimwiki.vim line 386
 n  <Plug>fugitive: & <Nop>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim line 721
 n  <Plug>fugitive:y<C-G> & :<C-U>call setreg(v:register, fugitive#Object(@%))<CR>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-fugitive/plugin/fugitive.vim line 720
+n  <Plug>CommentaryUndo   :echoerr "Change your <Plug>CommentaryUndo map to <Plug>Commentary<Plug>Commentary"<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 111
+n  <Plug>ChangeCommentary * c:<C-U>call <SNR>57_textobject(1)<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 110
+o  <Plug>Commentary * :<C-U>call <SNR>57_textobject(get(v:, 'operator', '') ==# 'c')<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 109
+n  <Plug>CommentaryLine * <SNR>57_go() . '_'
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 108
+n  <Plug>Commentary * <SNR>57_go()
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 107
+x  <Plug>Commentary * <SNR>57_go()
+	Last set from ~/.local/share/nvim/site/pack/packer/start/vim-commentary/plugin/commentary.vim line 106
 x  <Plug>(scratch-selection-clear) * :<C-U>call scratch#selection(1)<CR>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/scratch.vim/plugin/scratch.vim line 37
 x  <Plug>(scratch-selection-reuse) * :<C-U>call scratch#selection(0)<CR>
@@ -207,6 +309,10 @@ n  <Plug>RestNvim * :lua require('rest-nvim').run()<CR>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/rest.nvim/plugin/rest-nvim.vim line 8
 n  <Plug>PlenaryTestFile * :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim line 9
+v  <Plug>(calendar) * :<C-U>Calendar<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/calendar.vim/plugin/calendar.vim line 22
+n  <Plug>(calendar) * :<C-U>Calendar<CR>
+	Last set from ~/.local/share/nvim/site/pack/packer/start/calendar.vim/plugin/calendar.vim line 21
 s  <Plug>luasnip-jump-prev * <Cmd>lua require'luasnip'.jump(-1)<CR>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim line 19
 s  <Plug>luasnip-jump-next * <Cmd>lua require'luasnip'.jump(1)<CR>
@@ -223,10 +329,8 @@ s  <Plug>luasnip-expand-or-jump * <Cmd>lua require'luasnip'.expand_or_jump()<CR>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim line 11
    <Plug>luasnip-delete-check * <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR>
 	Last set from ~/.local/share/nvim/site/pack/packer/start/LuaSnip/plugin/luasnip.vim line 8
-x  <Plug>NetrwBrowseXVis * :<C-U>call netrw#BrowseXVis()<CR>
-	Last set from /usr/share/nvim/runtime/plugin/netrwPlugin.vim line 90
-n  <Plug>NetrwBrowseX * :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>
-	Last set from /usr/share/nvim/runtime/plugin/netrwPlugin.vim line 84
+n  <C-N>       * <Cmd>Lspsaga diagnostic_jump_next<CR>
+	Last set from Lua
 x  <Plug>(MatchitVisualTextObject)   <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)
 	Last set from /usr/share/nvim/runtime/pack/dist/opt/matchit/plugin/matchit.vim line 66
 o  <Plug>(MatchitOperationMultiForward) * :<C-U>call matchit#MultiMatch("W",  "o")<CR>
@@ -257,15 +361,15 @@ n  <C-H>       * :MoveBufferLeft<CR>
 	Last set from Lua
 n  <C-K>       * :MoveBufferUp<CR>
 	Last set from Lua
-n  <C-J>       * <Cmd>Lspsaga diagnostic_jump_next<CR>
+n  <C-J>       * <Cmd>lua require('bufMov').movBuf('down')<CR>
 	Last set from Lua
-v  <C-U>       * :m '<-1<CR>gv=gv
+v  <C-U>       * :m '<-2<CR>gv=gv
 	Last set from Lua
-v  <C-D>       * :m '>+2<CR>gv=gv
+v  <C-D>       * :m '>+1<CR>gv=gv
 	Last set from Lua
-n  <C-D>       * :m .+2<CR>==
+n  <C-D>       * :m .+1<CR>==
 	Last set from Lua
-n  <C-U>       * :m .-1<CR>==
+n  <C-U>       * :m .-2<CR>==
 	Last set from Lua
 n  <C-A>       * ggVG
 	Last set from Lua
