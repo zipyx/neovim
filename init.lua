@@ -3,7 +3,7 @@ require('zipyx.highlights')
 require('zipyx.maps')
 require('zipyx.plugins')
 require('zipyx.globals')
-require('zipyx.credentials')
+-- require('zipyx.credentials')
 
 local has = vim.fn.has
 local is_mac = has "macunix"
