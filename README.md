@@ -13,7 +13,7 @@ paru nerd-fonts-git
 - Window Buffers (https://github.com/c60cb859/bufMov.nvim/blob/main/doc/bufMov.txt)
 - Sending HTTP Requests (https://github.com/rest-nvim/rest.nvim)
 - SQL Server Protocol (https://github.com/joe-re/sql-language-server)
-- Databases (https://github.com/dinhhuy258/vim-databas)
+- Databases (https://github.com/dinhhuy258/vim-database)
 
 Other useful commands to check against your neovim configuration.
 - Check all keymaps currently in use (inclusive plugin keymaps)
@@ -90,4 +90,11 @@ Use the following command to install the languages
 ```bash
 # Run within command mode of neovim
 :TSInstall <language_to_install>
+```
+
+### Language Servers
+```bash
+# Select and install your language server 
+# Run in command mode within neovim
+:Mason
 ```
