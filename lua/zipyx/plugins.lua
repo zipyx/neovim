@@ -62,6 +62,9 @@ packer.startup(function(use)
   -- Commenting stuff out
   use 'tpope/vim-commentary'
 
+  -- Highlighting words
+  use 'dwrdx/mywords.nvim'
+
   -- Vimwiki, notes stuff
   use 'vimwiki/vimwiki'
 
@@ -79,6 +82,9 @@ packer.startup(function(use)
   use 'lewis6991/gitsigns.nvim' -- Git signs along lines
   use 'dinhhuy258/git.nvim' -- Git blame and browse
   use 'kdheepak/lazygit.nvim' -- Floating git window with actions
+
+  -- Code runner within neovim
+  use 'CRAG666/code_runner.nvim'
 
   -- Sending REST http requests
   use 'NTBBloodbath/rest.nvim'

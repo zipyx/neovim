@@ -121,6 +121,10 @@ keymap.set('n', '<leader>;;', '<Plug>CommentaryLine')
 keymap.set('x', '<leader>;;', '<Plug>Commentary')
 keymap.set('o', '<leader>;;', '<Plug>Commentary')
 
+-- [Plugin] Highlighting words with colors
+keymap.set('n', '<leader>h', ':lua require"mywords".hl_toggle()<CR>')
+keymap.set('n', '<leader>rh', ':lua require"mywords".uhl_all()<CR>')
+
 -- [Plugin] Markdown preview
 keymap.set('n', '<leader>mp', '<Plug>MarkdownPreview')
 keymap.set('n', '<leader>mps', '<Plug>MarkdownPreviewStop')
@@ -151,6 +155,16 @@ keymap.set('n', '<leader>rq', ':VDToggleQuery<CR>')
 -- keymap.set('n', '<leader>df', ':DBUIFindBuffer<CR>')
 -- keymap.set('n', '<leader>dr', ':DBUIRenameBuffer<CR>')
 -- keymap.set('n', '<leader>dl', ':DBUILastQueryInfo<CR>')
+
+-- [Plugin] Code runner
+keymap.set('n', '<leader>el', ':RunCode<CR>', { noremap = true, silent = false })
+keymap.set('n', '<leader>ef', ':RunFile<CR>', { noremap = true, silent = false })
+keymap.set('n', '<leader>et', ':RunFile tab<CR>', { noremap = true, silent = false })
+keymap.set('n', '<leader>ep', ':RunProject<CR>', { noremap = true, silent = false })
+keymap.set('n', '<leader>ec', ':RunClose<CR>', { noremap = true, silent = false })
+-- keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
+-- keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
+
 
 -- [Plugin] Sending REST http requests
 keymap.set('n', '<leader>rn', '<Plug>RestNvim')
