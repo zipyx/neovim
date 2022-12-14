@@ -67,7 +67,10 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+-- ###########################################
 -- Set up of nvim-tree based on config files
+-- from plugin instructions
+-- ###########################################
 require('nvim-tree').setup({
   sort_by = "case_sensitive",
   view = {
@@ -86,11 +89,33 @@ require('nvim-tree').setup({
   },
 })
 
+-- ###########################################
+-- Set up of code runner based on config files
+-- from plugin instructions
+-- ###########################################
+require('code_runner').setup({
+  -- put here the commands by filetype
+  filetype = {
+    c = "cc ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    cs = "mcs ./$fileName -out:$fileNameWithoutExt.exe && mono ./$fileNameWithoutExt.exe",
+    cpp = "g++ ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    python = "python3 -u",
+    javascript = "node",
+    typescript = "deno run",
+    rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
+  },
+})
+
 nvim_lsp.flow.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- ###########################################
+-- Setting up typescript and javascript
+-- language server
+-- ###########################################
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
@@ -103,6 +128,9 @@ nvim_lsp.sourcekit.setup {
   capabilities = capabilities,
 }
 
+-- ###########################################
+-- Setting up lua langage server
+-- ###########################################
 nvim_lsp.sumneko_lua.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -125,11 +153,17 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
+-- ###########################################
+-- Setting up tailwindcss language server
+-- ###########################################
 nvim_lsp.tailwindcss.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- ###########################################
+-- Setting up css language server
+-- ###########################################
 nvim_lsp.cssls.setup {
   on_attach = on_attach,
   capabilities = capabilities
@@ -140,28 +174,55 @@ nvim_lsp.astro.setup {
   capabilities = capabilities
 }
 
+-- ###########################################
+-- Setting up javascript and typescript linter
+-- ###########################################
 nvim_lsp.quick_lint_js.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- ###########################################
+-- Setting up golang language server
+-- ###########################################
 nvim_lsp.gopls.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- ###########################################
+-- Setting up SQL language server, works but
+-- callback causing issue to always print
+-- ###########################################
 -- nvim_lsp.sqlls.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities
 -- }
+-- ###########################################
 
+-- ###########################################
+-- Setting up python language server
+-- ###########################################
 nvim_lsp.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities
 }
 
+-- ###########################################
+-- Setting up C/C++ language server
+-- ###########################################
 nvim_lsp.clangd.setup {
   on_attach = on_attach,
+  capabilities = capabilities
+}
+
+-- ###########################################
+-- Setting up C# language server
+-- ###########################################
+nvim_lsp.omnisharp.setup {
+  on_attach = on_attach,
+  filetypes = { "cs", "vb" },
+  cmd = { "" },
   capabilities = capabilities
 }
 
