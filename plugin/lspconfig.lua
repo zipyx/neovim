@@ -219,10 +219,11 @@ nvim_lsp.clangd.setup {
 -- ###########################################
 -- Setting up C# language server
 -- ###########################################
+local omnisharp_bin = "/usr/bin/omnisharp"
 nvim_lsp.omnisharp.setup {
   on_attach = on_attach,
   filetypes = { "cs", "vb" },
-  cmd = { "" },
+  cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
   capabilities = capabilities
 }
 
