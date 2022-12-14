@@ -6,6 +6,7 @@ For instructions on getting started using `Lua` for Neovim. The following guide 
 Other useful information related to my setup.
 - Fonts (https://aur.archlinux.org/packages/nerd-fonts-git)
 ```bash
+# Paru is the package manager used to install nerd-fonts-git
 paru nerd-fonts-git
 ```
 
