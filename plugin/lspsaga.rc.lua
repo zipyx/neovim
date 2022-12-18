@@ -1,20 +1,21 @@
 local status, saga = pcall(require, "lspsaga")
 if (not status) then return end
 
-saga.init_lsp_saga {
-  server_filetype_map = {
-    typescript = 'typescript',
-    javascript = 'javascript',
-    json = 'json',
-    lua = 'lua',
-    python = 'python',
-    go = 'go',
-    rust = 'rust',
-    cpp = 'cpp',
-    c = 'c',
-    csharp = 'csharp',
-  }
-}
+-- DO NOT USE THIS!!!! THIS IS CAUSING THE CONFIG FILE TO BREAK
+-- saga.init_lsp_saga {
+--   server_filetype_map = {
+--     typescript = 'typescript',
+--     javascript = 'javascript',
+--     json = 'json',
+--     lua = 'lua',
+--     python = 'python',
+--     go = 'go',
+--     rust = 'rust',
+--     cpp = 'cpp',
+--     c = 'c',
+--     csharp = 'csharp',
+--   }
+-- }
 
 local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<C-n>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
