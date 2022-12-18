@@ -4,6 +4,7 @@ require('zipyx.config.keymaps')
 require('zipyx.config.plugins')
 require('zipyx.plugin.globals')
 require('zipyx.plugin.keymaps')
+require('zipyx.plugin.setup')
 
 -- require('zipyx.base')
 -- require('zipyx.highlights')

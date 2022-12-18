@@ -1,8 +1,7 @@
-local status, coderunner = pcall(require, "code-runner")
-if (not status) then return end
+local code_runner = require("code_runner")
+local nvim_tree = require("nvim-tree")
 
-coderunner.setup {
-  -- put here the commands by filetype
+code_runner.setup {
   filetype = {
     c = "cd $dir && cc ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
     cs = "cd $dir && mcs ./$fileName -out:$fileNameWithoutExt.exe && mono ./$fileNameWithoutExt.exe",
@@ -16,4 +15,20 @@ coderunner.setup {
   },
 }
 
--- vim.keymap.set('n', '<C-w>o', '<cmd>ZenMode<cr>', { silent = true })
+nvim_tree.setup {
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+}
