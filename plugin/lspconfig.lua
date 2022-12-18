@@ -187,6 +187,7 @@ nvim_lsp.quick_lint_js.setup {
 -- ###########################################
 nvim_lsp.gopls.setup {
   on_attach = on_attach,
+  filetypes = { "go" },
   capabilities = capabilities,
 }
 
@@ -205,6 +206,7 @@ nvim_lsp.gopls.setup {
 -- ###########################################
 nvim_lsp.pyright.setup {
   on_attach = on_attach,
+  filetypes = { "py" },
   capabilities = capabilities,
 }
 
@@ -213,6 +215,7 @@ nvim_lsp.pyright.setup {
 -- ###########################################
 nvim_lsp.clangd.setup {
   on_attach = on_attach,
+  filetypes = { "cpp", "c" },
   capabilities = capabilities,
 }
 
