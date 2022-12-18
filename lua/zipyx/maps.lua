@@ -108,7 +108,7 @@ keymap.set('n', '<leader>fq', builtin.quickfix, {})
 keymap.set('n', '<leader>fr', builtin.registers, {})
 keymap.set('n', '<leader>gg', builtin.git_status, {})
 -- keymap.set('n', '<leader>gb', builtin.git_branches, {})
-keymap.set('n', '<leader>gc', builtin.git_commits, {})
+-- keymap.set('n', '<leader>gc', builtin.git_commits, {})
 
 -- [Plugin] Jester - running unit tests for javascript/typescript
 keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>')
@@ -136,8 +136,8 @@ keymap.set('n', '<leader>mpt', '<Plug>MarkdownPreviewToggle')
 -- <leader>ga = Get ASCII, Hex and Octal value
 -- <leader>gp = Open a pull request
 keymap.set('n', '<leader>ga', ':LazyGit<CR>')
-keymap.set('n', '<leader>gp', ':Git push<CR>')
-keymap.set('n', '<leader>gc', ':Git commit<CR>')
+-- keymap.set('n', '<leader>gp', ':Git push<CR>')
+-- keymap.set('n', '<leader>gc', ':Git commit<CR>')
 keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>')
 keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>')
 keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>')

@@ -20,6 +20,7 @@ ts.setup {
     "css",
     "html",
     "c",
+    "cs",
     "cpp",
     "c_sharp",
     "rust",
