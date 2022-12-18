@@ -6,9 +6,10 @@ require('zipyx.globals')
 require('code_runner').setup({
   -- put here the commands by filetype
   filetype = {
-    c = "cc ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
-    cs = "mcs ./$fileName -out:$fileNameWithoutExt.exe && mono ./$fileNameWithoutExt.exe",
-    cpp = "g++ ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    c = "cd $dir && cc ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    cs = "cd $dir && mcs ./$fileName -out:$fileNameWithoutExt.exe && mono ./$fileNameWithoutExt.exe",
+    cpp = "cd $dir && g++ ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    lua = "cd $dir && lua ./$fileName",
     java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
     python = "python3 -u",
     javascript = "node",
