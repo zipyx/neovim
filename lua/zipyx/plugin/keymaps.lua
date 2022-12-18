@@ -1,42 +1,6 @@
 local keymap = vim.keymap
 local builtin = require('telescope.builtin')
 
--- Set leader key
-vim.g.mapleader = " "
-
--- Customed key bindings
-keymap.set('n', '<leader>q', ':q<CR>')
--- keymap.set('n', '<S-Q>', ':quitall<CR>')
--- keymap.set('i', 'jj', '<ESC>')
-
--- Delete single character
-keymap.set('n', 'x', '"_x')
-
--- Increment/decrement
-keymap.set('n', '+', '<C-a>')
-keymap.set('n', '-', '<C-x>')
-
--- Delete a word backwards
-keymap.set('n', 'dw', 'vb"_d')
-
--- Select all
-keymap.set('n', '<C-a>', 'gg<S-v>G')
-
--- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
-
--- New tab
-keymap.set('n', 'te', ':tabedit')
-keymap.set('n', 'tn', ':tabnew<CR>')
-
--- Access Tabs
-keymap.set('n', 'tj', ':tabnext<CR>')
-keymap.set('n', 'tl', ':tablast<CR>')
-
--- Split window
-keymap.set('n', 'sp', ':split<Return><C-w>w')
-keymap.set('n', 'vsp', ':vsplit<Return><C-w>w')
-
 -- Move between window buffers
 -- keymap.set('n', '<Space>', '<C-w>w')
 -- keymap.set('n', '<S-h>', '<C-w>h')
@@ -142,7 +106,7 @@ keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>')
 keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>')
 keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>')
 keymap.set('n', '<leader>gr', ':Gitsigns reset_hunk<CR>')
-keymap.set('n', '<leader>gu', ':Gitsigns undo_hunk<CR>')
+keymap.set('n', '<leader>gu', ':Gitsigns undo_stage_hunk<CR>')
 keymap.set('n', '<leader>gS', ':Gitsigns stage_buffer<CR>')
 keymap.set('n', '<leader>gR', ':Gitsigns reset_buffer<CR>')
 keymap.set('n', '<leader>gU', ':Gitsigns reset_buffer_index<CR>')
