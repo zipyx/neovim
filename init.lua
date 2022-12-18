@@ -3,6 +3,36 @@ require('zipyx.highlights')
 require('zipyx.maps')
 require('zipyx.plugins')
 require('zipyx.globals')
+require('code_runner').setup({
+  -- put here the commands by filetype
+  filetype = {
+    c = "cc ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    cs = "mcs ./$fileName -out:$fileNameWithoutExt.exe && mono ./$fileNameWithoutExt.exe",
+    cpp = "g++ ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+    java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    python = "python3 -u",
+    javascript = "node",
+    typescript = "deno run",
+    rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
+  },
+})
+require('nvim-tree').setup({
+  sort_by = "case_sensitive",
+  view = {
+    adaptive_size = true,
+    mappings = {
+      list = {
+        { key = "u", action = "dir_up" },
+      },
+    },
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 
 local has = vim.fn.has
 local is_mac = has "macunix"

@@ -30,12 +30,13 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  -- buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  -- buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'g.', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   -- buf_set_keymap('v', 'g.', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'g,', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 end
 
 protocol.CompletionItemKind = {
@@ -73,45 +74,45 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Set up of nvim-tree based on config files
 -- from plugin instructions
 -- ###########################################
-require('nvim-tree').setup({
-  sort_by = "case_sensitive",
-  view = {
-    adaptive_size = true,
-    mappings = {
-      list = {
-        { key = "u", action = "dir_up" },
-      },
-    },
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
-})
+-- require('nvim-tree').setup({
+--   sort_by = "case_sensitive",
+--   view = {
+--     adaptive_size = true,
+--     mappings = {
+--       list = {
+--         { key = "u", action = "dir_up" },
+--       },
+--     },
+--   },
+--   renderer = {
+--     group_empty = true,
+--   },
+--   filters = {
+--     dotfiles = true,
+--   },
+-- })
 
 -- ###########################################
 -- Set up of code runner based on config files
 -- from plugin instructions
 -- ###########################################
-require('code_runner').setup({
-  -- put here the commands by filetype
-  filetype = {
-    c = "cc ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
-    cs = "mcs ./$fileName -out:$fileNameWithoutExt.exe && mono ./$fileNameWithoutExt.exe",
-    cpp = "g++ ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
-    java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
-    python = "python3 -u",
-    javascript = "node",
-    typescript = "deno run",
-    rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
-  },
-})
+-- require('code_runner').setup({
+--   -- put here the commands by filetype
+--   filetype = {
+--     c = "cc ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+--     cs = "mcs ./$fileName -out:$fileNameWithoutExt.exe && mono ./$fileNameWithoutExt.exe",
+--     cpp = "g++ ./$fileName -o $fileNameWithoutExt && ./$fileNameWithoutExt",
+--     java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
+--     python = "python3 -u",
+--     javascript = "node",
+--     typescript = "deno run",
+--     rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt"
+--   },
+-- })
 
 nvim_lsp.flow.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 -- ###########################################
@@ -122,7 +123,7 @@ nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
   cmd = { "typescript-language-server", "--stdio" },
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 nvim_lsp.sourcekit.setup {
@@ -160,7 +161,7 @@ nvim_lsp.sumneko_lua.setup {
 -- ###########################################
 nvim_lsp.tailwindcss.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 -- ###########################################
@@ -168,12 +169,12 @@ nvim_lsp.tailwindcss.setup {
 -- ###########################################
 nvim_lsp.cssls.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 nvim_lsp.astro.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 -- ###########################################
@@ -181,7 +182,7 @@ nvim_lsp.astro.setup {
 -- ###########################################
 nvim_lsp.quick_lint_js.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 -- ###########################################
@@ -189,7 +190,7 @@ nvim_lsp.quick_lint_js.setup {
 -- ###########################################
 nvim_lsp.gopls.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 -- ###########################################
@@ -207,7 +208,7 @@ nvim_lsp.gopls.setup {
 -- ###########################################
 nvim_lsp.pyright.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 -- ###########################################
@@ -215,7 +216,7 @@ nvim_lsp.pyright.setup {
 -- ###########################################
 nvim_lsp.clangd.setup {
   on_attach = on_attach,
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 -- ###########################################
@@ -226,7 +227,7 @@ nvim_lsp.omnisharp.setup {
   on_attach = on_attach,
   filetypes = { "cs", "vb" },
   cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-  capabilities = capabilities
+  capabilities = capabilities,
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
