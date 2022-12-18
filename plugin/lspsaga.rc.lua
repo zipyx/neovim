@@ -1,31 +1,18 @@
 local status, saga = pcall(require, "lspsaga")
 if (not status) then return end
 
-saga.init_lsp_saga {
+saga.saga.init_lsp_saga {
   server_filetype_map = {
     typescript = 'typescript',
     javascript = 'javascript',
-    html = 'html',
-    css = 'css',
-    scss = 'css',
     json = 'json',
-    graphql = 'graphql',
-    yaml = 'yaml',
-    markdown = 'markdown',
-    dockerfile = 'dockerfile',
     lua = 'lua',
     python = 'python',
     go = 'go',
     rust = 'rust',
     cpp = 'cpp',
     c = 'c',
-    java = 'java',
-    php = 'php',
-    kotlin = 'kotlin',
-    sql = 'sql',
-    vim = 'vim',
     csharp = 'csharp',
-    terraform = 'terraform',
   }
 }
 
