@@ -35,3 +35,9 @@ keymap.set('n', 'tl', ':tablast<CR>')
 -- Split window
 keymap.set('n', 'sp', ':split<Return><C-w>w')
 keymap.set('n', 'vsp', ':vsplit<Return><C-w>w')
+
+-- Clipboard (pacman xclip)
+keymap.set('n', '<leader>cy', '"+y<CR>')
+keymap.set('v', '<leader>cy', '"+y<CR>')
+keymap.set('n', '<leader>cp', '"+p<CR>')
+keymap.set('v', '<leader>cp', '"+p<CR>')

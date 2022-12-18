@@ -28,3 +28,6 @@ vim.g.loaded_netrwPlugin = 1
 -- Neovim utility plugins - calendar
 vim.g.calendar_google_calendar = 1
 vim.g.calendar_google_task = 1
+
+-- Clipboard perhaps
+-- vim.g.yankring_clipboard_monitor = 0
