@@ -71,6 +71,7 @@ keymap.set('n', '<leader>fm', builtin.marks, {})
 keymap.set('n', '<leader>fq', builtin.quickfix, {})
 keymap.set('n', '<leader>fr', builtin.registers, {})
 keymap.set('n', '<leader>gg', builtin.git_status, {})
+keymap.set('n', '<leader>hk', builtin.keymaps, {})
 -- keymap.set('n', '<leader>gb', builtin.git_branches, {})
 -- keymap.set('n', '<leader>gc', builtin.git_commits, {})
 
