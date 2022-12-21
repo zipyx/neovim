@@ -86,6 +86,9 @@ packer.startup(function(use)
   -- Code runner within neovim
   use 'CRAG666/code_runner.nvim'
 
+  -- Email Client based on Himalaya CLI installation
+  use 'https://git.sr.ht/~soywod/himalaya-vim'
+
   -- Sending REST http requests
   use 'NTBBloodbath/rest.nvim'
 

@@ -34,13 +34,33 @@ keymap.set('n', '<leader>ta', ':FloatermToggle<CR>')
 keymap.set('n', '<leader>td', ':FloatermKill<CR>')
 keymap.set('n', '<leader>tk', ':FloatermNext<CR>')
 keymap.set('n', '<leader>tj', ':FloatermPrev<CR>')
-keymap.set('n', '<leader>to',
-  ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=browser --autoclose=0 --border=curved browsh<CR>') -- Browser
 keymap.set('t', '<leader>tn', '<C-\\><C-n>:FloatermNew<CR>')
 keymap.set('t', '<leader>ta', '<C-\\><C-n>:FloatermToggle<CR>')
 keymap.set('t', '<leader>td', '<C-\\><C-n>:FloatermKill<CR>')
 keymap.set('t', '<leader>tk', '<C-\\><C-n>:FloatermNext<CR>')
 keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>')
+
+-- [Plugin] Himalaya (Email) using floating terminal
+-- https://git.sr.ht/~soywod/himalaya-vim
+keymap.set('n', '<leader>oe',
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>') -- Email
+keymap.set('n', '<leader>mw', '<Plug>(himalaya-email-write)') -- Write email
+keymap.set('n', '<leader>mr', '<Plug>(himalaya-email-reply)') -- Reply email
+keymap.set('n', '<leader>mR', '<Plug>(himalaya-email-reply-all)') -- Reply all email
+keymap.set('n', '<leader>mf', '<Plug>(himalaya-email-forward)') -- Forward email
+keymap.set('n', '<leader>ma', '<Plug>(himalaya-email-add-attachment)') -- Add attachment to email
+keymap.set('n', '<leader>md', '<Plug>(himalaya-email-download-attachments)') -- Download all attachments of email under cursor
+keymap.set('n', '<leader>mC', '<Plug>(himalaya-email-copy)') -- Copy email
+keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)') -- Move email
+keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)') -- Delete email
+
+-- [Terminal] Applications
+keymap.set('n', '<leader>ob',
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>') -- Browser
+keymap.set('n', '<leader>oc',
+  ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>') -- Calculator
+keymap.set('n', '<leader>of',
+  ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=firefox --autoclose=0 --border=curved firefox<CR>') -- Firefox
 
 -- [Plugin] Neovim file tree
 keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>')
