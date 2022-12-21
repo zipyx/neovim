@@ -31,3 +31,7 @@ vim.g.calendar_google_task = 1
 
 -- Clipboard perhaps
 vim.g.yankring_clipboard_monitor = 0
+
+-- Himalaya (email client)
+vim.g.himalaya_folder_picker = 'telescope'
+vim.g.himalaya_folder_picker_telescope_preview = 1

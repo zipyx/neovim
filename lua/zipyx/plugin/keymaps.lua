@@ -113,9 +113,9 @@ keymap.set('n', '<leader>h', ':lua require"mywords".hl_toggle()<CR>')
 keymap.set('n', '<leader>rh', ':lua require"mywords".uhl_all()<CR>')
 
 -- [Plugin] Markdown preview
-keymap.set('n', '<leader>mp', '<Plug>MarkdownPreview')
-keymap.set('n', '<leader>mps', '<Plug>MarkdownPreviewStop')
-keymap.set('n', '<leader>mpt', '<Plug>MarkdownPreviewToggle')
+keymap.set('n', '<leader>pm', '<Plug>MarkdownPreview')
+-- keymap.set('n', '<leader>pm', '<Plug>MarkdownPreviewStop')
+-- keymap.set('n', '<leader>mpt', '<Plug>MarkdownPreviewToggle')
 
 -- [Plugin] Gitsigns & Fugitive
 -- <leader>go = Opens the current file in git
