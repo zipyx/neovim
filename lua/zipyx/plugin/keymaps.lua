@@ -1,5 +1,5 @@
 local keymap = vim.keymap
-local builtin = require('telescope.builtin', opts)
+local builtin = require('telescope.builtin')
 
 -- Move between window buffers
 -- keymap.set('n', '<Space>', '<C-w>w', opts)
