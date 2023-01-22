@@ -23,7 +23,14 @@ packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim' -- Language server configuration files
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
-  use 'glepnir/lspsaga.nvim' -- LSP UIs
+  -- use 'glepnir/lspsaga.nvim' -- LSP UIs
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require('lspsaga').setup({})
+    end,
+  })
   use 'L3MON4D3/LuaSnip' -- LSP
   use {
     'nvim-treesitter/nvim-treesitter',

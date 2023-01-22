@@ -230,6 +230,33 @@ nvim_lsp.omnisharp.setup {
   capabilities = capabilities,
 }
 
+-- ###########################################
+-- Setting up Rust language server
+-- ###########################################
+nvim_lsp.rust_analyzer.setup {
+  on_attach = on_attach,
+  filetypes = { "rust", "rs" },
+  capabilities = capabilities,
+  -- settings = {
+  --   ["rust-analyzer"] = {
+  --     imports = {
+  --       granularity = {
+  --         group = "module",
+  --       },
+  --       prefix = "self",
+  --     },
+  --     cargo = {
+  --       buildScripts = {
+  --         enable = true,
+  --       },
+  --     },
+  --     procMacro = {
+  --       enable = true
+  --     },
+  --   }
+  -- }
+}
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = true,
