@@ -100,6 +100,6 @@ packer.startup(function(use)
   use 'NTBBloodbath/rest.nvim'
 
   -- NodeJS & javascript linting
-  use { 'quick-lint/quick-lint-js', rtp = 'plugin/vim/quick-lint-js.vim', tag = '2.10.0', opt = true }
+  -- use { 'quick-lint/quick-lint-js', rtp = 'plugin/vim/quick-lint-js.vim', tag = '2.10.0', opt = true }
 
 end)
