@@ -43,7 +43,7 @@ packer.startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
-  use 'itchyny/calendar.vim' -- Utility plugins open mail
+  -- use 'itchyny/calendar.vim' -- Utility plugins open mail
   use 'kyazdani42/nvim-web-devicons' -- File icons
   use 'nvim-telescope/telescope.nvim' -- Browsing, fuzzy finder etc
   use 'nvim-telescope/telescope-file-browser.nvim' -- File Browser
@@ -60,14 +60,11 @@ packer.startup(function(use)
 
   -- Database
   use 'dinhhuy258/vim-database'
-  -- use 'tpope/vim-dadbod' -- Imported from vim
-  -- use 'kristijanhusak/vim-dadbod-ui' -- Imported from vim
+  -- use 'kristijanhusak/vim-dadbod-ui -- Database UI for below plugin
+  -- use 'tpope/vim-dadbod' -- Database connector through vim
 
   -- Running unit tests for javascript / typescript
   use 'David-Kunz/jester'
-
-  -- Commenting stuff out
-  use 'tpope/vim-commentary'
 
   -- Highlighting words
   use 'dwrdx/mywords.nvim'
@@ -98,6 +95,10 @@ packer.startup(function(use)
 
   -- Sending REST http requests
   use 'NTBBloodbath/rest.nvim'
+
+  -- Vim utilties
+  use 'tpope/vim-commentary' -- Commenting stuff out
+  use 'tpope/vim-surround' -- Wrapping text with quotes, brackets etc
 
   -- NodeJS & javascript linting
   -- use { 'quick-lint/quick-lint-js', rtp = 'plugin/vim/quick-lint-js.vim', tag = '2.10.0', opt = true }
