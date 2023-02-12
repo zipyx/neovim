@@ -9,8 +9,8 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   use {
-    'svrana/neosolarized.nvim',
-    requires = { 'tjdevries/colorbuddy.nvim' }
+      'svrana/neosolarized.nvim',
+      requires = { 'tjdevries/colorbuddy.nvim' }
   }
   use 'nvim-lualine/lualine.nvim' -- Statusline
   use 'nvim-lua/plenary.nvim' -- Common utilities
@@ -21,26 +21,27 @@ packer.startup(function(use)
   use 'neovim/nvim-lspconfig' -- LSP
   use 'williamboman/mason.nvim' -- Install language servers
   use 'williamboman/mason-lspconfig.nvim' -- Language server configuration files
+  use 'jay-babu/mason-nvim-dap.nvim' -- Debugging langauage protocol
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
   -- use 'glepnir/lspsaga.nvim' -- LSP UIs
   use({
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    config = function()
-      require('lspsaga').setup({})
-    end,
+      "glepnir/lspsaga.nvim",
+      branch = "main",
+      config = function()
+        require('lspsaga').setup({})
+      end,
   })
   use 'L3MON4D3/LuaSnip' -- LSP
   use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+      'nvim-treesitter/nvim-treesitter',
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
 
   -- File tree neovim
   use {
-    'nvim-tree/nvim-tree.lua',
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+      'nvim-tree/nvim-tree.lua',
+      tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
   -- use 'itchyny/calendar.vim' -- Utility plugins open mail
@@ -52,11 +53,14 @@ packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua' -- Color and theme related
   use 'folke/zen-mode.nvim'
   use({
-    "iamcco/markdown-preview.nvim",
-    run = function() vim.fn["mkdp#util#install"]() end,
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
   })
   use 'akinsho/nvim-bufferline.lua'
   use 'github/copilot.vim'
+
+  -- Debugging
+  use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
 
   -- Database
   use 'dinhhuy258/vim-database'
@@ -99,8 +103,8 @@ packer.startup(function(use)
   -- Vim utilties
   use 'tpope/vim-commentary' -- Commenting stuff out
   use 'tpope/vim-surround' -- Wrapping text with quotes, brackets etc
+  use 'junegunn/vim-easy-align' -- Aligning text/syntax based on selector
 
   -- NodeJS & javascript linting
   -- use { 'quick-lint/quick-lint-js', rtp = 'plugin/vim/quick-lint-js.vim', tag = '2.10.0', opt = true }
-
 end)

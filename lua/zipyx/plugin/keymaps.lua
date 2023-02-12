@@ -46,8 +46,8 @@ keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>', opts)
 -- [Plugin] Himalaya (Email) using floating terminal
 -- https://git.sr.ht/~soywod/himalaya-vim
 keymap.set('n', '<leader>oe',
-  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>',
-  opts) -- Email
+    ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>',
+    opts) -- Email
 keymap.set('n', '<leader>mw', '<Plug>(himalaya-email-write)', opts) -- Write email
 keymap.set('n', '<leader>mr', '<Plug>(himalaya-email-reply)', opts) -- Reply email
 keymap.set('n', '<leader>mR', '<Plug>(himalaya-email-reply-all)', opts) -- Reply all email
@@ -60,11 +60,13 @@ keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts) -- Delete e
 
 -- [Terminal] Applications
 keymap.set('n', '<leader>ob',
-  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>', opts) -- Browser
+    ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>', opts) -- Browser
 keymap.set('n', '<leader>oc',
-  ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>', opts) -- Calculator
+    ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>',
+    opts) -- Calculator
 keymap.set('n', '<leader>of',
-  ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=firefox --autoclose=0 --border=curved firefox<CR>', opts) -- Firefox
+    ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=firefox --autoclose=0 --border=curved firefox<CR>',
+    opts) -- Firefox
 
 -- [Plugin] Neovim file tree
 keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
@@ -151,15 +153,24 @@ keymap.set('n', '<leader>oq', ':VDToggleQuery<CR>', opts)
 keymap.set('n', '<leader>el', ':RunCode<CR>', opts)
 keymap.set('v', '<leader>el', ':RunCode<CR>', opts)
 keymap.set('n', '<leader>ef', ':RunFile<CR>', opts)
-keymap.set('n', '<leader>et', ':RunFile tab<CR>', opts)
+-- keymap.set('n', '<leader>et', ':RunFile tab<CR>', opts)
 -- keymap.set('n', '<leader>ep', ':RunProject<CR>', opts)
 -- keymap.set('n', '<leader>eq', ':RunClose<CR>', opts)
 -- keymap.set('n', '<leader>crf', ':CRFiletype<CR>', opts)
 -- keymap.set('n', '<leader>crp', ':CRProjects<CR>', opts)
 
+-- [Plugin] Debugging protocol
+keymap.set('n', '<leader>et', ':DapToggleBreakpoint<CR>', opts)
+keymap.set('n', '<leader>ed', ':DapContinue<CR>', opts)
+keymap.set('n', '<leader>ej', ':DapStepOver<CR>', opts)
+keymap.set('n', '<leader>ei', ':DapStepInto<CR>', opts)
+keymap.set('n', '<leader>eo', ':DapStepOut<CR>', opts)
+keymap.set('n', '<leader>eT', ':DapTerminate<CR>', opts)
+keymap.set('n', '<leader>er', ':DapRestartFrame<CR>', opts)
+keymap.set('n', '<leader>eR', ':DapToggleRepl<CR>', opts)
 
 -- [Plugin] Sending REST http requests
-keymap.set('n', '<leader>ei', '<Plug>RestNvim', opts)
+keymap.set('n', '<leader>eh', '<Plug>RestNvim', opts)
 keymap.set('n', '<leader>ep', '<Plug>RestNvimLast', opts)
 keymap.set('n', '<leader>eP', '<Plug>RestNvimPreview', opts)
 
@@ -167,3 +178,6 @@ keymap.set('n', '<leader>eP', '<Plug>RestNvimPreview', opts)
 keymap.set('n', '<leader>sn', ':Scratch<CR>', opts)
 keymap.set('n', '<leader>si', ':ScratchInsert<CR>', opts)
 keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
+
+keymap.set('n', 'ga', ':LiveEasyAlign<CR>', opts)
+keymap.set('x', 'ga', ':LiveEasyAlign<CR>', opts)
