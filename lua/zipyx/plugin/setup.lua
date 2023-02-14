@@ -41,37 +41,37 @@ dap.configurations.javascript = {
   },
 }
 
-dap.configurations.typescript = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${fileDirname}/node_modules/.bin/sst',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
+-- dap.configurations.typescript = {
+--   {
+--     name = 'Launch',
+--     type = 'node2',
+--     request = 'launch',
+--     program = '${fileDirname}/node_modules/.bin/sst',
+--     cwd = vim.fn.getcwd(),
+--     sourceMaps = true,
+--     protocol = 'inspector',
+--     console = 'integratedTerminal',
+--   },
 
-  {
-    name = 'SST Debug',
-    type = 'node2',
-    request = 'launch',
-    runtimeExecutable = '/home/onahp/work/prototype/sst-build/node_modules/.bin/sst',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
-  },
+--   {
+--     name = 'SST Debug',
+--     type = 'node2',
+--     request = 'launch',
+--     runtimeExecutable = '/home/onahp/work/prototype/sst-build/node_modules/.bin/sst',
+--     cwd = vim.fn.getcwd(),
+--     sourceMaps = true,
+--     protocol = 'inspector',
+--     console = 'integratedTerminal',
+--   },
 
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach to process',
-    type = 'node2',
-    request = 'attach',
-    processId = require 'dap.utils'.pick_process,
-  },
-}
+--   {
+--     -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+--     name = 'Attach to process',
+--     type = 'node2',
+--     request = 'attach',
+--     processId = require 'dap.utils'.pick_process,
+--   },
+-- }
 
 dapui.setup()
 dap.listeners.after.event_initialized["dapui_config"] = function()
