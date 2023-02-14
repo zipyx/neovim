@@ -46,8 +46,8 @@ keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>', opts)
 -- [Plugin] Himalaya (Email) using floating terminal
 -- https://git.sr.ht/~soywod/himalaya-vim
 keymap.set('n', '<leader>oe',
-    ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>',
-    opts) -- Email
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>',
+  opts) -- Email
 keymap.set('n', '<leader>mw', '<Plug>(himalaya-email-write)', opts) -- Write email
 keymap.set('n', '<leader>mr', '<Plug>(himalaya-email-reply)', opts) -- Reply email
 keymap.set('n', '<leader>mR', '<Plug>(himalaya-email-reply-all)', opts) -- Reply all email
@@ -60,13 +60,13 @@ keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts) -- Delete e
 
 -- [Terminal] Applications
 keymap.set('n', '<leader>ob',
-    ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>', opts) -- Browser
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>', opts) -- Browser
 keymap.set('n', '<leader>oc',
-    ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>',
-    opts) -- Calculator
+  ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>',
+  opts) -- Calculator
 keymap.set('n', '<leader>of',
-    ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=firefox --autoclose=0 --border=curved firefox<CR>',
-    opts) -- Firefox
+  ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=firefox --autoclose=0 --border=curved firefox<CR>',
+  opts) -- Firefox
 
 -- [Plugin] Neovim file tree
 keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
