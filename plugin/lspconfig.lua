@@ -88,8 +88,63 @@ nvim_lsp.sourcekit.setup {
   capabilities = capabilities,
 }
 
+
 -- ###########################################
--- Setting up lua langage server
+-- Setting up YAML language server
+-- ###########################################
+nvim_lsp.yamlls.setup {
+  filetypes = { "yaml" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        ["http://json-schema.org/draft-07/schema#"] = "template.yaml",
+        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+      }
+    }
+  }
+}
+
+-- ###########################################
+-- Setting up JSON language server
+-- ###########################################
+nvim_lsp.jsonls.setup {
+  filetypes = { "json" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    json = {
+      schemas = {
+        {
+          fileMatch = { "package.json" },
+          url = "https://json.schemastore.org/package.json"
+        },
+        {
+          fileMatch = { "tsconfig.json", "tsconfig.*.json" },
+          url = "https://json.schemastore.org/tsconfig.json"
+        },
+        {
+          fileMatch = { "jsconfig.json", "jsconfig.*.json" },
+          url = "https://json.schemastore.org/jsconfig.json"
+        },
+      }
+    }
+  }
+}
+
+-- ###########################################
+-- Setting up Prisma language server
+-- ###########################################
+nvim_lsp.prismals.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+
+-- ###########################################
+-- Setting up lua language server
 -- ###########################################
 nvim_lsp.lua_ls.setup {
   capabilities = capabilities,
