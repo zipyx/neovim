@@ -1,7 +1,7 @@
 vim.cmd("autocmd!")
 
 -- Add database window layout
-vim.g.vim_database_window_layout = "below"
+vim.g.vim_database_window_layout = "right"
 
 -- Add vimwiki path and set file extension
 vim.g.vimwiki_list = { { path = '~/vimwiki/', syntax = 'markdown', ext = '.md' } }

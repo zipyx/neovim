@@ -179,5 +179,14 @@ keymap.set('n', '<leader>sn', ':Scratch<CR>', opts)
 keymap.set('n', '<leader>si', ':ScratchInsert<CR>', opts)
 keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 
+-- [Plugin] EasyAlign
 keymap.set('n', 'ga', ':LiveEasyAlign<CR>', opts)
 keymap.set('x', 'ga', ':LiveEasyAlign<CR>', opts)
+
+-- [Plugin] Tmux Integration (Navigation etc)
+keymap.set('n', '<leader><C-h>', ':NvimTmuxNavigateLeft<CR>', opts)
+keymap.set('n', '<leader><C-j>', ':NvimTmuxNavigateDown<CR>', opts)
+keymap.set('n', '<leader><C-k>', ':NvimTmuxNavigateUp<CR>', opts)
+keymap.set('n', '<leader><C-l>', ':NvimTmuxNavigateRight<CR>', opts)
+keymap.set('n', '<leader><C-\\>', ':NvimTmuxNavigateLastActive<CR>', opts)
+-- keymap.set('n', '<leader><C-Space>', ':NvimTmuxNavigateNext<CR>', opts)
