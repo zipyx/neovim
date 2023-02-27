@@ -62,10 +62,9 @@ packer.startup(function(use)
   -- Debugging
   use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
 
-  -- Database
+  -- Database Access
   use 'dinhhuy258/vim-database'
-  -- use 'kristijanhusak/vim-dadbod-ui -- Database UI for below plugin
-  -- use 'tpope/vim-dadbod' -- Database connector through vim
+  use { 'kristijanhusak/vim-dadbod-ui', requires = { 'tpope/vim-dadbod' } }
 
   -- Running unit tests for javascript / typescript
   use 'David-Kunz/jester'
