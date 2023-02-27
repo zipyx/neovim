@@ -100,8 +100,6 @@ keymap.set('n', '<leader>fk', builtin.keymaps, {})
 keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, {})
 keymap.set('n', '<leader>ft', builtin.current_buffer_tags, {})
 keymap.set('n', '<leader>gg', builtin.git_status, {})
--- keymap.set('n', '<leader>gb', builtin.git_branches, {})
--- keymap.set('n', '<leader>gc', builtin.git_commits, {})
 
 -- [Plugin] Jester - running unit tests for javascript/typescript
 keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>', opts)
@@ -142,8 +140,9 @@ keymap.set('n', '<leader>gU', ':Gitsigns reset_buffer_index<CR>', opts)
 keymap.set('n', '<leader>gB', ':Gitsigns toggle_current_line_blame<CR>', opts)
 
 -- [PlugIn] Database
-keymap.set('n', '<leader>od', ':VDToggleDatabase<CR>', opts)
-keymap.set('n', '<leader>oq', ':VDToggleQuery<CR>', opts)
+keymap.set('n', '<leader>oD', ':VDToggleDatabase<CR>', opts)
+keymap.set('n', '<leader>oQ', ':VDToggleQuery<CR>', opts)
+keymap.set('n', '<leader>od', ':DBUIToggle<CR>', opts)
 -- keymap.set('n', '<leader>du', ':DBUIToggle<CR>', opts)
 -- keymap.set('n', '<leader>df', ':DBUIFindBuffer<CR>', opts)
 -- keymap.set('n', '<leader>dr', ':DBUIRenameBuffer<CR>', opts)
@@ -182,6 +181,9 @@ keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 -- [Plugin] EasyAlign
 keymap.set('n', 'ga', ':LiveEasyAlign<CR>', opts)
 keymap.set('x', 'ga', ':LiveEasyAlign<CR>', opts)
+
+-- [Plugin] Dotenv (.env files)
+keymap.set('n', '<leader>ld', ':Dotenv ~/.window-manager/dot-env/.env<CR>', opts)
 
 -- [Plugin] Tmux Integration (Navigation etc)
 keymap.set('n', '<leader><C-h>', ':NvimTmuxNavigateLeft<CR>', opts)

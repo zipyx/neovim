@@ -64,7 +64,10 @@ packer.startup(function(use)
 
   -- Database Access
   use 'dinhhuy258/vim-database'
-  use { 'kristijanhusak/vim-dadbod-ui', requires = { 'tpope/vim-dadbod' } }
+  use { 'kristijanhusak/vim-dadbod-ui', requires = {
+    'tpope/vim-dadbod',
+    'tpope/vim-dotenv'
+  } }
 
   -- Running unit tests for javascript / typescript
   use 'David-Kunz/jester'

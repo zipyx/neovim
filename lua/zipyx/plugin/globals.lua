@@ -1,7 +1,32 @@
 vim.cmd("autocmd!")
 
--- Add database window layout
+-- Add vim-database window layout
 vim.g.vim_database_window_layout = "right"
+
+-- Database settings for db_ui
+vim.g.db_ui_show_database_icon = 1
+vim.g.db_ui_winwidth = 40
+vim.g.db_ui_save_location = "~/.window-manager/dbui/db_ui_history"
+
+-- Add db_ui table helpers
+vim.g.db_ui_table_helpers = {
+  ["mysql"] = {
+    ["Rename"] = "RENAME TABLE '{table}' TO ",
+    ["Count"] = "SELECT COUNT(*) FROM {table};",
+    ["Table Info"] = "SHOW TABLE STATUS LIKE '{table}' \\G;",
+    ["Table Schema"] = "SHOW CREATE TABLE {table} \\G;",
+    ["ID Locked Tables"] = "SHOW OPEN TABLES WHERE in_use > 1;",
+    ["Drop Table (Delete Table)"] = "DROP TABLE IF EXISTS {table};",
+    ["Truncate Table (Remove Values)"] = "TRUNCATE TABLE {table};",
+  },
+  ["sqlite"] = {
+    ["count"] = "SELECT COUNT(*) FROM {table};",
+  },
+  ["postgresql"] = {
+    ["count"] = "SELECT COUNT(*) FROM {table}",
+    ["truncate_delete"] = "TRUNCATE TABLE {table}; DELETE FROM {table};",
+  },
+}
 
 -- Add vimwiki path and set file extension
 vim.g.vimwiki_list = { { path = '~/vimwiki/', syntax = 'markdown', ext = '.md' } }
