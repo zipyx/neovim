@@ -66,7 +66,8 @@ packer.startup(function(use)
   use 'dinhhuy258/vim-database'
   use { 'kristijanhusak/vim-dadbod-ui', requires = {
     'tpope/vim-dadbod',
-    'tpope/vim-dotenv'
+    'tpope/vim-dotenv',
+    'kristijanhusak/vim-dadbod-completion'
   } }
 
   -- Running unit tests for javascript / typescript
@@ -106,10 +107,4 @@ packer.startup(function(use)
   use 'tpope/vim-commentary' -- Commenting stuff out
   use 'tpope/vim-surround' -- Wrapping text with quotes, brackets etc
   use 'junegunn/vim-easy-align' -- Aligning text/syntax based on selector
-
-  -- Terminal related [TMUX]
-  use { "alexghergh/nvim-tmux-navigation" }
-
-  -- NodeJS & javascript linting
-  -- use { 'quick-lint/quick-lint-js', rtp = 'plugin/vim/quick-lint-js.vim', tag = '2.10.0', opt = true }
 end)

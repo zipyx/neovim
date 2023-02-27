@@ -184,11 +184,3 @@ keymap.set('x', 'ga', ':LiveEasyAlign<CR>', opts)
 
 -- [Plugin] Dotenv (.env files)
 keymap.set('n', '<leader>ld', ':Dotenv ~/.window-manager/dot-env/.env<CR>', opts)
-
--- [Plugin] Tmux Integration (Navigation etc)
-keymap.set('n', '<leader><C-h>', ':NvimTmuxNavigateLeft<CR>', opts)
-keymap.set('n', '<leader><C-j>', ':NvimTmuxNavigateDown<CR>', opts)
-keymap.set('n', '<leader><C-k>', ':NvimTmuxNavigateUp<CR>', opts)
-keymap.set('n', '<leader><C-l>', ':NvimTmuxNavigateRight<CR>', opts)
-keymap.set('n', '<leader><C-\\>', ':NvimTmuxNavigateLastActive<CR>', opts)
--- keymap.set('n', '<leader><C-Space>', ':NvimTmuxNavigateNext<CR>', opts)
