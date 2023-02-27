@@ -7,6 +7,9 @@ vim.g.vim_database_window_layout = "right"
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_winwidth = 40
 vim.g.db_ui_save_location = "~/.window-manager/dbui/db_ui_history"
+-- vim.cmd(
+--   "autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })"
+-- )
 
 -- Add db_ui table helpers
 vim.g.db_ui_table_helpers = {
