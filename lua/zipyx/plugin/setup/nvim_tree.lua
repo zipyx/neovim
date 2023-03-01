@@ -10,6 +10,8 @@ nvim_tree.setup {
         { key = "u", action = "dir_up" },
       },
     },
+
+    -- Floating tree window setup
     float = {
       -- Tree window will be floating
       enable = false,

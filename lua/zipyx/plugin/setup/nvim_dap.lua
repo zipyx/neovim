@@ -18,14 +18,14 @@ dap_vs.load_launchjs(nil, {
 dap.adapters.node = {
   type = 'executable',
   command = 'deno',
-  args = globals.mason_path .. '/packages/node-debug2-adapter/out/src/nodeDebug.js',
+  args = { globals.mason_path .. '/packages/node-debug2-adapter/out/src/nodeDebug.js' },
   -- args = { os.getenv('HOME') .. '/.config/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
 }
 
 dap.adapters.node2 = {
   type = 'executable',
   command = 'node',
-  args = globals.mason_path .. '/packages/node-debug2-adapter/out/src/nodeDebug.js',
+  args = { globals.mason_path .. '/packages/node-debug2-adapter/out/src/nodeDebug.js' },
   -- args = { os.getenv('HOME') .. '/.config/microsoft/vscode-node-debug2/out/src/nodeDebug.js' },
 }
 
@@ -35,44 +35,61 @@ dap.adapters.cppdbg = {
   command = globals.mason_path .. '/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
 }
 
--- dap.adapters.codelldb = {
---   type = 'server',
---   port = "${port}",
---   executable = {
---     command = os.getenv('HOME') .. "/.local/share/nvim/mason/packages/codelldb/codelldb",
---     args = { "--port", "${port}" },
---   }
--- }
+-- If using host, then comment out the port with variable, executable key and it's scope
+dap.adapters.codelldb = {
+  type = 'server',
+  host = '127.0.0.1',
+  port = 6000,
+  -- port = "${port}",
+  -- executable = {
+  --   command = globals.mason_path .. "/bin/codelldb",
+  --   args = { "--port", "${port}" },
+  -- }
+}
 
 -- #####################################
 -- Rust debugger setup (using cpptools)
 dap.configurations.rust = {
   {
     name = "Launch file",
-    type = "cppdbg",
+    type = "codelldb",
     request = "launch",
     program = function()
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
-    -- cwd = vim.fn.getcwd(),
-    cwd = "${workspaceFolder}",
-    stopAtEntry = true,
-  },
-
-  {
-    name = "Attach to gdbserver :1234",
-    type = "cppdbg",
-    request = "launch",
-    MIMode = "gdb",
-    miDebuggerServerAddress = "localhost:1234",
-    miDebuggerPath = "/usr/bin/gdb",
-    -- cwd = vim.fn.getcwd(),
-    cwd = "${workspaceFolder}",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
   },
 }
+
+-- dap.configurations.rust = {
+--   {
+--     name = "Launch file",
+--     type = "cppdbg",
+--     request = "launch",
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     -- cwd = vim.fn.getcwd(),
+--     cwd = "${workspaceFolder}",
+--     stopAtEntry = true,
+--   },
+
+--   {
+--     name = "Attach to gdbserver :1234",
+--     type = "cppdbg",
+--     request = "launch",
+--     MIMode = "gdb",
+--     miDebuggerServerAddress = "localhost:1234",
+--     miDebuggerPath = "/usr/bin/gdb",
+--     -- cwd = vim.fn.getcwd(),
+--     cwd = "${workspaceFolder}",
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--   },
+
+-- }
 
 -- #####################################
 -- C debugger setup
@@ -86,19 +103,18 @@ dap.configurations.cpp = dap.configurations.rust;
 -- Rust debugger using codelldb does not support
 -- current architecture (aarch64)
 -- #####################################
--- dap.configurations.rust = {
---   {
---     name = 'Launch file',
---     type = 'codelldb',
---     request = 'launch',
---     program = function()
---       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
---     end,
---     cwd = '${workspaceFolder}',
---     stopOnEntry = false,
---   }
--- }
--- #####################################
+dap.configurations.rust = {
+  {
+    name = 'Launch file',
+    type = 'codelldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+  }
+}
 
 -- #####################################
 -- Javascript debugger setup
