@@ -1,16 +1,16 @@
+-- Nvim base configuration
 require('zipyx.config.base')
 require('zipyx.config.highlights')
 require('zipyx.config.keymaps')
 require('zipyx.config.plugins')
+require('zipyx.config.globals')
+
+-- Plugin related settings
+require('zipyx.plugin.setup.code_runner')
+require('zipyx.plugin.setup.nvim_tree')
+require('zipyx.plugin.setup.nvim_dap')
 require('zipyx.plugin.globals')
 require('zipyx.plugin.keymaps')
-require('zipyx.plugin.setup')
-
--- require('zipyx.base')
--- require('zipyx.highlights')
--- require('zipyx.keymaps')
--- require('zipyx.plugins')
--- require('zipyx.globals')
 
 local has = vim.fn.has
 local is_mac = has "macunix"

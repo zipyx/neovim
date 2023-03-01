@@ -67,51 +67,65 @@ protocol.CompletionItemKind = {
 -- Set up completion using nvim_cmp with LSP source
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+nvim_lsp.astro.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  filetypes = { "cpp", "c" },
+  capabilities = capabilities,
+}
+
+nvim_lsp.cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.denols.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.dockerls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.eslint.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp.flow.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
--- ###########################################
--- Setting up typescript and javascript
--- language server
--- ###########################################
-nvim_lsp.tsserver.setup {
+nvim_lsp.gopls.setup {
   on_attach = on_attach,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
-  cmd = { "typescript-language-server", "--stdio" },
+  filetypes = { "go" },
   capabilities = capabilities,
 }
 
-nvim_lsp.sourcekit.setup {
+nvim_lsp.graphql.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-
--- ###########################################
--- Setting up YAML language server
--- ###########################################
-nvim_lsp.yamlls.setup {
-  filetypes = { "yaml" },
+nvim_lsp.html.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  settings = {
-    yaml = {
-      schemas = {
-        ["http://json-schema.org/draft-07/schema#"] = "template.yaml",
-        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-      }
-    }
-  }
 }
 
--- ###########################################
--- Setting up JSON language server
--- ###########################################
 nvim_lsp.jsonls.setup {
-  filetypes = { "json" },
+  -- filetypes = { "json" },
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -134,18 +148,6 @@ nvim_lsp.jsonls.setup {
   }
 }
 
--- ###########################################
--- Setting up Prisma language server
--- ###########################################
-nvim_lsp.prismals.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-
--- ###########################################
--- Setting up lua language server
--- ###########################################
 nvim_lsp.lua_ls.setup {
   capabilities = capabilities,
   on_attach = function(client, bufnr)
@@ -168,41 +170,37 @@ nvim_lsp.lua_ls.setup {
   },
 }
 
--- ###########################################
--- Setting up tailwindcss language server
--- ###########################################
-nvim_lsp.tailwindcss.setup {
+nvim_lsp.marksman.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
--- ###########################################
--- Setting up css language server
--- ###########################################
-nvim_lsp.cssls.setup {
+local omnisharp_bin = "/usr/bin/omnisharp"
+-- local omnisharp_mason = "~/.local/share/nvim/mason/bin/omnisharp"
+nvim_lsp.omnisharp.setup {
+  on_attach = on_attach,
+  filetypes = { "cs", "vb" },
+  cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+  capabilities = capabilities,
+}
+
+nvim_lsp.prismals.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-nvim_lsp.astro.setup {
+nvim_lsp.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
--- ###########################################
--- Setting up javascript and typescript linter
--- ###########################################
 nvim_lsp.quick_lint_js.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
--- ###########################################
--- Setting up golang language server
--- ###########################################
-nvim_lsp.gopls.setup {
+nvim_lsp.rust_analyzer.setup {
   on_attach = on_attach,
-  filetypes = { "go" },
   capabilities = capabilities,
 }
 
@@ -214,45 +212,41 @@ nvim_lsp.gopls.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities
 -- }
--- ###########################################
 
--- ###########################################
--- Setting up python language server
--- ###########################################
-nvim_lsp.pyright.setup {
+nvim_lsp.tailwindcss.setup {
   on_attach = on_attach,
-  filetypes = { "py" },
   capabilities = capabilities,
 }
 
--- ###########################################
--- Setting up C/C++ language server
--- ###########################################
-nvim_lsp.clangd.setup {
+nvim_lsp.terraformls.setup {
   on_attach = on_attach,
-  filetypes = { "cpp", "c" },
   capabilities = capabilities,
 }
 
--- ###########################################
--- Setting up C# language server
--- ###########################################
-local omnisharp_bin = "/usr/bin/omnisharp"
-nvim_lsp.omnisharp.setup {
+nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "cs", "vb" },
-  cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+  cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities,
 }
 
--- ###########################################
--- Setting up Rust language server
--- ###########################################
-nvim_lsp.rust_analyzer.setup {
+nvim_lsp.yamlls.setup {
   on_attach = on_attach,
-  filetypes = { "rust", "rs" },
   capabilities = capabilities,
+  settings = {
+    yaml = {
+      schemas = {
+        ["http://json-schema.org/draft-07/schema#"] = "template.yaml",
+        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+      }
+    }
+  }
 }
+
+-- nvim_lsp.sourcekit.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {

@@ -9,7 +9,8 @@ vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_win_position = "right"
 vim.g.db_ui_save_location = "~/.window-manager/dbui/db_ui_history"
 vim.cmd(
-  "autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })") -- vim.cmd(
+  "autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })"
+)
 
 -- Add db_ui table helpers
 vim.g.db_ui_table_helpers = {
@@ -62,5 +63,4 @@ vim.g.yankring_clipboard_monitor = 0
 
 -- Himalaya (email client)
 vim.g.himalaya_folder_picker = 'telescope'
-vim.g.himalaya_folder_picker_telescope_preview = 1
 vim.g.himalaya_folder_picker_telescope_preview = 1
