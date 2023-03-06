@@ -1,13 +1,13 @@
 local home = os.getenv("HOME")
-local os_name = vim.loop.os_uname().sysname
+local os_name = vim.loop.os_uname().sysname:lower()
 local global = {}
 local os
 
-if os_name == "Mac" then
+if os_name == "mac" then
   os = "mac"
-elseif os_name == "Linux" or os_name == "Arch" then
+elseif os_name == "linux" or os_name == "arch" then
   os = "linux"
-elseif os_name == "Windows" then
+elseif os_name == "windows" then
   os = "unsuported"
 else
   os = "other"

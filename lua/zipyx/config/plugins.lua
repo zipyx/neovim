@@ -77,8 +77,63 @@ packer.startup(function(use)
   -- Highlighting words
   use 'dwrdx/mywords.nvim'
 
-  -- Vimwiki, notes stuff
+  -- Vimwiki, Neorg
   use 'vimwiki/vimwiki'
+
+  -- use {
+  --   "nvim-neorg/neorg",
+  --   config = function()
+  --     require('neorg').setup {
+  --       load = {
+  --             ["core.defaults"] = {},       -- Loads default behaviour
+  --             ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+  --             ["core.norg.dirman"] = {      -- Manages Neorg workspaces
+  --           config = {
+  --             workspaces = {
+  --               notes = "~/vimwiki/neorg/notes",
+  --               personal = "~/vimwiki/neorg/personal",
+  --               research = "~/vimwiki/neorg/research",
+  --               workspace = "~/vimwiki/neorg/workspace",
+  --             },
+  --             default_workspace = "notes",
+  --           },
+  --         },
+  --       },
+  --     }
+  --   end,
+  --   run = ":Neorg sync-parsers",
+  --   requires = "nvim-lua/plenary.nvim",
+  -- }
+
+  use {
+    "nvim-neorg/neorg",
+    -- tag = "*",
+    ft = "norg",
+    after = "nvim-treesitter", -- You may want to specify Telescope here as well
+    config = function()
+      require('neorg').setup {
+        load = {
+              ["core.defaults"] = {},       -- Loads default behaviour
+              ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+              ["core.norg.dirman"] = {      -- Manages Neorg workspaces
+            config = {
+              workspaces = {
+                notes = "~/neorg/notes",
+                personal = "~/neorg/personal",
+                research = "~/neorg/research",
+                workspace = "~/neorg/workspace",
+                -- notes = "~/vimwiki/neorg/notes",
+                -- personal = "~/vimwiki/neorg/personal",
+                -- research = "~/vimwiki/neorg/research",
+                -- workspace = "~/vimwiki/neorg/workspace",
+              },
+              default_workspace = "notes",
+            },
+          },
+        },
+      }
+    end
+  }
 
   -- Scratchpad
   use 'mtth/scratch.vim'
