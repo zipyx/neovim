@@ -17,34 +17,31 @@ if exists then
   end
 end
 
--- Local dev
+-- Custom env variables
 local dh, dk, dm =
-    vim.fn.DotenvGet('JUMP_DEV_MACHINE_HOST'),
-    vim.fn.DotenvGet('JUMP_DEV_MACHINE_KEY'),
-    vim.fn.DotenvGet('JUMP_DEV_MACHINE')
+    vim.fn.DotenvGet('JD_MACHINE_HOST'),
+    vim.fn.DotenvGet('JD_MACHINE_KEY'),
+    vim.fn.DotenvGet('JD_MACHINE')
 
--- Local stg
 local su, sk, sm =
-    vim.fn.DotenvGet('JUMP_STG_MACHINE_HOST'),
-    vim.fn.DotenvGet('JUMP_STG_MACHINE_KEY'),
-    vim.fn.DotenvGet('JUMP_STG_MACHINE')
+    vim.fn.DotenvGet('JS_MACHINE_HOST'),
+    vim.fn.DotenvGet('JS_MACHINE_KEY'),
+    vim.fn.DotenvGet('JS_MACHINE')
 
--- Local prd
 local ph, pk, pm =
-    vim.fn.DotenvGet('JUMP_PROD_MACHINE_HOST'),
-    vim.fn.DotenvGet('JUMP_PROD_MACHINE_KEY'),
-    vim.fn.DotenvGet('JUMP_PROD_MACHINE')
+    vim.fn.DotenvGet('JP_MACHINE_HOST'),
+    vim.fn.DotenvGet('JP_MACHINE_KEY'),
+    vim.fn.DotenvGet('JP_MACHINE')
 
--- Local
 local d_db_admin, s_db_admin, p_db_admin =
-    vim.fn.DotenvGet('U_DEV_ADMIN'),
-    vim.fn.DotenvGet('U_STG_ADMIN'),
-    vim.fn.DotenvGet('U_PROD_ADMIN')
+    vim.fn.DotenvGet('U_D_ADMIN'),
+    vim.fn.DotenvGet('U_S_ADMIN'),
+    vim.fn.DotenvGet('U_P_ADMIN')
 
 local d_db_api, s_db_api, p_db_api =
-    vim.fn.DotenvGet('U_DEV_API'),
-    vim.fn.DotenvGet('U_STG_API'),
-    vim.fn.DotenvGet('U_PROD_API')
+    vim.fn.DotenvGet('U_D_API'),
+    vim.fn.DotenvGet('U_S_API'),
+    vim.fn.DotenvGet('U_P_API')
 
 -- ######################################################################
 -- ######################################################################

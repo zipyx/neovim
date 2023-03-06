@@ -22,6 +22,7 @@ ts.setup {
     "json",
     "lua",
     "markdown",
+    "norg",
     "php",
     "prisma",
     "python",

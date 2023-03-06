@@ -1,5 +1,4 @@
 local code_runner = require("code_runner")
-local globals = require('zipyx.config.globals')
 
 code_runner.setup {
   -- Mode options = ["term", "toggle", "float", "tab", "toggleterm", "buf"]
