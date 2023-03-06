@@ -1,5 +1,6 @@
 local keymap = vim.keymap
 local builtin = require('telescope.builtin')
+local globals = require('zipyx.config.globals')
 
 -- Move between window buffers
 -- keymap.set('n', '<Space>', '<C-w>w', opts)
@@ -47,26 +48,22 @@ keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>', opts)
 -- https://git.sr.ht/~soywod/himalaya-vim
 keymap.set('n', '<leader>oe',
   ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>',
-  opts) -- Email
-keymap.set('n', '<leader>mw', '<Plug>(himalaya-email-write)', opts) -- Write email
-keymap.set('n', '<leader>mr', '<Plug>(himalaya-email-reply)', opts) -- Reply email
-keymap.set('n', '<leader>mR', '<Plug>(himalaya-email-reply-all)', opts) -- Reply all email
-keymap.set('n', '<leader>mf', '<Plug>(himalaya-email-forward)', opts) -- Forward email
-keymap.set('n', '<leader>ma', '<Plug>(himalaya-email-add-attachment)', opts) -- Add attachment to email
+  opts)                                                                            -- Email
+keymap.set('n', '<leader>mw', '<Plug>(himalaya-email-write)', opts)                -- Write email
+keymap.set('n', '<leader>mr', '<Plug>(himalaya-email-reply)', opts)                -- Reply email
+keymap.set('n', '<leader>mR', '<Plug>(himalaya-email-reply-all)', opts)            -- Reply all email
+keymap.set('n', '<leader>mf', '<Plug>(himalaya-email-forward)', opts)              -- Forward email
+keymap.set('n', '<leader>ma', '<Plug>(himalaya-email-add-attachment)', opts)       -- Add attachment to email
 keymap.set('n', '<leader>md', '<Plug>(himalaya-email-download-attachments)', opts) -- Download all attachments of email under cursor
-keymap.set('n', '<leader>mC', '<Plug>(himalaya-email-copy)', opts) -- Copy email
-keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts) -- Move email
-keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts) -- Delete email
+keymap.set('n', '<leader>mC', '<Plug>(himalaya-email-copy)', opts)                 -- Copy email
+keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts)                 -- Move email
+keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts)               -- Delete email
 
 -- [Terminal] Applications
 keymap.set('n', '<leader>ob',
-  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>', opts) -- Browser
+  globals.float_browser_config, opts)    -- Browser
 keymap.set('n', '<leader>oc',
-  ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>',
-  opts) -- Calculator
-keymap.set('n', '<leader>of',
-  ':FloatermNew --wintype=float --height=0.8 --width=0.8 --name=firefox --autoclose=0 --border=curved firefox<CR>',
-  opts) -- Firefox
+  globals.float_calculator_config, opts) -- Calculator
 
 -- [Plugin] Neovim file tree
 keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
@@ -127,8 +124,6 @@ keymap.set('n', '<leader>pm', '<Plug>MarkdownPreview', opts)
 -- <leader>ga = Get ASCII, Hex and Octal value
 -- <leader>gp = Open a pull request
 keymap.set('n', '<leader>ga', ':LazyGit<CR>', opts)
--- keymap.set('n', '<leader>gp', ':Git push<CR>', opts)
--- keymap.set('n', '<leader>gc', ':Git commit<CR>', opts)
 keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>', opts)
 keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>', opts)
 keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>', opts)
@@ -182,5 +177,8 @@ keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 keymap.set('n', 'ga', ':LiveEasyAlign<CR>', opts)
 keymap.set('x', 'ga', ':LiveEasyAlign<CR>', opts)
 
--- [Plugin] Dotenv (.env files)
+-- Local dev
 keymap.set('n', '<leader>ld', ':Dotenv ~/.window-manager/dot-env/.env<CR>', opts)
+keymap.set('n', '<leader>lD', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_dev_path), opts)
+keymap.set('n', '<leader>lS', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_stg_path), opts)
+keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_prd_path), opts)
