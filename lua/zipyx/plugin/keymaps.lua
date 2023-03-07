@@ -174,11 +174,14 @@ keymap.set('n', 'la', ':LiveEasyAlign<CR>', opts)
 keymap.set('x', 'la', ':LiveEasyAlign<CR>', opts)
 
 -- [Plugin] Neorg
-keymap.set('n', '<leader>nw', globals.neorg_workspace_work_cmd, opts)
+keymap.set('n', '<leader>ni', globals.neorg_workspace_work_cmd, opts)
 keymap.set('n', '<leader>ns', globals.neorg_workspace_study_cmd, opts)
 keymap.set('n', '<leader>np', globals.neorg_workspace_personal_cmd, opts)
 keymap.set('n', '<leader>nr', globals.neorg_workspace_research_cmd, opts)
 keymap.set('n', '<leader>nq', globals.neorg_return_cmd, opts)
+
+-- [Plugin] LSP Lines
+keymap.set('', '<leader>ll', require('lsp_lines').toggle, { desc = "Toggle lsp_lines" }, opts)
 
 -- [Local Machine] Actions
 keymap.set('n', '<leader>ld', globals.dotenv_loadenv_cmd, opts)

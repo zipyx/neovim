@@ -160,7 +160,6 @@ nvim_lsp.lua_ls.setup {
         -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
-
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
@@ -235,9 +234,9 @@ nvim_lsp.yamlls.setup {
   settings = {
     yaml = {
       schemas = {
-        ["http://json-schema.org/draft-07/schema#"] = "template.yaml",
-        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+            ["http://json-schema.org/draft-07/schema#"] = "template.yaml",
+            ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
+            ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
       }
     }
   }
@@ -250,11 +249,11 @@ nvim_lsp.yamlls.setup {
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
-  underline = true,
-  update_in_insert = false,
-  virtual_text = { spacing = 4, prefix = "●" },
-  severity_sort = true,
-})
+    underline = true,
+    update_in_insert = false,
+    virtual_text = { spacing = 4, prefix = "●" },
+    severity_sort = true,
+  })
 
 -- Diagnostic symbols in the sign column (gutter)
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -264,11 +263,12 @@ for type, icon in pairs(signs) do
 end
 
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = '●'
-  },
-  update_in_insert = true,
-  float = {
-    source = "always", -- Or "if_many"
-  },
+  -- virtual_text = {
+  --   prefix = '●'
+  -- },
+  virtual_text = false,
+  -- update_in_insert = true,
+  -- float = {
+  --   source = "always", -- Or "if_many"
+  -- },
 })

@@ -38,6 +38,15 @@ packer.startup(function(use)
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
 
+  -- Show LSP lines
+  -- Link: https://git.sr.ht/~whynothugo/lsp_lines.nvim
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
+
   -- File tree neovim
   use {
     'nvim-tree/nvim-tree.lua',

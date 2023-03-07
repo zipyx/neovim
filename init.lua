@@ -7,6 +7,7 @@ require('zipyx.config.globals')
 
 -- Plugin related settings
 require('zipyx.plugin.setup.code_runner')
+require('zipyx.plugin.setup.lsp_lines')
 require('zipyx.plugin.setup.nvim_tree')
 require('zipyx.plugin.setup.nvim_dap')
 require('zipyx.plugin.setup.dot_env')
