@@ -27,10 +27,10 @@ keymap.set('v', '<C-d>', ":m '>+1<CR>gv=gv")
 keymap.set('v', '<C-u>', ":m '<-2<CR>gv=gv")
 
 -- Open & exit terminal mode
-keymap.set('n', 'term', ':terminal<CR>', opts)
-keymap.set('n', 'vterm', ':terminal<CR>', opts)
-keymap.set('n', 't;w', '<C-\\><C-n>', opts)
-keymap.set('t', 't;w', '<C-w><C-w>', opts)
+-- keymap.set('n', 'term', ':terminal<CR>', opts)
+-- keymap.set('n', 'vterm', ':terminal<CR>', opts)
+-- keymap.set('n', 't;w', '<C-\\><C-n>', opts)
+-- keymap.set('t', 't;w', '<C-w><C-w>', opts)
 
 -- [Plugin] Floating Terminals
 keymap.set('n', '<leader>tn', ':FloatermNew<CR>', opts)
@@ -46,9 +46,6 @@ keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>', opts)
 
 -- [Plugin] Himalaya (Email) using floating terminal
 -- https://git.sr.ht/~soywod/himalaya-vim
-keymap.set('n', '<leader>oe',
-  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>',
-  opts)                                                                            -- Email
 keymap.set('n', '<leader>mw', '<Plug>(himalaya-email-write)', opts)                -- Write email
 keymap.set('n', '<leader>mr', '<Plug>(himalaya-email-reply)', opts)                -- Reply email
 keymap.set('n', '<leader>mR', '<Plug>(himalaya-email-reply-all)', opts)            -- Reply all email
@@ -60,10 +57,9 @@ keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts)              
 keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts)               -- Delete email
 
 -- [Terminal] Applications
-keymap.set('n', '<leader>ob',
-  globals.float_browser_config, opts)    -- Browser
-keymap.set('n', '<leader>oc',
-  globals.float_calculator_config, opts) -- Calculator
+keymap.set('n', '<leader>oe', globals.float_email_config, opts)      -- Email
+keymap.set('n', '<leader>ob', globals.float_browser_config, opts)    -- Browser
+keymap.set('n', '<leader>oc', globals.float_calculator_config, opts) -- Calculator
 
 -- [Plugin] Neovim file tree
 keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
@@ -174,11 +170,18 @@ keymap.set('n', '<leader>si', ':ScratchInsert<CR>', opts)
 keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 
 -- [Plugin] EasyAlign
-keymap.set('n', 'ga', ':LiveEasyAlign<CR>', opts)
-keymap.set('x', 'ga', ':LiveEasyAlign<CR>', opts)
+keymap.set('n', 'la', ':LiveEasyAlign<CR>', opts)
+keymap.set('x', 'la', ':LiveEasyAlign<CR>', opts)
 
--- Local dev
-keymap.set('n', '<leader>ld', ':Dotenv ~/.window-manager/dot-env/.env<CR>', opts)
+-- [Plugin] Neorg
+keymap.set('n', '<leader>nw', globals.neorg_workspace_work_cmd, opts)
+keymap.set('n', '<leader>ns', globals.neorg_workspace_study_cmd, opts)
+keymap.set('n', '<leader>np', globals.neorg_workspace_personal_cmd, opts)
+keymap.set('n', '<leader>nr', globals.neorg_workspace_research_cmd, opts)
+keymap.set('n', '<leader>nq', globals.neorg_return_cmd, opts)
+
+-- [Local Machine] Actions
+keymap.set('n', '<leader>ld', globals.dotenv_loadenv_cmd, opts)
 keymap.set('n', '<leader>lD', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_dev_path), opts)
 keymap.set('n', '<leader>lS', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_stg_path), opts)
 keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_prd_path), opts)

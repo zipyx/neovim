@@ -77,39 +77,12 @@ packer.startup(function(use)
   -- Highlighting words
   use 'dwrdx/mywords.nvim'
 
-  -- Vimwiki, Neorg
+  -- Vimwiki
   use 'vimwiki/vimwiki'
 
-  -- use {
-  --   "nvim-neorg/neorg",
-  --   config = function()
-  --     require('neorg').setup {
-  --       load = {
-  --             ["core.defaults"] = {},       -- Loads default behaviour
-  --             ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-  --             ["core.norg.dirman"] = {      -- Manages Neorg workspaces
-  --           config = {
-  --             workspaces = {
-  --               notes = "~/vimwiki/neorg/notes",
-  --               personal = "~/vimwiki/neorg/personal",
-  --               research = "~/vimwiki/neorg/research",
-  --               workspace = "~/vimwiki/neorg/workspace",
-  --             },
-  --             default_workspace = "notes",
-  --           },
-  --         },
-  --       },
-  --     }
-  --   end,
-  --   run = ":Neorg sync-parsers",
-  --   requires = "nvim-lua/plenary.nvim",
-  -- }
-
+  -- Neorg
   use {
     "nvim-neorg/neorg",
-    -- tag = "*",
-    ft = "norg",
-    after = "nvim-treesitter", -- You may want to specify Telescope here as well
     config = function()
       require('neorg').setup {
         load = {
@@ -118,21 +91,19 @@ packer.startup(function(use)
               ["core.norg.dirman"] = {      -- Manages Neorg workspaces
             config = {
               workspaces = {
-                notes = "~/neorg/notes",
-                personal = "~/neorg/personal",
-                research = "~/neorg/research",
-                workspace = "~/neorg/workspace",
-                -- notes = "~/vimwiki/neorg/notes",
-                -- personal = "~/vimwiki/neorg/personal",
-                -- research = "~/vimwiki/neorg/research",
-                -- workspace = "~/vimwiki/neorg/workspace",
+                personal = "~/vimwiki/neorg/personal",
+                research = "~/vimwiki/neorg/research",
+                study = "~/vimwiki/neorg/study",
+                work = "~/vimwiki/neorg/work",
               },
-              default_workspace = "notes",
+              default_workspace = "study",
             },
           },
         },
       }
-    end
+    end,
+    run = ":Neorg sync-parsers",
+    requires = "nvim-lua/plenary.nvim",
   }
 
   -- Scratchpad

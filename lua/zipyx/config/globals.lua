@@ -18,6 +18,20 @@ function global:load_variables()
   self.os = os
   self.home = home
 
+  -- Workspaces
+  self.workspace_personal = "personal"
+  self.workspace_research = "research"
+  self.workspace_study = "study" -- Default space
+  self.workspace_work = "work"
+
+  -- Keymaps
+  self.neorg_return_cmd = ':Neorg return<CR>'
+  self.neorg_workspace_work_cmd = ':Neorg workspace work<CR>'
+  self.neorg_workspace_study_cmd = ':Neorg workspace study<CR>'
+  self.neorg_workspace_personal_cmd = ':Neorg workspace personal<CR>'
+  self.neorg_workspace_research_cmd = ':Neorg workspace research<CR>'
+  self.dotenv_loadenv_cmd = ':Dotenv ' .. home .. '/.window-manager/dot-env/.env<CR>'
+
   -- Syspath
   self.mason_path = home .. "/.local/share/nvim/mason"
   self.db_ui_path = home .. "/.window-manager/dbui/db_ui_history"
@@ -37,6 +51,8 @@ function global:load_variables()
   ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>'
   self.float_calculator_config =
   ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>'
+  self.float_email_config =
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>'
 
   -- General
   self.languages = {}
