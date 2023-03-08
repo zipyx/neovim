@@ -83,25 +83,6 @@ packer.startup(function(use)
   -- Neorg
   use {
     "nvim-neorg/neorg",
-    -- config = function()
-    --   require('neorg').setup {
-    --     load = {
-    --           ["core.defaults"] = {},       -- Loads default behaviour
-    --           ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-    --           ["core.norg.dirman"] = {      -- Manages Neorg workspaces
-    --         config = {
-    --           workspaces = {
-    --             personal = "~/vimwiki/neorg/personal",
-    --             research = "~/vimwiki/neorg/research",
-    --             study = "~/vimwiki/neorg/study",
-    --             work = "~/vimwiki/neorg/work",
-    --           },
-    --           -- default_workspace = "study",
-    --         },
-    --       },
-    --     },
-    --   }
-    -- end,
     run = ":Neorg sync-parsers",
     requires = "nvim-lua/plenary.nvim",
   }
@@ -110,14 +91,6 @@ packer.startup(function(use)
   use {
     'wthollingsworth/pomodoro.nvim',
     requires = 'MunifTanjim/nui.nvim',
-    -- config = function()
-    --   require('pomodoro').setup({
-    --     time_work = 25,
-    --     time_break_short = 5,
-    --     time_break_long = 20,
-    --     timers_to_long_break = 4
-    --   })
-    -- end
   }
 
   -- Scratchpad
