@@ -170,8 +170,8 @@ keymap.set('n', '<leader>si', ':ScratchInsert<CR>', opts)
 keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 
 -- [Plugin] EasyAlign
-keymap.set('n', 'la', ':LiveEasyAlign<CR>', opts)
-keymap.set('x', 'la', ':LiveEasyAlign<CR>', opts)
+keymap.set('n', 'ea', ':LiveEasyAlign<CR>', opts)
+keymap.set('x', 'ea', ':LiveEasyAlign<CR>', opts)
 
 -- [Plugin] Neorg
 keymap.set('n', '<leader>ni', globals.neorg_workspace_work_cmd, opts)
@@ -181,7 +181,12 @@ keymap.set('n', '<leader>nr', globals.neorg_workspace_research_cmd, opts)
 keymap.set('n', '<leader>nq', globals.neorg_return_cmd, opts)
 
 -- [Plugin] LSP Lines
-keymap.set('', '<leader>ll', require('lsp_lines').toggle, { desc = "Toggle lsp_lines" }, opts)
+-- keymap.set('', '<leader>nl', require('lsp_lines').toggle, { desc = "Toggle lsp_lines" }, opts)
+
+-- [Plugin] Pomodoro
+keymap.set('n', '<leader>ps', ':PomodoroStart<CR>', opts)
+keymap.set('n', '<leader>pc', ':PomodoroStatus<CR>', opts)
+keymap.set('n', '<leader>pe', ':PomodoroStop<CR>', opts)
 
 -- [Local Machine] Actions
 keymap.set('n', '<leader>ld', globals.dotenv_loadenv_cmd, opts)
