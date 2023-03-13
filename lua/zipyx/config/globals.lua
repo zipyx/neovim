@@ -47,6 +47,8 @@ function global:load_variables()
   ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=dev --autoclose=0 --border=curved'
 
   -- [Terminal] Applications
+  self.float_ranger_config =
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved ranger<CR>'
   self.float_browser_config =
   ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>'
   self.float_calculator_config =
