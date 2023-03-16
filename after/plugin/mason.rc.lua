@@ -31,7 +31,7 @@ lspconfig.setup {
     "pyright",
     "quick_lint_js",
     "rust_analyzer",
-    "sqlls",
+    -- "sqlls",
     "tailwindcss",
     "terraformls",
     "tsserver",
