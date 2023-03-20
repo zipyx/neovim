@@ -1,5 +1,6 @@
 local home = os.getenv("HOME")
 local os_name = vim.loop.os_uname().sysname:lower()
+local connection = require('zipyx.plugin.setup.dot_env')
 local global = {}
 local os
 
@@ -30,17 +31,28 @@ function global:load_variables()
   self.neorg_workspace_study_cmd = ':Neorg workspace study<CR>'
   self.neorg_workspace_personal_cmd = ':Neorg workspace personal<CR>'
   self.neorg_workspace_research_cmd = ':Neorg workspace research<CR>'
-  self.dotenv_loadenv_cmd = ':Dotenv ' .. home .. '/.window-manager/dot-env/.env<CR>'
+  self.dotenv_loadenv_cmd = ':Dotenv ' .. home .. connection.key_p_path .. '<CR>'
+  -- self.dotenv_loadenv_cmd = ':Dotenv ' .. home .. '/.window-manager/dot-env/.env<CR>'
 
   -- Syspath
-  self.mason_path = home .. "/.local/share/nvim/mason"
-  self.db_ui_path = home .. "/.window-manager/dbui/db_ui_history"
-  self.dot_env_path = home .. "/.window-manager/dot-env"
+  -- self.mason_path = home .. "/.local/share/nvim/mason"
+  -- self.http_path = home .. "/.window-manager/dot-env/.env"
+  -- self.db_ui_path = home .. "/.window-manager/dbui/db_ui_history"
+  -- self.dot_env_path = home .. "/.window-manager/dot-env"
+
+  self.mason_path = home .. connection.key_p_mason
+  self.http_path = home .. connection.key_p_path
+  self.db_ui_path = home .. connection.key_p_dbui
+  self.dot_env_path = home .. connection.key_p_dot
 
   -- Syscommand
-  self.bashs_dev_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh dev"
-  self.bashs_stg_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh stg"
-  self.bashs_prd_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh prd"
+  self.bashs_dev_path = "bash " .. home .. connection.key_p_script .. " dev"
+  self.bashs_stg_path = "bash " .. home .. connection.key_p_script .. " stg"
+  self.bashs_prd_path = "bash " .. home .. connection.key_p_script .. " prd"
+
+  -- self.bashs_dev_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh dev"
+  -- self.bashs_stg_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh stg"
+  -- self.bashs_prd_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh prd"
 
   -- Floating terminal
   self.float_dbs_config =

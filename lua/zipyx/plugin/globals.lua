@@ -9,28 +9,28 @@ vim.g.vim_database_window_layout = "right"
 -- db_ui connection settings
 vim.g.dbs = {
   {
-        ["name"] = "u_dev_ad",
-        ["url"] = connection.conn_d_db_admin,
+    ["name"] = "u_dev_ad",
+    ["url"] = connection.conn_d_db_admin,
   },
   {
-        ["name"] = "u_dev_ap",
-        ["url"] = connection.conn_d_db_api,
+    ["name"] = "u_dev_ap",
+    ["url"] = connection.conn_d_db_api,
   },
   {
-        ["name"] = "u_stg_ad",
-        ["url"] = connection.conn_s_db_admin,
+    ["name"] = "u_stg_ad",
+    ["url"] = connection.conn_s_db_admin,
   },
   {
-        ["name"] = "u_stg_ap",
-        ["url"] = connection.conn_s_db_api,
+    ["name"] = "u_stg_ap",
+    ["url"] = connection.conn_s_db_api,
   },
   {
-        ["name"] = "u_prd_ad",
-        ["url"] = connection.conn_p_db_admin,
+    ["name"] = "u_prd_ad",
+    ["url"] = connection.conn_p_db_admin,
   },
   {
-        ["name"] = "u_prd_ap",
-        ["url"] = connection.conn_p_db_api,
+    ["name"] = "u_prd_ap",
+    ["url"] = connection.conn_p_db_api,
   },
 }
 
@@ -38,6 +38,7 @@ vim.g.dbs = {
 vim.g.db_ui_winwidth = 37
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_win_position = "right"
+-- vim.g.db_ui_save_location = connection.key_p_dbui
 vim.g.db_ui_save_location = globals.db_ui_path
 vim.cmd(
   "autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })"
@@ -45,21 +46,21 @@ vim.cmd(
 
 -- db_ui table helpers
 vim.g.db_ui_table_helpers = {
-      ["mysql"] = {
-        ["Rename"] = "RENAME TABLE '{table}' TO ",
-        ["Count"] = "SELECT COUNT(*) FROM {table};",
-        ["Table Info"] = "SHOW TABLE STATUS LIKE '{table}' \\G;",
-        ["Table Schema"] = "SHOW CREATE TABLE {table} \\G;",
-        ["ID Locked Tables"] = "SHOW OPEN TABLES WHERE in_use > 1;",
-        ["Drop Table (Delete Table)"] = "DROP TABLE IF EXISTS {table};",
-        ["Truncate Table (Remove Values)"] = "TRUNCATE TABLE {table};",
+  ["mysql"] = {
+    ["Rename"] = "RENAME TABLE '{table}' TO ",
+    ["Count"] = "SELECT COUNT(*) FROM {table};",
+    ["Table Info"] = "SHOW TABLE STATUS LIKE '{table}' \\G;",
+    ["Table Schema"] = "SHOW CREATE TABLE {table} \\G;",
+    ["ID Locked Tables"] = "SHOW OPEN TABLES WHERE in_use > 1;",
+    ["Drop Table (Delete Table)"] = "DROP TABLE IF EXISTS {table};",
+    ["Truncate Table (Remove Values)"] = "TRUNCATE TABLE {table};",
   },
-      ["sqlite"] = {
-        ["count"] = "SELECT COUNT(*) FROM {table};",
+  ["sqlite"] = {
+    ["count"] = "SELECT COUNT(*) FROM {table};",
   },
-      ["postgresql"] = {
-        ["count"] = "SELECT COUNT(*) FROM {table}",
-        ["truncate_delete"] = "TRUNCATE TABLE {table}; DELETE FROM {table};",
+  ["postgresql"] = {
+    ["count"] = "SELECT COUNT(*) FROM {table}",
+    ["truncate_delete"] = "TRUNCATE TABLE {table}; DELETE FROM {table};",
   },
 }
 

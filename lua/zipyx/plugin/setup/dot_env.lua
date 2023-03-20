@@ -1,9 +1,15 @@
-local globals = require('zipyx.config.globals')
+local home = os.getenv('HOME')
+local dot_env = home .. "/.window-manager/dot-env"
+
+-- local globals = require('zipyx.config.globals')
 -- local dotenv = require('vim-dotenv')
 -- local sh = require('sh')
 
 vim.cmd [[packadd vim-dotenv]]
-vim.cmd(string.format(':Dotenv %s', globals.dot_env_path))
+vim.cmd(string.format(':Dotenv %s', dot_env)) -- non verbose
+-- vim.cmd(string.format(':verbose Dotenv %s', dot_env))
+
+-- vim.cmd(string.format(':Dotenv %s', globals.dot_env_path))
 -- vim.cmd(string.format(':verbose Dotenv %s', globals.dot_env_path))
 
 local name = 'Dotenv'
@@ -43,6 +49,14 @@ local d_db_api, s_db_api, p_db_api =
     vim.fn.DotenvGet('U_S_API'),
     vim.fn.DotenvGet('U_P_API')
 
+-- Custom path
+local p_path, p_script, p_mason, p_dbui, p_dot =
+    vim.fn.DotenvGet('E_PATH'),
+    vim.fn.DotenvGet('E_SCRIPT_PATH'),
+    vim.fn.DotenvGet('E_MASON_PATH'),
+    vim.fn.DotenvGet('E_DB_UI_PATH'),
+    vim.fn.DotenvGet('E_DOT_ENV_PATH')
+
 -- ######################################################################
 -- ######################################################################
 -- ######################################################################
@@ -70,6 +84,14 @@ local d_db_api, s_db_api, p_db_api =
 -- Function to load the variables when called from the below function
 local connect = {}
 function connect:load_variables()
+  -- Custom paths
+  self.key_p_dot = p_dot
+  self.key_p_path = p_path
+  self.key_p_script = p_script
+  self.key_p_mason = p_mason
+  self.key_p_dbui = p_dbui
+
+  -- Custom vars
   self.conn_d_db_admin = d_db_admin
   self.conn_s_db_admin = s_db_admin
   self.conn_p_db_admin = p_db_admin
