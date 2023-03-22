@@ -38,7 +38,6 @@ vim.g.dbs = {
 vim.g.db_ui_winwidth = 37
 vim.g.db_ui_show_database_icon = 1
 vim.g.db_ui_win_position = "right"
--- vim.g.db_ui_save_location = connection.key_p_dbui
 vim.g.db_ui_save_location = globals.db_ui_path
 vim.cmd(
   "autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })"

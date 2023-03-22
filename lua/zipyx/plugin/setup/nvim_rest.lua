@@ -1,5 +1,5 @@
 local rest = require('rest')
-local connection = require('zipyx.plugin.setup.dot_env')
+local config = require('zipyx.config.globals')
 
 rest.setup {
   result_split_horizontal = false,
@@ -22,7 +22,7 @@ rest.setup {
     },
   },
   jump_to_request = false,
-  env_file = connection.key_p_dot,
+  env_file = config.http_path,
   custom_dynamic_variables = {},
   yank_dry_run = true,
 }
