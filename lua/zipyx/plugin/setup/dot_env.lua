@@ -9,9 +9,6 @@ vim.cmd [[packadd vim-dotenv]]
 vim.cmd(string.format(':Dotenv %s', dot_env)) -- non verbose
 -- vim.cmd(string.format(':verbose Dotenv %s', dot_env))
 
--- vim.cmd(string.format(':Dotenv %s', globals.dot_env_path))
--- vim.cmd(string.format(':verbose Dotenv %s', globals.dot_env_path))
-
 local name = 'Dotenv'
 local exists = pcall(vim.api.nvim_exec, ':lua return type(' .. name .. ') == "function"', true)
 if exists then
@@ -50,12 +47,12 @@ local d_db_api, s_db_api, p_db_api =
     vim.fn.DotenvGet('U_P_API')
 
 -- Custom path
-local p_path, p_script, p_mason, p_dbui, p_dot =
+local p_path, p_script, p_mason, p_dot, p_dbui =
     vim.fn.DotenvGet('E_PATH'),
     vim.fn.DotenvGet('E_SCRIPT_PATH'),
     vim.fn.DotenvGet('E_MASON_PATH'),
-    vim.fn.DotenvGet('E_DB_UI_PATH'),
-    vim.fn.DotenvGet('E_DOT_ENV_PATH')
+    vim.fn.DotenvGet('E_DOT_ENV_PATH'),
+    vim.fn.DotenvGet('E_DATABASE_PATH')
 
 -- ######################################################################
 -- ######################################################################
