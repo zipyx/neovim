@@ -77,8 +77,10 @@ packer.startup(function(use)
   -- Highlighting words
   use 'dwrdx/mywords.nvim'
 
-  -- Vimwiki
-  use 'vimwiki/vimwiki'
+  -- Vimwiki (Can't use plugin to export from neorg to markdown as per this issue below)
+  -- https://github.com/nvim-neorg/neorg/issues/668
+  -- [Solution]: We need to temp disable plugin before exporting in neorg
+  -- use 'vimwiki/vimwiki'
 
   -- Neorg
   use {
