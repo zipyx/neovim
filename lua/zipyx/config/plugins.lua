@@ -51,7 +51,8 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'                      -- Pairs such as quotes and brackers etc
   -- use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'                -- Color and theme related
-  use 'folke/zen-mode.nvim'
+  -- use 'folke/zen-mode.nvim'
+  use 'Pocco81/TrueZen.nvim'
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
