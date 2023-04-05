@@ -51,7 +51,8 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'                      -- Pairs such as quotes and brackers etc
   -- use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'                -- Color and theme related
-  use 'folke/zen-mode.nvim'
+  -- use 'folke/zen-mode.nvim'
+  use 'Pocco81/TrueZen.nvim'
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
@@ -77,8 +78,10 @@ packer.startup(function(use)
   -- Highlighting words
   use 'dwrdx/mywords.nvim'
 
-  -- Vimwiki
-  use 'vimwiki/vimwiki'
+  -- Vimwiki (Can't use plugin to export from neorg to markdown as per this issue below)
+  -- https://github.com/nvim-neorg/neorg/issues/668
+  -- [Solution]: We need to temp disable plugin before exporting in neorg
+  -- use 'vimwiki/vimwiki'
 
   -- Neorg
   use {
@@ -121,4 +124,7 @@ packer.startup(function(use)
   use 'tpope/vim-commentary'    -- Commenting stuff out
   use 'tpope/vim-surround'      -- Wrapping text with quotes, brackets etc
   use 'junegunn/vim-easy-align' -- Aligning text/syntax based on selector
+
+  -- Fun stuff
+  use 'letieu/hacker.nvim'
 end)

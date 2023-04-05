@@ -181,6 +181,13 @@ keymap.set('n', '<leader>np', globals.neorg_workspace_personal_cmd, opts)
 keymap.set('n', '<leader>nr', globals.neorg_workspace_research_cmd, opts)
 keymap.set('n', '<leader>nq', globals.neorg_return_cmd, opts)
 
+-- [Plugin] True-Zen
+keymap.set('n', '<leader>sh', ':TZNarrow<CR>', opts)
+keymap.set('v', '<leader>sh', ":'<,'>:TZNarrow<CR>", opts)
+keymap.set('n', '<leader>sf', ':TZFocus<CR>', opts)
+keymap.set('n', '<leader>sm', ':TZMinimalist<CR>', opts)
+keymap.set('n', '<leader>sa', ':TZAtaraxis<CR>', opts)
+
 -- [Plugin] LSP Lines
 -- keymap.set('', '<leader>nl', require('lsp_lines').toggle, { desc = "Toggle lsp_lines" }, opts)
 
