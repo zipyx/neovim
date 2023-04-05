@@ -12,17 +12,13 @@ neorg.setup {
     ["core.export"] = {
       config = {},
     },
-    ["core.export.markdown"] = {
-      config = {
-        extensions = {
-          -- "org",
-          "md",
-          -- "markdown",
-          -- "txt",
-          -- "all"
-        },
-      }
-    },                            -- Adds support for exporting to markdown
+    -- ["core.export.markdown"] = {
+    --   config = {
+    --     extensions = {
+    --       "all"
+    --     },
+    --   },
+    -- },                            -- Adds support for exporting to markdown
     ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
     ["core.norg.dirman"] = {      -- Manages Neorg workspaces
       config = {

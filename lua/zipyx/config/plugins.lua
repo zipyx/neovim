@@ -123,4 +123,7 @@ packer.startup(function(use)
   use 'tpope/vim-commentary'    -- Commenting stuff out
   use 'tpope/vim-surround'      -- Wrapping text with quotes, brackets etc
   use 'junegunn/vim-easy-align' -- Aligning text/syntax based on selector
+
+  -- Fun stuff
+  use 'letieu/hacker.nvim'
 end)
