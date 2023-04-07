@@ -57,8 +57,9 @@ keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts)              
 keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts)               -- Delete email
 
 -- [Terminal] Applications
-keymap.set('n', '<leader>or', globals.float_ranger_config, opts)     -- Ranger
 keymap.set('n', '<leader>oe', globals.float_email_config, opts)      -- Email
+keymap.set('n', '<leader>or', globals.float_ranger_config, opts)     -- Ranger
+keymap.set('n', '<leader>ot', globals.float_taskui_config, opts)     -- Taskwarrior
 keymap.set('n', '<leader>ob', globals.float_browser_config, opts)    -- Browser
 keymap.set('n', '<leader>oc', globals.float_calculator_config, opts) -- Calculator
 
@@ -196,8 +197,14 @@ keymap.set('n', '<leader>ps', ':PomodoroStart<CR>', opts)
 keymap.set('n', '<leader>pc', ':PomodoroStatus<CR>', opts)
 keymap.set('n', '<leader>pe', ':PomodoroStop<CR>', opts)
 
+-- [Plugin] Hacker-like fun stuff
+keymap.set('n', '<leader>hl', ':Hack<CR>', opts)
+keymap.set('n', '<leader>hf', ':HackFollow<CR>', opts)
+
 -- [Local Machine] Actions
 keymap.set('n', '<leader>ld', globals.dotenv_loadenv_cmd, opts)
 keymap.set('n', '<leader>lD', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_dev_path), opts)
 keymap.set('n', '<leader>lS', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_stg_path), opts)
 keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_prd_path), opts)
+
+-- [Terminal] Actions
