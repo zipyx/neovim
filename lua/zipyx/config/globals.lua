@@ -32,14 +32,8 @@ function global:load_variables()
   self.neorg_workspace_personal_cmd = ':Neorg workspace personal<CR>'
   self.neorg_workspace_research_cmd = ':Neorg workspace research<CR>'
   self.dotenv_loadenv_cmd = ':Dotenv ' .. home .. config.key_p_path .. '<CR>'
-  -- self.dotenv_loadenv_cmd = ':Dotenv ' .. home .. '/.window-manager/dot-env/.env<CR>'
 
   -- Syspath
-  -- self.mason_path = home .. "/.local/share/nvim/mason"
-  -- self.http_path = home .. "/.window-manager/dot-env/.env"
-  -- self.db_ui_path = home .. "~/.window-manager/dbui/db_ui_history"
-  -- self.dot_env_path = home .. "/.window-manager/dot-env"
-
   self.mason_path = home .. config.key_p_mason
   self.http_path = home .. config.key_p_path
   self.db_ui_path = home .. config.key_p_dbui
@@ -50,10 +44,6 @@ function global:load_variables()
   self.bashs_stg_path = "bash " .. home .. config.key_p_script .. " stg"
   self.bashs_prd_path = "bash " .. home .. config.key_p_script .. " prd"
 
-  -- self.bashs_dev_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh dev"
-  -- self.bashs_stg_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh stg"
-  -- self.bashs_prd_path = "bash " .. home .. "/.window-manager/dot-env/scripts/jump.sh prd"
-
   -- Floating terminal
   self.float_generic_config =
   ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=dev --autoclose=0 --border=curved'
@@ -61,8 +51,10 @@ function global:load_variables()
   ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=dev --autoclose=0 --border=curved'
 
   -- [Terminal] Applications
+  self.float_taskui_config =
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=task --autoclose=0 --border=curved taskwarrior-tui<CR>'
   self.float_ranger_config =
-  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved ranger<CR>'
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=ranger --autoclose=0 --border=curved ranger<CR>'
   self.float_browser_config =
   ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=browser --autoclose=0 --border=curved browsh<CR>'
   self.float_calculator_config =
