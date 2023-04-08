@@ -52,7 +52,7 @@ function global:load_variables()
 
   -- [Terminal] Applications
   self.float_taskui_config =
-  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=task --autoclose=0 --border=curved tt<CR>'
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=task --autoclose=0 --border=curved taskwarrior-tui<CR>'
   self.float_ranger_config =
   ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=ranger --autoclose=0 --border=curved ranger<CR>'
   self.float_browser_config =
