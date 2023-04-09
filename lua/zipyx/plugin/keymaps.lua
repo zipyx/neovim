@@ -207,4 +207,5 @@ keymap.set('n', '<leader>lD', string.format('%s %s<CR>', globals.float_dbs_confi
 keymap.set('n', '<leader>lS', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_stg_path), opts)
 keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_prd_path), opts)
 
--- [Terminal] Actions
+-- [Terminal] Taskwarrior-tui
+keymap.set('n', '<leader>ty', '40jVG', opts)
