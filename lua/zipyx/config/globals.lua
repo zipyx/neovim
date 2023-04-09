@@ -51,6 +51,8 @@ function global:load_variables()
   ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=dev --autoclose=0 --border=curved'
 
   -- [Terminal] Applications
+  self.float_gitui_config =
+  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=task --autoclose=0 --border=curved gitui<CR>'
   self.float_taskui_config =
   ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=task --autoclose=0 --border=curved taskwarrior-tui<CR>'
   self.float_ranger_config =

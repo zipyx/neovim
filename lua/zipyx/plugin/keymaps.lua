@@ -209,3 +209,6 @@ keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_confi
 
 -- [Terminal] Taskwarrior-tui
 keymap.set('n', '<leader>ty', '40jVG', opts)
+
+-- [Terminal] Gitui
+keymap.set('n', '<leader>gi', globals.float_gitui_config, opts)
