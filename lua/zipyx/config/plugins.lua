@@ -127,4 +127,7 @@ packer.startup(function(use)
 
   -- Fun stuff
   use 'letieu/hacker.nvim'
+
+  -- Navigating just the immediate working files in a project
+  use 'ThePrimeagen/harpoon'
 end)

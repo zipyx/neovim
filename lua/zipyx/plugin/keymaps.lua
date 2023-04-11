@@ -207,4 +207,15 @@ keymap.set('n', '<leader>lD', string.format('%s %s<CR>', globals.float_dbs_confi
 keymap.set('n', '<leader>lS', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_stg_path), opts)
 keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_config, globals.bashs_prd_path), opts)
 
--- [Terminal] Actions
+-- [Terminal] Taskwarrior-tui
+keymap.set('n', '<leader>ty', '40jVG', opts)
+
+-- [Terminal] Gitui
+keymap.set('n', '<leader>gi', globals.float_gitui_config, opts)
+
+-- [Plugin] Harpoon - Primeagen
+keymap.set('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>', opts)
+keymap.set('n', '<leader>ht', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
+keymap.set('n', '<C-n>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
+keymap.set('n', '<C-p>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
+keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>', opts)
