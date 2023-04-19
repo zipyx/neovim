@@ -101,7 +101,8 @@ packer.startup(function(use)
 
   -- Floating terminals
   use 'voldikss/vim-floaterm'
-
+  -- Terminals in buffer
+  use 's1n7ax/nvim-terminal'
   -- Moving window buffers
   use 'c60cb859/bufMov.nvim'
 
