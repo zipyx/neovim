@@ -21,7 +21,7 @@ packer.startup(function(use)
   use 'neovim/nvim-lspconfig'             -- LSP
   use 'williamboman/mason.nvim'           -- Install language servers
   use 'williamboman/mason-lspconfig.nvim' -- Language server configuration files
-  use 'jay-babu/mason-nvim-dap.nvim'      -- Debugging langauage protocol
+  use 'jay-babu/mason-nvim-dap.nvim'      -- Debugging langauage protocol (update)
   use 'jose-elias-alvarez/null-ls.nvim'   -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
   -- use 'glepnir/lspsaga.nvim' -- LSP UIs
