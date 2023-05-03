@@ -62,7 +62,7 @@ function global:load_variables()
   self.float_calculator_config =
   ':FloatermNew --wintype=float --height=0.5 --width=0.5 --name=calculator --autoclose=0 --border=curved calc<CR>'
   self.float_email_config =
-  ':FloatermNew --wintype=float --height=0.7 --width=0.7 --name=email --autoclose=0 --border=curved nvim +Himalaya<CR>'
+  ':Himalaya<CR>'
 
   -- General
   self.languages = {}
