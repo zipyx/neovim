@@ -57,7 +57,7 @@ keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts)              
 keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts)               -- Delete email
 
 -- [Terminal] Applications
-keymap.set('n', '<leader>oe', globals.float_email_config, opts)      -- Email
+keymap.set('n', '<leader>oe', ':Himalaya', opts)                     -- Email
 keymap.set('n', '<leader>or', globals.float_ranger_config, opts)     -- Ranger
 keymap.set('n', '<leader>ot', globals.float_taskui_config, opts)     -- Taskwarrior
 keymap.set('n', '<leader>ob', globals.float_browser_config, opts)    -- Browser
