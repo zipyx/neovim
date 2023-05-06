@@ -119,6 +119,11 @@ nvim_lsp.graphql.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.hls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp.html.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -146,6 +151,11 @@ nvim_lsp.jsonls.setup {
       }
     }
   }
+}
+
+nvim_lsp.lemminx.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 nvim_lsp.lua_ls.setup {
@@ -203,16 +213,26 @@ nvim_lsp.rust_analyzer.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.spectral.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 -- ###########################################
 -- Setting up SQL language server, works but
 -- callback causing issue to always print
 -- ###########################################
--- nvim_lsp.sqlls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities
--- }
+nvim_lsp.sqlls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
+}
 
 nvim_lsp.tailwindcss.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.taplo.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
@@ -228,18 +248,28 @@ nvim_lsp.tsserver.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.vimls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp.yamlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
     yaml = {
       schemas = {
-            ["http://json-schema.org/draft-07/schema#"] = "template.yaml",
-            ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
-            ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+        ["http://json-schema.org/draft-07/schema#"] = "template.yaml",
+        ["https://raw.githubusercontent.com/quantumblacklabs/kedro/develop/static/jsonschema/kedro-catalog-0.17.json"] = "conf/**/*catalog*",
+        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
       }
     }
   }
+}
+
+nvim_lsp.zls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
 
 -- nvim_lsp.sourcekit.setup {
