@@ -61,7 +61,7 @@ packer.startup(function(use)
   use 'github/copilot.vim'
 
   -- Debugging
-  use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap' } }
+  use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap', 'jbyuki/one-small-step-for-vimkind' } }
 
   -- Database Access
   use 'dinhhuy258/vim-database'

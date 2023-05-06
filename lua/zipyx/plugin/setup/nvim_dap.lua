@@ -19,6 +19,13 @@ dap_vs.load_launchjs(nil, {
 -- #####################################
 -- #####################################
 
+-- Bash debug adapter
+dap.adapters.bashdb = {
+  type = 'executable',
+  command = globals.mason_path .. '/packages/bash-debug-adapter/bash-debug-adapter',
+  name = 'bashdb'
+}
+
 -- Lua debug adapter for (n)vim
 dap.adapters.nlua = function(callback, config)
   callback({
@@ -80,6 +87,14 @@ dap.adapters.codelldb = {
   -- }
 }
 
+-- lldb (new) debug adapter
+-- C / C++ / Rust debug adapter
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode',
+  name = "lldb",
+}
+
 -- Browser firefox debug adapter
 dap.adapters.firefox = {
   type = 'executable',
@@ -93,13 +108,58 @@ dap.adapters.firefox = {
 -- #####################################
 -- #####################################
 
--- Rust debugger setup (using cpptools)
+-- Bash debug config
+dap.configurations.sh = {
+  {
+    name = '[Debug] Launch',
+    type = 'bashdb',
+    request = 'launch',
+    showDebuggerOutput = true,
+    pathBashdb = globals.mason_path .. '/packages/bash-debug-adapter/extension/bashdb_dir/bashdb',
+    pathBashdbLib = globals.mason_path .. '/packages/bash-debug-adapter/extension/bashdb_dir',
+    trace = true,
+    file = "${file}",
+    program = "${file}",
+    cwd = '${workspaceFolder}',
+    pathCat = "cat",
+    pathBash = "/bin/bash",
+    pathMkfifo = "mkfifo",
+    pathPkill = "pkill",
+    args = {},
+    env = {},
+    terminalKind = "integrated",
+  }
+}
+
+-- Lua for (n)vim config
+dap.configurations.lua = {
+  {
+    name = "[Attach] To running (n)vim instance",
+    type = 'nlua',
+    request = 'attach',
+  }
+}
+
+-- Rust debug config
 dap.configurations.rust = {
+
+  {
+    -- Rust latest debug protocol (lldb)
+    name = "[lldb] Launch",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  },
 
   {
     -- Rust debugger using codelldb does not support
     -- current architecture (aarch64)
-    name = "[Codelldb] Launch",
+    name = "[codelldb] Launch",
     type = "codelldb",
     request = "launch",
     program = function()
@@ -110,7 +170,7 @@ dap.configurations.rust = {
   },
 
   {
-    name = "[Cppdbg] Launch",
+    name = "[cppdbg] Launch",
     type = "cppdbg",
     request = "launch",
     program = function()
@@ -122,7 +182,7 @@ dap.configurations.rust = {
   },
 
   {
-    name = "[Attach] To gdbserver :1234",
+    name = "[attach] To gdbserver :1234",
     type = "cppdbg",
     request = "launch",
     MIMode = "gdb",
@@ -134,6 +194,14 @@ dap.configurations.rust = {
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
   },
+
+  {
+    name = "[attach] To process",
+    type = "lldb",
+    request = "attach",
+    pid = require('dap.utils').pick_process,
+    args = {},
+  }
 
 }
 
@@ -147,7 +215,7 @@ dap.configurations.cpp = dap.configurations.rust;
 dap.configurations.javascript = {
 
   {
-    name = '[Node] Launch',
+    name = '[node] Launch',
     type = 'node2',
     request = 'launch',
     program = '${file}',
@@ -158,7 +226,7 @@ dap.configurations.javascript = {
   },
 
   {
-    name = '[Browser] Firefox',
+    name = '[browser] Firefox',
     type = 'firefox',
     request = 'launch',
     reAttach = true,
@@ -169,7 +237,7 @@ dap.configurations.javascript = {
 
   {
     -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = '[Attach] To process',
+    name = '[attach] To process',
     type = 'node2',
     request = 'attach',
     processId = require 'dap.utils'.pick_process,
@@ -180,7 +248,7 @@ dap.configurations.javascript = {
 dap.configurations.typescript = {
 
   {
-    name = "[Deno] Launch",
+    name = "[deno] Launch",
     type = 'pwa-node',
     request = 'launch',
     runtimeExecutable = "deno",
@@ -195,7 +263,7 @@ dap.configurations.typescript = {
   },
 
   {
-    name = '[Node] Launch',
+    name = '[node] Launch',
     type = 'node',
     request = 'launch',
     program = '${file}',
@@ -206,7 +274,7 @@ dap.configurations.typescript = {
   },
 
   {
-    name = '[Node] SST (Serverless Stack)',
+    name = '[node] SST (Serverless Stack)',
     type = 'node',
     request = 'launch',
     runtimeExecutable = '/home/onahp/work/prototype/sst-build/node_modules/.bin/sst',
@@ -217,7 +285,7 @@ dap.configurations.typescript = {
   },
 
   {
-    name = '[Browser] Firefox',
+    name = '[browser] Firefox',
     type = 'firefox',
     request = 'launch',
     reAttach = true,
@@ -228,7 +296,7 @@ dap.configurations.typescript = {
 
   {
     -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = '[Attach] To process',
+    name = '[attach] To process',
     type = 'node',
     request = 'attach',
     processId = require 'dap.utils'.pick_process,
