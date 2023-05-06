@@ -27,14 +27,14 @@ neorg.setup {
         },
       },
     },
-    ["core.norg.manoeuvre"] = {},
-    ["core.norg.completion"] = {
+    ["core.manoeuvre"] = {},
+    ["core.completion"] = {
       config = {
         engine = "nvim-cmp",
       },
     },
-    ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
-    ["core.norg.dirman"] = {      -- Manages Neorg workspaces
+    ["core.concealer"] = {}, -- Adds pretty icons to your documents
+    ["core.dirman"] = {      -- Manages Neorg workspaces
       config = {
         workspaces = {
           personal = "~/vimwiki/neorg/personal",
