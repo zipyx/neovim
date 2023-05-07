@@ -172,8 +172,8 @@ keymap.set('n', '<leader>si', ':ScratchInsert<CR>', opts)
 keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 
 -- [Plugin] EasyAlign
-keymap.set('n', 'ea', ':LiveEasyAlign<CR>', opts)
-keymap.set('x', 'ea', ':LiveEasyAlign<CR>', opts)
+keymap.set('n', '<leader>ea', ':LiveEasyAlign<CR>', opts)
+keymap.set('x', '<leader>ea', ':LiveEasyAlign<CR>', opts)
 
 -- [Plugin] Neorg
 keymap.set('n', '<leader>ni', globals.neorg_workspace_work_cmd, opts)
