@@ -304,6 +304,9 @@ dap.configurations.typescript = {
 
 }
 
+-- Typescript React config
+dap.configurations.typescriptreact = dap.configurations.typescript;
+
 -- #####################################
 -- #####################################
 -- Debuugger UI integration
