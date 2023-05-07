@@ -11,6 +11,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 telescope.setup {
   defaults = {
+    layout_config = { height = 25, width = 100 },
     mappings = {
       n = {
         ["q"] = actions.close
@@ -64,7 +65,7 @@ telescope.load_extension("file_browser")
 -- vim.keymap.set('n', ';e', function()
 --   builtin.diagnostics()
 -- end)
-vim.keymap.set("n", "sf", function()
+vim.keymap.set("n", "ff", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
@@ -73,6 +74,6 @@ vim.keymap.set("n", "sf", function()
     grouped = true,
     previewer = false,
     initial_mode = "normal",
-    layout_config = { height = 40 }
+    layout_config = { height = 20, width = 100 }
   })
 end)

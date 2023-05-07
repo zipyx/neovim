@@ -8,6 +8,7 @@ require('zipyx.config.globals')
 -- Plugin related settings
 require('zipyx.plugin.setup.nvim_terminal')
 require('zipyx.plugin.setup.code_runner')
+require('zipyx.plugin.setup.nvim_octo')
 require('zipyx.plugin.setup.nvim_tree')
 require('zipyx.plugin.setup.pomodoro')
 require('zipyx.plugin.setup.nvim_dap')

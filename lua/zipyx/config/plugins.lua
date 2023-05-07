@@ -48,9 +48,24 @@ packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'               -- File icons
   use 'nvim-telescope/telescope.nvim'              -- Browsing, fuzzy finder etc
   use 'nvim-telescope/telescope-file-browser.nvim' -- File Browser
-  use 'windwp/nvim-autopairs'                      -- Pairs such as quotes and brackers etc
+  -- use {
+  --   'pwntester/octo.nvim',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-telescope/telescope.nvim',
+  --     'kyazdani42/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require "octo".setup()
+  --   end
+  -- }
+  use 'pwntester/octo.nvim'
+  -- use 'nvim-telescope/telescope-github.nvim'       -- Git command line (gh)
+  -- use 'nvim-telescope/telescope-media-files.nvim'  -- Preview media files
+  -- use 'nvim-lua/popup.nvim'                        -- Preview media files
+  use 'windwp/nvim-autopairs'       -- Pairs such as quotes and brackers etc
   -- use 'windwp/nvim-ts-autotag'
-  use 'norcalli/nvim-colorizer.lua'                -- Color and theme related
+  use 'norcalli/nvim-colorizer.lua' -- Color and theme related
   -- use 'folke/zen-mode.nvim'
   use 'Pocco81/TrueZen.nvim'
   use({

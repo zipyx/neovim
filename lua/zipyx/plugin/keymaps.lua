@@ -57,20 +57,20 @@ keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts)              
 keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts)               -- Delete email
 
 -- [Terminal] Applications
-keymap.set('n', '<leader>oe', globals.float_email_config, opts)      -- Email
-keymap.set('n', '<leader>or', globals.float_ranger_config, opts)     -- Ranger
-keymap.set('n', '<leader>ot', globals.float_taskui_config, opts)     -- Taskwarrior
-keymap.set('n', '<leader>ob', globals.float_browser_config, opts)    -- Browser
-keymap.set('n', '<leader>oc', globals.float_calculator_config, opts) -- Calculator
+keymap.set('n', '<leader>oe', globals.float_email_config, opts) -- Email
+-- keymap.set('n', '<leader>or', globals.float_ranger_config, opts)     -- Ranger
+-- keymap.set('n', '<leader>ot', globals.float_taskui_config, opts)     -- Taskwarrior
+-- keymap.set('n', '<leader>ob', globals.float_browser_config, opts)    -- Browser
+-- keymap.set('n', '<leader>oc', globals.float_calculator_config, opts) -- Calculator
 
 -- [Plugin] Neovim file tree
 keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
-keymap.set('n', '<leader>tc', ':NvimTreeCollapse<CR>', opts)
-keymap.set('n', '<leader>tb', ':NvimTreeCollapseKeepBuffers<CR>', opts)
-keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', opts)
+-- keymap.set('n', '<leader>tc', ':NvimTreeCollapse<CR>', opts)
+-- keymap.set('n', '<leader>tb', ':NvimTreeCollapseKeepBuffers<CR>', opts)
+-- keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', opts)
 
 -- [Plugin] Neovim utility calendar
-keymap.set('n', '<leader>uc', ':Calendar<CR>', opts)
+-- keymap.set('n', '<leader>uc', ':Calendar<CR>', opts)
 
 -- [Plugin] Moving window buffers
 keymap.set('n', '<C-j>', "<cmd>lua require('bufMov', opts).movBuf('down', opts)<CR>", opts)
@@ -84,22 +84,25 @@ keymap.set('n', '<C-l>', ':MoveBufferRight<CR>', opts)
 -- 'B = Switch current buffer with buffer marked with B
 
 -- [PlugIn] Telescope
-keymap.set('n', '<leader>ff', builtin.find_files, {})
-keymap.set('n', '<leader>fG', builtin.live_grep, {})
-keymap.set('n', '<leader>fB', builtin.buffers, {})
-keymap.set('n', '<leader>fT', builtin.help_tags, {})
-keymap.set('n', '<leader>fm', builtin.marks, {})
-keymap.set('n', '<leader>fq', builtin.quickfix, {})
-keymap.set('n', '<leader>fr', builtin.registers, {})
-keymap.set('n', '<leader>fk', builtin.keymaps, {})
-keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, {})
-keymap.set('n', '<leader>ft', builtin.current_buffer_tags, {})
-keymap.set('n', '<leader>gg', builtin.git_status, {})
+keymap.set('n', '<leader>ls', builtin.find_files, {})
+keymap.set('n', '<leader>lg', builtin.live_grep, {})
+keymap.set('n', '<leader>lm', builtin.marks, {})
+keymap.set('n', '<leader>lr', builtin.registers, {})
+keymap.set('n', '<leader>lk', builtin.keymaps, {})
+keymap.set('n', '<leader>lf', builtin.current_buffer_fuzzy_find, {})
+keymap.set('n', '<leader>l1', builtin.treesitter, {})
+keymap.set('n', '<leader>l2', builtin.treesitter, {})
+keymap.set('n', '<leader>l3', builtin.treesitter, {})
+-- keymap.set('n', '<leader>fB', builtin.buffers, {})
+-- keymap.set('n', '<leader>fT', builtin.help_tags, {})
+-- keymap.set('n', '<leader>fq', builtin.quickfix, {})
+-- keymap.set('n', '<leader>ft', builtin.current_buffer_tags, {})
+-- keymap.set('n', '<leader>gg', builtin.git_status, {})
 
 -- [Plugin] Jester - running unit tests for javascript/typescript
-keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>', opts)
-keymap.set('n', '<leader>rf', ':lua require"jester".run_file()<CR>', opts)
-keymap.set('n', '<leader>ro', ':lua require"jester".run_last()<CR>', opts)
+-- keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>', opts)
+-- keymap.set('n', '<leader>rf', ':lua require"jester".run_file()<CR>', opts)
+-- keymap.set('n', '<leader>ro', ':lua require"jester".run_last()<CR>', opts)
 
 -- [Plugin] Commenting stuff out
 keymap.set('n', '<leader>;;', '<Plug>Commentary', opts)
@@ -108,8 +111,8 @@ keymap.set('x', '<leader>;;', '<Plug>Commentary', opts)
 keymap.set('o', '<leader>;;', '<Plug>Commentary', opts)
 
 -- [Plugin] Highlighting words with colors
-keymap.set('n', '<leader>h', ':lua require"mywords".hl_toggle()<CR>', opts)
-keymap.set('n', '<leader>rh', ':lua require"mywords".uhl_all()<CR>', opts)
+keymap.set('n', '<leader>hw', ':lua require"mywords".hl_toggle()<CR>', opts)
+keymap.set('n', '<leader>ho', ':lua require"mywords".uhl_all()<CR>', opts)
 
 -- [Plugin] Markdown preview
 keymap.set('n', '<leader>pm', '<Plug>MarkdownPreview', opts)
@@ -124,13 +127,13 @@ keymap.set('n', '<leader>pm', '<Plug>MarkdownPreview', opts)
 keymap.set('n', '<leader>ga', ':LazyGit<CR>', opts)
 keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>', opts)
 keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>', opts)
-keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>', opts)
-keymap.set('n', '<leader>gr', ':Gitsigns reset_hunk<CR>', opts)
-keymap.set('n', '<leader>gu', ':Gitsigns undo_stage_hunk<CR>', opts)
-keymap.set('n', '<leader>gS', ':Gitsigns stage_buffer<CR>', opts)
-keymap.set('n', '<leader>gR', ':Gitsigns reset_buffer<CR>', opts)
-keymap.set('n', '<leader>gU', ':Gitsigns reset_buffer_index<CR>', opts)
-keymap.set('n', '<leader>gB', ':Gitsigns toggle_current_line_blame<CR>', opts)
+-- keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>', opts)
+-- keymap.set('n', '<leader>gr', ':Gitsigns reset_hunk<CR>', opts)
+-- keymap.set('n', '<leader>gu', ':Gitsigns undo_stage_hunk<CR>', opts)
+-- keymap.set('n', '<leader>gS', ':Gitsigns stage_buffer<CR>', opts)
+-- keymap.set('n', '<leader>gR', ':Gitsigns reset_buffer<CR>', opts)
+-- keymap.set('n', '<leader>gU', ':Gitsigns reset_buffer_index<CR>', opts)
+-- keymap.set('n', '<leader>gB', ':Gitsigns toggle_current_line_blame<CR>', opts)
 
 -- [PlugIn] Database
 keymap.set('n', '<leader>oD', ':VDToggleDatabase<CR>', opts)
@@ -167,7 +170,7 @@ keymap.set('n', '<leader>ep', '<Plug>RestNvimLast', opts)
 keymap.set('n', '<leader>eP', '<Plug>RestNvimPreview', opts)
 
 -- [PlugIn] Scratchpad
-keymap.set('n', '<leader>sn', ':Scratch<CR>', opts)
+keymap.set('n', '<leader>os', ':Scratch<CR>', opts)
 keymap.set('n', '<leader>si', ':ScratchInsert<CR>', opts)
 keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 
@@ -183,11 +186,11 @@ keymap.set('n', '<leader>nr', globals.neorg_workspace_research_cmd, opts)
 keymap.set('n', '<leader>nq', globals.neorg_return_cmd, opts)
 
 -- [Plugin] True-Zen
-keymap.set('n', '<leader>sh', ':TZNarrow<CR>', opts)
-keymap.set('v', '<leader>sh', ":'<,'>:TZNarrow<CR>", opts)
 keymap.set('n', '<leader>sf', ':TZFocus<CR>', opts)
-keymap.set('n', '<leader>sm', ':TZMinimalist<CR>', opts)
-keymap.set('n', '<leader>sa', ':TZAtaraxis<CR>', opts)
+-- keymap.set('n', '<leader>sh', ':TZNarrow<CR>', opts)
+-- keymap.set('v', '<leader>sh', ":'<,'>:TZNarrow<CR>", opts)
+-- keymap.set('n', '<leader>sm', ':TZMinimalist<CR>', opts)
+-- keymap.set('n', '<leader>sa', ':TZAtaraxis<CR>', opts)
 
 -- [Plugin] LSP Lines
 -- keymap.set('', '<leader>nl', require('lsp_lines').toggle, { desc = "Toggle lsp_lines" }, opts)
@@ -211,11 +214,16 @@ keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_confi
 keymap.set('n', '<leader>ty', '40jVG', opts)
 
 -- [Terminal] Gitui
-keymap.set('n', '<leader>gi', globals.float_gitui_config, opts)
+-- keymap.set('n', '<leader>gi', globals.float_gitui_config, opts)
 
 -- [Plugin] Harpoon - Primeagen
-keymap.set('n', '<leader>ha', ':lua require("harpoon.mark").add_file()<CR>', opts)
-keymap.set('n', '<leader>ht', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
-keymap.set('n', '<C-n>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
-keymap.set('n', '<C-p>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
-keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>', opts)
+keymap.set('n', '<leader>la', ':lua require("harpoon.mark").add_file()<CR>', opts)
+keymap.set('n', '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
+keymap.set('n', '<leader>fn', ':lua require("harpoon.ui").nav_next()<CR>', opts)
+keymap.set('n', '<leader>fp', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
+
+-- [Plugin] Telescope - GitHub (gh)
+-- keymap.set('n', '<leader>gi', ':Telescope gh issues<CR>', opts)
+-- keymap.set('n', '<leader>gf', ':Telescope gh pull_request<CR>', opts)
+-- keymap.set('n', '<leader>gg', ':Telescope gh gist<CR>', opts)
+-- keymap.set('n', '<leader>gr', ':Telescope gh run<CR>', opts)
