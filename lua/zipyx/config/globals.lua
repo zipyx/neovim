@@ -1,6 +1,7 @@
 local home = os.getenv("HOME")
 local os_name = vim.loop.os_uname().sysname:lower()
-local config = require('zipyx.plugin.setup.dot_env')
+local config = require('zipyx.config.dotenv')
+-- local config = require('zipyx.dev.setup.dotenv')
 local global = {}
 local os
 

@@ -1,6 +1,10 @@
+local status, builtin = pcall(require, "telescope.builtin")
+if (not status) then return end
+
+local status2, globals = pcall(require, "zipyx.config.globals")
+if (not status2) then return end
+
 local keymap = vim.keymap
-local builtin = require('telescope.builtin')
-local globals = require('zipyx.config.globals')
 
 -- Move between window buffers
 -- keymap.set('n', '<Space>', '<C-w>w', opts)
@@ -60,8 +64,8 @@ keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts)              
 keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts)               -- Delete email
 
 -- [Terminal] Applications
-keymap.set('n', '<leader>oe', globals.float_email_config, opts) -- Email
--- keymap.set('n', '<leader>or', globals.float_ranger_config, opts)     -- Ranger
+keymap.set('n', '<leader>oe', globals.float_email_config, opts)  -- Email
+keymap.set('n', '<leader>or', globals.float_ranger_config, opts) -- Ranger
 -- keymap.set('n', '<leader>ot', globals.float_taskui_config, opts)     -- Taskwarrior
 -- keymap.set('n', '<leader>ob', globals.float_browser_config, opts)    -- Browser
 -- keymap.set('n', '<leader>oc', globals.float_calculator_config, opts) -- Calculator
@@ -219,14 +223,14 @@ keymap.set('n', '<leader>ty', '40jVG', opts)
 -- [Terminal] Gitui
 -- keymap.set('n', '<leader>gi', globals.float_gitui_config, opts)
 
--- [Plugin] Harpoon - Primeagen
+-- [Plugin] Harpoon
 keymap.set('n', '<leader>la', ':lua require("harpoon.mark").add_file()<CR>', opts)
 keymap.set('n', '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 keymap.set('n', '<leader>fn', ':lua require("harpoon.ui").nav_next()<CR>', opts)
 keymap.set('n', '<leader>fp', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
 
--- [Plugin] Telescope - Octo (gh)
+-- [Plugin] Octo (gh)
 keymap.set('n', '<leader>gl', ':Octo issue list<CR>', opts)
 keymap.set('n', '<leader>oc', ':Octo issue create<CR>', opts)
-keymap.set('n', '<leader>gg', ':Octo ', opts)
+keymap.set('n', '<leader>gg', ':Octo issue search<CR>', opts)
 -- keymap.set('n', '<leader>go', ':Octo ', opts)

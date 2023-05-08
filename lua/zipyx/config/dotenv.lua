@@ -1,5 +1,5 @@
 local home = os.getenv('HOME')
-local dot_env = home .. "/.window-manager/dot-env"
+local dot_env = home .. "/.window-manager/dot-env/"
 
 -- local globals = require('zipyx.config.globals')
 -- local dotenv = require('vim-dotenv')
@@ -14,7 +14,7 @@ local exists = pcall(vim.api.nvim_exec, ':lua return type(' .. name .. ') == "fu
 if exists then
   local success, result = pcall(vim.call, name)
   if success then
-    print(string.format([['Success: Function does exist = %s']], result))
+    -- print(string.format([['Success: Function does exist = %s']], result))
   else
     -- print(string.format([['[Output]: success = %s, result = %s']], success, result))
   end

@@ -1,4 +1,5 @@
-local pomodoro = require('pomodoro')
+local status, pomodoro = pcall(require, "pomodoro")
+if (not status) then return end
 
 pomodoro.setup {
   time_work = 25,
