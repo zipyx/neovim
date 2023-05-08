@@ -1,0 +1,5 @@
+require("zipyx.config.base")
+require("zipyx.config.globals")
+require("zipyx.config.highlights")
+require("zipyx.config.keymaps")
+require("zipyx.config.plugins")

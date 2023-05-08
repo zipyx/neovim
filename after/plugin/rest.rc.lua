@@ -1,4 +1,6 @@
-local rest = require('rest')
+local status, rest = pcall(require, "rest")
+if (not status) then return end
+
 local config = require('zipyx.config.globals')
 
 rest.setup {
