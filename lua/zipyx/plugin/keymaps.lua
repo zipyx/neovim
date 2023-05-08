@@ -12,6 +12,9 @@ local globals = require('zipyx.config.globals')
 -- Set silent noremap
 local opts = { noremap = true, silent = true }
 
+-- Refresh file
+keymap.set('n', '<leader>R', ':luafile %<CR>', opts)
+
 -- Resize window
 keymap.set('n', '<leader>wl', ':vertical resize +7<CR>', opts)
 keymap.set('n', '<leader>wh', ':vertical resize -4<CR>', opts)
@@ -222,8 +225,8 @@ keymap.set('n', '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR
 keymap.set('n', '<leader>fn', ':lua require("harpoon.ui").nav_next()<CR>', opts)
 keymap.set('n', '<leader>fp', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
 
--- [Plugin] Telescope - GitHub (gh)
--- keymap.set('n', '<leader>gi', ':Telescope gh issues<CR>', opts)
--- keymap.set('n', '<leader>gf', ':Telescope gh pull_request<CR>', opts)
--- keymap.set('n', '<leader>gg', ':Telescope gh gist<CR>', opts)
--- keymap.set('n', '<leader>gr', ':Telescope gh run<CR>', opts)
+-- [Plugin] Telescope - Octo (gh)
+keymap.set('n', '<leader>gl', ':Octo issue list<CR>', opts)
+keymap.set('n', '<leader>oc', ':Octo issue create<CR>', opts)
+keymap.set('n', '<leader>gg', ':Octo ', opts)
+-- keymap.set('n', '<leader>go', ':Octo ', opts)

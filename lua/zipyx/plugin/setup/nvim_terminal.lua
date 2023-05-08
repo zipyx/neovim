@@ -17,7 +17,7 @@ nvim_terminal.setup {
   disable_default_keymaps = false,
 
   -- keymap to toggle open and close terminal window
-  toggle_keymap = '<leader>;',
+  -- toggle_keymap = '<leader>;',
 
   -- increase the window height by when you hit the keymap
   window_height_change_amount = 2,
