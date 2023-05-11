@@ -254,6 +254,7 @@ keymap.set('n', '<leader>ty', '40jVG', opts)
 -- ===================================================================================
 -- [Terminal] Gitui
 -- keymap.set('n', '<leader>gi', globals.float_gitui_config, opts)
+keymap.set('n', '<leader>sk', ':SK<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Harpoon

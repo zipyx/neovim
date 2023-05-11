@@ -124,6 +124,8 @@ packer.startup(function(use)
   use 'tpope/vim-commentary'    -- Commenting stuff out
   use 'tpope/vim-surround'      -- Wrapping text with quotes, brackets etc
   use 'junegunn/vim-easy-align' -- Aligning text/syntax based on selector
+  use 'lotabout/skim'           -- Rust fuzzy finder = blazingly fast
+  use 'jbyuki/venn.nvim'        -- Draw ASCII diagrams in vim
 
   -- Fun stuff
   use 'letieu/hacker.nvim'
