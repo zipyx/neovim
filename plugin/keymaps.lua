@@ -24,12 +24,12 @@ keymap.set('n', '<leader>R', ':luafile %<CR>', opts)
 
 -- ===================================================================================
 -- Resize window
-keymap.set('n', '<leader>wl', ':vertical resize +7<CR>', opts)
-keymap.set('n', '<leader>wh', ':vertical resize -4<CR>', opts)
-keymap.set('n', '<leader>wk', ':resize +7<CR>', opts)
-keymap.set('n', '<leader>wj', ':resize -4<CR>', opts)
-keymap.set('n', '<leader>zi', '<C-W>_ \\| <C-W>\\|<CR>', opts)
-keymap.set('n', '<leader>zo', '<C-W>=<CR>', opts)
+-- keymap.set('n', '<leader>wl', ':vertical resize +7<CR>', opts)
+-- keymap.set('n', '<leader>wh', ':vertical resize -7<CR>', opts)
+-- keymap.set('n', '<leader>wk', ':resize +7<CR>', opts)
+-- keymap.set('n', '<leader>wj', ':resize -7<CR>', opts)
+-- keymap.set('n', '<leader>zi', '<C-W>_ \\| <C-W>\\|<CR>', opts)
+-- keymap.set('n', '<leader>zo', '<C-W>=<CR>', opts)
 
 -- ===================================================================================
 -- Move lines
@@ -110,9 +110,7 @@ keymap.set('n', '<leader>lm', builtin.marks, {})
 keymap.set('n', '<leader>lr', builtin.registers, {})
 keymap.set('n', '<leader>lk', builtin.keymaps, {})
 keymap.set('n', '<leader>lf', builtin.current_buffer_fuzzy_find, {})
-keymap.set('n', '<leader>l1', builtin.treesitter, {})
-keymap.set('n', '<leader>l2', builtin.treesitter, {})
-keymap.set('n', '<leader>l3', builtin.treesitter, {})
+-- keymap.set('n', '<leader>l1', builtin.treesitter, {})
 -- keymap.set('n', '<leader>fB', builtin.buffers, {})
 -- keymap.set('n', '<leader>fT', builtin.help_tags, {})
 -- keymap.set('n', '<leader>fq', builtin.quickfix, {})
@@ -286,4 +284,3 @@ keymap.set('n', '<leader>gg', ':Octo review ', opts)
 --
 -- Review (review)
 -- >> start, submit, resume, discard, comments, commit, close
--- ===================================================================================
