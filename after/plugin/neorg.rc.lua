@@ -3,9 +3,12 @@ if (not status) then return end
 
 neorg.setup {
   load = {
+    ["core.tempus"] = {},
     ["core.defaults"] = {}, -- Loads default behaviour
+    ["core.ui.calendar"] = {},
     ["core.tangle"] = {},
     ["core.integrations.treesitter"] = {},
+    ["core.integrations.truezen"] = {},
     ["core.presenter"] = {
       config = {
         zen_mode = "truezen",

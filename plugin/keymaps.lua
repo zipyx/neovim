@@ -1,6 +1,5 @@
 local status, builtin = pcall(require, "telescope.builtin")
 if (not status) then return end
-
 local status2, globals = pcall(require, "zipyx.config.globals")
 if (not status2) then return end
 
@@ -24,12 +23,12 @@ keymap.set('n', '<leader>R', ':luafile %<CR>', opts)
 
 -- ===================================================================================
 -- Resize window
-keymap.set('n', '<leader>wl', ':vertical resize +7<CR>', opts)
-keymap.set('n', '<leader>wh', ':vertical resize -4<CR>', opts)
-keymap.set('n', '<leader>wk', ':resize +7<CR>', opts)
-keymap.set('n', '<leader>wj', ':resize -4<CR>', opts)
-keymap.set('n', '<leader>zi', '<C-W>_ \\| <C-W>\\|<CR>', opts)
-keymap.set('n', '<leader>zo', '<C-W>=<CR>', opts)
+-- keymap.set('n', '<leader>wl', ':vertical resize +7<CR>', opts)
+-- keymap.set('n', '<leader>wh', ':vertical resize -7<CR>', opts)
+-- keymap.set('n', '<leader>wk', ':resize +7<CR>', opts)
+-- keymap.set('n', '<leader>wj', ':resize -7<CR>', opts)
+-- keymap.set('n', '<leader>zi', '<C-W>_ \\| <C-W>\\|<CR>', opts)
+-- keymap.set('n', '<leader>zo', '<C-W>=<CR>', opts)
 
 -- ===================================================================================
 -- Move lines
@@ -45,8 +44,7 @@ keymap.set('v', '<C-u>', ":m '<-2<CR>gv=gv")
 -- keymap.set('n', 't;w', '<C-\\><C-n>', opts)
 -- keymap.set('t', 't;w', '<C-w><C-w>', opts)
 
--- ===================================================================================
--- [Plugin] Floating Terminals
+-- =================================================================================== [Plugin] Floating Terminals
 keymap.set('n', '<leader>tn', ':FloatermNew<CR>', opts)
 keymap.set('n', '<leader>ta', ':FloatermToggle<CR>', opts)
 keymap.set('n', '<leader>td', ':FloatermKill<CR>', opts)
@@ -110,9 +108,7 @@ keymap.set('n', '<leader>lm', builtin.marks, {})
 keymap.set('n', '<leader>lr', builtin.registers, {})
 keymap.set('n', '<leader>lk', builtin.keymaps, {})
 keymap.set('n', '<leader>lf', builtin.current_buffer_fuzzy_find, {})
-keymap.set('n', '<leader>l1', builtin.treesitter, {})
-keymap.set('n', '<leader>l2', builtin.treesitter, {})
-keymap.set('n', '<leader>l3', builtin.treesitter, {})
+-- keymap.set('n', '<leader>l1', builtin.treesitter, {})
 -- keymap.set('n', '<leader>fB', builtin.buffers, {})
 -- keymap.set('n', '<leader>fT', builtin.help_tags, {})
 -- keymap.set('n', '<leader>fq', builtin.quickfix, {})
@@ -150,8 +146,8 @@ keymap.set('n', '<leader>pm', '<Plug>MarkdownPreview', opts)
 -- <leader>ga = Get ASCII, Hex and Octal value
 -- <leader>gp = Open a pull request
 keymap.set('n', '<leader>ga', ':LazyGit<CR>', opts)
-keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>', opts)
-keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>', opts)
+-- keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>', opts)
+-- keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>', opts)
 -- keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>', opts)
 -- keymap.set('n', '<leader>gr', ':Gitsigns reset_hunk<CR>', opts)
 -- keymap.set('n', '<leader>gu', ':Gitsigns undo_stage_hunk<CR>', opts)
@@ -267,23 +263,25 @@ keymap.set('n', '<leader>fp', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
 -- [Plugin] Octo (gh)
 -- https://github.com/pwntester/octo.nvim#%EF%B8%8F-configuration
 -- ===================================================================================
+-- MAPPINGS
+-- ----------------------------------
+-- Issues (issue)
+-- ----------------------------------
+-- >> close, reopen, create, edit, list, search, reload, browser, url
+-- ----------------------------------
+-- Pull Requests (pr)
+-- ----------------------------------
+-- >> list, search, edit, reopen, create, close, checkout, commits, changes, merge
+-- >> ready, checks, reload, browser, url
+-- ----------------------------------
+-- Repository (repo)
+-- ----------------------------------
+-- >> list, fork, browser, url, view
+-- ----------------------------------
+-- Review (review)
+-- ----------------------------------
+-- >> start, submit, resume, discard, comments, commit, close
 keymap.set('n', '<leader>gl', ':Octo issue list<CR>', opts)
 keymap.set('n', '<leader>is', ':Octo issue ', opts)
 keymap.set('n', '<leader>pr', ':Octo pr ', opts)
 keymap.set('n', '<leader>gg', ':Octo review ', opts)
-
--- MAPPINGS
---
--- Issues (issue)
--- >> close, reopen, create, edit, list, search, reload, browser, url
---
--- Pull Requests (pr)
--- >> list, search, edit, reopen, create, close, checkout, commits, changes, merge
--- >> ready, checks, reload, browser, url
---
--- Repository (repo)
--- >> list, fork, browser, url, view
---
--- Review (review)
--- >> start, submit, resume, discard, comments, commit, close
--- ===================================================================================

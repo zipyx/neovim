@@ -48,7 +48,7 @@ packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'               -- File icons
   use 'nvim-telescope/telescope.nvim'              -- Browsing, fuzzy finder etc
   use 'nvim-telescope/telescope-file-browser.nvim' -- File Browser
-  use 'pwntester/octo.nvim'
+  use 'pwntester/octo.nvim'                        -- Github commandline (gh)
   use 'windwp/nvim-autopairs'                      -- Pairs such as quotes and brackers etc
   -- use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'                -- Color and theme related
@@ -85,11 +85,11 @@ packer.startup(function(use)
   -- use 'vimwiki/vimwiki'
 
   -- Neorg
-  use {
-    "nvim-neorg/neorg",
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-  }
+  -- use {
+  --   "nvim-neorg/neorg",
+  --   run = ":Neorg sync-parsers",
+  --   requires = "nvim-lua/plenary.nvim",
+  -- }
 
   -- Pomodoro
   use {
@@ -126,6 +126,7 @@ packer.startup(function(use)
   use 'junegunn/vim-easy-align' -- Aligning text/syntax based on selector
   use 'lotabout/skim'           -- Rust fuzzy finder = blazingly fast
   use 'jbyuki/venn.nvim'        -- Draw ASCII diagrams in vim
+  use 'anuvyklack/hydra.nvim'   -- Heads (keybindings)
 
   -- Fun stuff
   use 'letieu/hacker.nvim'
