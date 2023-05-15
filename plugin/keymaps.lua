@@ -282,6 +282,7 @@ keymap.set('n', '<leader>fp', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
 -- ----------------------------------
 -- >> start, submit, resume, discard, comments, commit, close
 keymap.set('n', '<leader>gl', ':Octo issue list<CR>', opts)
+keymap.set('n', '<leader>gs', ':Octo issue search<CR>', opts)
 keymap.set('n', '<leader>is', ':Octo issue ', opts)
 keymap.set('n', '<leader>pr', ':Octo pr ', opts)
 keymap.set('n', '<leader>gg', ':Octo review ', opts)
