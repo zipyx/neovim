@@ -85,11 +85,11 @@ packer.startup(function(use)
   -- use 'vimwiki/vimwiki'
 
   -- Neorg
-  use {
-    "nvim-neorg/neorg",
-    run = ":Neorg sync-parsers",
-    requires = "nvim-lua/plenary.nvim",
-  }
+  -- use {
+  --   "nvim-neorg/neorg",
+  --   run = ":Neorg sync-parsers",
+  --   requires = "nvim-lua/plenary.nvim",
+  -- }
 
   -- Pomodoro
   use {
