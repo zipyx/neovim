@@ -99,7 +99,7 @@ local opt_gitsigns = layer({
     { mode_n, 't', gitsigns.toggle_current_line_blame, opts_nowait },
   },
   exit = {
-    { mode_n, 'q' }
+    { mode_n, 'i' }
   },
   config = {
     on_enter = function()
