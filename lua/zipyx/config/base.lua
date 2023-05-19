@@ -38,6 +38,7 @@ vim.opt.showcmd = true
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.wrap = false -- No Wrap lines
 vim.wo.number = true
+-- vim.opt.ttymouse = 'sgr'
 
 
 -- Folding ==============================================================================
