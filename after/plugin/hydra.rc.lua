@@ -3,12 +3,14 @@ local status, hydra = pcall(require, "hydra")
 local status_layer, layer = pcall(require, "hydra.layer")
 local status_builtin, builtin = pcall(require, "telescope.builtin")
 local status_gitsigns, gitsigns = pcall(require, "gitsigns")
+local status_bufmove, bufmove = pcall(require, "bufMov")
 
 -- status
 if (not status) then return end
 if (not status_layer) then return end
 if (not status_builtin) then return end
 if (not status_gitsigns) then return end
+if (not status_bufmove) then return end
 
 -- options / states
 local opts = { noremap = true, silent = true }
@@ -21,6 +23,8 @@ local mode_n = 'n'
 local mode_v = 'v'
 local mode_x = 'x'
 local mode_m = { 'n', 'x' }
+
+-- Side scrolling
 local opt_side_scroll = layer({
   enter = {
     { mode_m, 'zl', 'zl', opts },
@@ -50,6 +54,7 @@ local opt_side_scroll = layer({
   }
 })
 
+-- Resize buffer
 local opt_resize_buffer = layer({
   enter = {
     { mode_n, '<leader>wl', ':vertical resize +7<CR>', opts_nowait },
@@ -82,6 +87,9 @@ local opt_resize_buffer = layer({
   }
 })
 
+-- ===================================================================================
+-- [Plugin] Moving window buffers
+-- Rearrange buffers in current window
 local opt_gitsigns = layer({
   enter = {
     { mode_n, '<leader>gg' },
@@ -111,88 +119,31 @@ local opt_gitsigns = layer({
   }
 })
 
--- local v_himalaya = layer({
---   enter = {
---     { mode_m, '<leader>mw', '<Plug>(himalaya-email-write)',                opts }, -- Write email
---     { mode_m, '<leader>mr', '<Plug>(himalaya-email-reply)',                opts }, -- Reply email
---     { mode_m, '<leader>mR', '<Plug>(himalaya-email-reply-all)',            opts }, -- Reply all email
---     { mode_m, '<leader>mf', '<Plug>(himalaya-email-forward)',              opts }, -- Forward email
---     { mode_m, '<leader>ma', '<Plug>(himalaya-email-add-attachment)',       opts }, -- Add attachment to email
---     { mode_m, '<leader>md', '<Plug>(himalaya-email-download-attachments)', opts }, -- Download all attachments of email under cursor
---     { mode_m, '<leader>mC', '<Plug>(himalaya-email-copy)',                 opts }, -- Copy email
---     { mode_m, '<leader>mM', '<Plug>(himalaya-email-move)',                 opts }, -- Move email
---     { mode_m, '<leader>mD', '<Plug>(himalaya-email-delete)',               opts }  -- Delete email
---   },
-
---   layer = {
---     { mode_m, 'w', '<Plug>(himalaya-email-write)',                opts }, -- Write email
---     { mode_m, 'r', '<Plug>(himalaya-email-reply)',                opts }, -- Reply email
---     { mode_m, 'R', '<Plug>(himalaya-email-reply-all)',            opts }, -- Reply all email
---     { mode_m, 'f', '<Plug>(himalaya-email-forward)',              opts }, -- Forward email
---     { mode_m, 'a', '<Plug>(himalaya-email-add-attachment)',       opts }, -- Add attachment to email
---     { mode_m, 'd', '<Plug>(himalaya-email-download-attachments)', opts }, -- Download all attachments of email under cursor
---     { mode_m, 'C', '<Plug>(himalaya-email-copy)',                 opts }, -- Copy email
---     { mode_m, 'M', '<Plug>(himalaya-email-move)',                 opts }, -- Move email
---     { mode_m, 'D', '<Plug>(himalaya-email-delete)',               opts }  -- Delete email
---   },
-
---   exit = {
---     { mode_m, 'q' }
---   },
---   config = {
---     on_enter = function()
---       print("enter-layer...")
---       vim.bo.modifiable = false
---     end,
---     on_exit = function() print("exit layer...") end,
---     timeout = 3000, --milliseconds
---   }
--- })
-
--- local opt_navigation = layer({
---   enter = {
---     { mode_n, '<leader>ls', builtin.find_files,                                   opts_nowait },
---     { mode_n, '<leader>lL', builtin.live_grep,                                    opts_nowait },
---     { mode_n, '<leader>lm', builtin.marks,                                        opts_nowait },
---     { mode_n, '<leader>lr', builtin.registers,                                    opts_nowait },
---     { mode_n, '<leader>lk', builtin.keymaps,                                      opts_nowait },
---     { mode_n, '<leader>lf', builtin.current_buffer_fuzzy_find,                    opts_nowait },
---     { mode_n, '<leader>l1', builtin.treesitter,                                   opts_nowait },
---     { mode_n, '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts_nowait },
---     -- { mode_n, '<leader>la', ':lua require("harpoon.mark").add_file()<CR>',        opts_nowait },
---     { mode_n, '<leader>lj', ':lua require("harpoon.ui").nav_next()<CR>',          opts_nowait },
---     { mode_n, '<leader>lk', ':lua require("harpoon.ui").nav_prev()<CR>',          opts_nowait },
---     { mode_n, '<leader>lg', ':Octo issue list<CR>',                               opts_nowait },
---   },
-
---   layer = {
---     { mode_n, 's', builtin.find_files,                                   opts_nowait },
---     { mode_n, 'L', builtin.live_grep,                                    opts_nowait },
---     { mode_n, 'm', builtin.marks,                                        opts_nowait },
---     { mode_n, 'r', builtin.registers,                                    opts_nowait },
---     { mode_n, 'k', builtin.keymaps,                                      opts_nowait },
---     { mode_n, 'f', builtin.current_buffer_fuzzy_find,                    opts_nowait },
---     { mode_n, '1', builtin.treesitter,                                   opts_nowait },
---     { mode_n, 'l', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts_nowait },
---     -- { mode_n, 'a', ':lua require("harpoon.mark").add_file()<CR>',        opts_nowait },
---     { mode_n, 'j', ':lua require("harpoon.ui").nav_next()<CR>',          opts_nowait },
---     { mode_n, 'k', ':lua require("harpoon.ui").nav_prev()<CR>',          opts_nowait },
---     { mode_n, 'g', ':Octo issue list<CR>',                               opts_nowait },
---   },
-
---   exit = {
---     { mode_n, 'i' }
---   },
---   config = {
---     on_enter = function()
---       print("enter-layer...")
---       vim.bo.modifiable = true
---     end,
---     on_exit = function() print("exit layer...") end,
---     timeout = 3000, --milliseconds
---   }
-
--- })
+-- ===================================================================================
+-- [Plugin] Moving window buffers
+-- Rearrange buffers in current window
+local opt_buffmover = layer({
+  enter = {
+    { mode_n, 'mb' },
+  },
+  layer = {
+    { mode_n, 'j', "<cmd>lua require('bufMov').movBuf('down')<CR>",  opts_nowait },
+    { mode_n, 'k', "<cmd>lua require('bufMov').movBuf('up')<CR>",    opts_nowait },
+    { mode_n, 'h', "<cmd>lua require('bufMov').movBuf('left')<CR>",  opts_nowait },
+    { mode_n, 'l', "<cmd>lua require('bufMov').movBuf('right')<CR>", opts_nowait },
+  },
+  exit = {
+    { mode_n, 'i' }
+  },
+  config = {
+    on_enter = function()
+      print("enter-layer-buffmover")
+      vim.bo.modifiable = false
+    end,
+    on_exit = function() print("exit-layer-buffmover") end,
+    timeout = 3000, --milliseconds
+  }
+})
 
 -- -- ===================================================================================
 -- -- ===================================================================================

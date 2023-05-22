@@ -113,6 +113,7 @@ packer.startup(function(use)
 
   -- Code runner within neovim
   use 'CRAG666/code_runner.nvim'
+  use 'CRAG666/betterTerm.nvim'
 
   -- Email Client based on Himalaya CLI installation
   use 'https://git.sr.ht/~soywod/himalaya-vim'
@@ -127,11 +128,14 @@ packer.startup(function(use)
   use 'lotabout/skim'           -- Rust fuzzy finder = blazingly fast
   use 'jbyuki/venn.nvim'        -- Draw ASCII diagrams in vim
   use 'anuvyklack/hydra.nvim'   -- Heads (keybindings)
-  -- use 'edluffy/hologram.nvim'   -- Visualize images in (n)vim (breaking)
+  use 'edluffy/hologram.nvim'   -- Visualize images in (n)vim (breaking)
 
   -- Fun stuff
   use 'letieu/hacker.nvim'
 
   -- Navigating just the immediate working files in a project
   use 'ThePrimeagen/harpoon'
+
+  -- Navigating vim panes with kitty
+  use 'knubie/vim-kitty-navigator'
 end)
