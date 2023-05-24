@@ -39,22 +39,23 @@ keymap.set('v', '<C-u>', ":m '<-2<CR>gv=gv")
 
 -- ===================================================================================
 -- Open & exit terminal mode
+-- toggle firts term
 -- keymap.set('n', 'term', ':terminal<CR>', opts)
 -- keymap.set('n', 'vterm', ':terminal<CR>', opts)
 -- keymap.set('n', 't;w', '<C-\\><C-n>', opts)
 -- keymap.set('t', 't;w', '<C-w><C-w>', opts)
 
 -- =================================================================================== [Plugin] Floating Terminals
-keymap.set('n', '<leader>tn', ':FloatermNew<CR>', opts)
-keymap.set('n', '<leader>ta', ':FloatermToggle<CR>', opts)
-keymap.set('n', '<leader>td', ':FloatermKill<CR>', opts)
-keymap.set('n', '<leader>tk', ':FloatermNext<CR>', opts)
-keymap.set('n', '<leader>tj', ':FloatermPrev<CR>', opts)
-keymap.set('t', '<leader>tn', '<C-\\><C-n>:FloatermNew<CR>', opts)
-keymap.set('t', '<leader>ta', '<C-\\><C-n>:FloatermToggle<CR>', opts)
-keymap.set('t', '<leader>td', '<C-\\><C-n>:FloatermKill<CR>', opts)
-keymap.set('t', '<leader>tk', '<C-\\><C-n>:FloatermNext<CR>', opts)
-keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>', opts)
+-- keymap.set('n', '<leader>tn', ':FloatermNew<CR>', opts)
+keymap.set({ 'n', 't' }, '<leader>tT', ':FloatermToggle<CR>', opts)
+keymap.set({ 'n', 't' }, '<leader>td', ':FloatermKill<CR>', opts)
+-- keymap.set('n', '<leader>tk', ':FloatermNext<CR>', opts)
+-- keymap.set('n', '<leader>tj', ':FloatermPrev<CR>', opts)
+-- keymap.set('t', '<leader>tn', '<C-\\><C-n>:FloatermNew<CR>', opts)
+-- keymap.set('t', '<leader>ta', '<C-\\><C-n>:FloatermToggle<CR>', opts)
+-- keymap.set('t', '<leader>td', '<C-\\><C-n>:FloatermKill<CR>', opts)
+-- keymap.set('t', '<leader>tk', '<C-\\><C-n>:FloatermNext<CR>', opts)
+-- keymap.set('t', '<leader>tj', '<C-\\><C-n>:FloatermPrev<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Himalaya (Email) using floating terminal
@@ -90,10 +91,10 @@ keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Moving window buffers
-keymap.set('n', '<C-j>', "<cmd>lua require('bufMov', opts).movBuf('down', opts)<CR>", opts)
-keymap.set('n', '<C-k>', ':MoveBufferUp<CR>', opts)
-keymap.set('n', '<C-h>', ':MoveBufferLeft<CR>', opts)
-keymap.set('n', '<C-l>', ':MoveBufferRight<CR>', opts)
+-- keymap.set('n', '<C-j>', "<cmd>lua require('bufMov', opts).movBuf('down', opts)<CR>", opts)
+-- keymap.set('n', '<C-k>', ':MoveBufferUp<CR>', opts)
+-- keymap.set('n', '<C-h>', ':MoveBufferLeft<CR>', opts)
+-- keymap.set('n', '<C-l>', ':MoveBufferRight<CR>', opts)
 -- Other helpful window buffer tips
 -- mA = Mark window buffer with A
 -- mB = Mark window buffer with B
@@ -123,10 +124,8 @@ keymap.set('n', '<leader>lf', builtin.current_buffer_fuzzy_find, {})
 
 -- ===================================================================================
 -- [Plugin] Commenting stuff out
-keymap.set('n', '<leader>;;', '<Plug>Commentary', opts)
+keymap.set({ 'n', 'x', 'o' }, '<leader>;;', '<Plug>Commentary', opts)
 keymap.set('n', '<leader>;;', '<Plug>CommentaryLine', opts)
-keymap.set('x', '<leader>;;', '<Plug>Commentary', opts)
-keymap.set('o', '<leader>;;', '<Plug>Commentary', opts)
 
 -- ===================================================================================
 -- [Plugin] Highlighting words with colors
@@ -135,7 +134,7 @@ keymap.set('n', '<leader>ho', ':lua require"mywords".uhl_all()<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Markdown preview
-keymap.set('n', '<leader>pm', '<Plug>MarkdownPreview', opts)
+keymap.set('n', '<leader>ov', '<Plug>MarkdownPreview', opts)
 -- keymap.set('n', '<leader>pm', '<Plug>MarkdownPreviewStop', opts)
 -- keymap.set('n', '<leader>mpt', '<Plug>MarkdownPreviewToggle', opts)
 
@@ -168,9 +167,22 @@ keymap.set('n', '<leader>od', ':DBUIToggle<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Code runner
-keymap.set('n', '<leader>el', ':RunCode<CR>', opts)
-keymap.set('v', '<leader>el', ':RunCode<CR>', opts)
-keymap.set('n', '<leader>ef', ':RunFile<CR>', opts)
+-- use the best keymap for you
+-- change 1 for other terminal id
+-- Change "get_filetype_command()" to "get_project_command().command" for running projects
+
+-- keymap.set("n", "<leader>el", function()
+--   require("betterTerm").send(require("code_runner.commands").get_filetype_command(), 1,
+--     { clean = false, interrupt = true }, opts)
+-- end, { desc = "Excute File" })
+-- keymap.set("v", "<leader>el", function()
+--   require("betterTerm").send(require("code_runner.commands").get_filetype_command(), 1,
+--     { clean = false, interrupt = true })
+-- end, { desc = "Excute File" }, opts)
+
+-- keymap.set('n', '<leader>el', ':RunCode<CR>', opts)
+-- keymap.set('v', '<leader>el', ':RunCode<CR>', opts)
+-- keymap.set('n', '<leader>ef', ':RunFile<CR>', opts)
 -- keymap.set('n', '<leader>et', ':RunFile tab<CR>', opts)
 -- keymap.set('n', '<leader>ep', ':RunProject<CR>', opts)
 -- keymap.set('n', '<leader>eq', ':RunClose<CR>', opts)
@@ -202,8 +214,7 @@ keymap.set('n', '<leader>sp', ':ScratchPreview<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] EasyAlign
-keymap.set('n', '<leader>ea', ':LiveEasyAlign<CR>', opts)
-keymap.set('x', '<leader>ea', ':LiveEasyAlign<CR>', opts)
+keymap.set({ 'n', 'x' }, '<leader>ea', ':LiveEasyAlign<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Neorg
@@ -256,8 +267,8 @@ keymap.set('n', '<leader>sk', ':SK<CR>', opts)
 -- [Plugin] Harpoon
 keymap.set('n', '<leader>la', ':lua require("harpoon.mark").add_file()<CR>', opts)
 keymap.set('n', '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
-keymap.set('n', '<leader>fn', ':lua require("harpoon.ui").nav_next()<CR>', opts)
-keymap.set('n', '<leader>fp', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
+keymap.set('n', '<S-n>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
+keymap.set('n', '<S-p>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Octo (gh)
