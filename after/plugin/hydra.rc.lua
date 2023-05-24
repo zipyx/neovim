@@ -5,6 +5,8 @@ local status_builtin, builtin = pcall(require, "telescope.builtin")
 local status_gitsigns, gitsigns = pcall(require, "gitsigns")
 local status_bufmove, bufmove = pcall(require, "bufMov")
 
+-- TODO: add a layer for telescope
+
 -- status
 if (not status) then return end
 if (not status_layer) then return end
@@ -20,28 +22,26 @@ local state = { exit = true }
 -- https://github.com/anuvyklack/hydra.nvim/tree/master/lua/hydra/layer
 -- table = { mode, key, command, opts }
 local mode_n = 'n'
-local mode_v = 'v'
-local mode_x = 'x'
-local mode_m = { 'n', 'x' }
+local mode_nx = { 'n', 'x' }
 
 -- Side scrolling
 local opt_side_scroll = layer({
   enter = {
-    { mode_m, 'zl', 'zl', opts },
-    { mode_m, 'zh', 'zh', opts },
-    { mode_m, 'zH', 'zH', opts },
-    { mode_m, 'zL', 'zL', opts }
+    { mode_nx, 'zl', 'zl', opts },
+    { mode_nx, 'zh', 'zh', opts },
+    { mode_nx, 'zH', 'zH', opts },
+    { mode_nx, 'zL', 'zL', opts }
   },
 
   layer = {
-    { mode_m, 'l', '5zl', opts },
-    { mode_m, 'h', '5zh', opts },
-    { mode_m, 'H', 'zH',  opts },
-    { mode_m, 'L', 'zL',  opts }
+    { mode_nx, 'l', '5zl', opts },
+    { mode_nx, 'h', '5zh', opts },
+    { mode_nx, 'H', 'zH',  opts },
+    { mode_nx, 'L', 'zL',  opts }
   },
 
   exit = {
-    { mode_m, 'i' }
+    { mode_nx, 'i' }
   },
 
   config = {
@@ -142,6 +142,32 @@ local opt_buffmover = layer({
     end,
     on_exit = function() print("exit-layer-buffmover") end,
     timeout = 3000, --milliseconds
+  }
+})
+
+-- ===================================================================================
+-- [Plugin] Executing code
+-- Rearrange buffers in current window
+local opt_code_execution = layer({
+  enter = {
+    { mode_n, '<leader>e' },
+  },
+  layer = {
+    { mode_n, 'l',  ":RunCode<CR>",     opts_nowait },
+    { mode_n, 'f',  ":TestFile<CR>",    opts },
+    { mode_n, 'fa', ":TestSuite<CR>",   opts_nowait },
+    { mode_n, 'fn', ":TestNearest<CR>", opts_nowait },
+  },
+  exit = {
+    { mode_n, 'i' }
+  },
+  config = {
+    on_enter = function()
+      print("enter-layer-code-execution")
+      vim.bo.modifiable = false
+    end,
+    on_exit = function() print("exit-layer-code-execution") end,
+    timeout = 6000, --milliseconds
   }
 })
 

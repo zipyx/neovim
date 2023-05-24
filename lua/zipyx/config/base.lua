@@ -27,7 +27,6 @@ vim.opt.smarttab = true
 vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
 
-
 -- UI ===================================================================================
 --vim.opt.shell = 'fish'
 vim.opt.backspace = { 'start', 'eol', 'indent' }
@@ -39,7 +38,6 @@ vim.opt.wildignore:append { '*/node_modules/*' }
 vim.opt.wrap = false -- No Wrap lines
 vim.wo.number = true
 -- vim.opt.ttymouse = 'sgr'
-
 
 -- Folding ==============================================================================
 -- vim.o.foldmethod = 'nested'

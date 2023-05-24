@@ -180,8 +180,8 @@ keymap.set('n', '<leader>od', ':DBUIToggle<CR>', opts)
 --     { clean = false, interrupt = true })
 -- end, { desc = "Excute File" }, opts)
 
-keymap.set('n', '<leader>el', ':RunCode<CR>', opts)
-keymap.set('v', '<leader>el', ':RunCode<CR>', opts)
+-- keymap.set('n', '<leader>el', ':RunCode<CR>', opts)
+-- keymap.set('v', '<leader>el', ':RunCode<CR>', opts)
 -- keymap.set('n', '<leader>ef', ':RunFile<CR>', opts)
 -- keymap.set('n', '<leader>et', ':RunFile tab<CR>', opts)
 -- keymap.set('n', '<leader>ep', ':RunProject<CR>', opts)
@@ -267,8 +267,8 @@ keymap.set('n', '<leader>sk', ':SK<CR>', opts)
 -- [Plugin] Harpoon
 keymap.set('n', '<leader>la', ':lua require("harpoon.mark").add_file()<CR>', opts)
 keymap.set('n', '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
-keymap.set('n', '<S-j>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
-keymap.set('n', '<S-k>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
+keymap.set('n', '<S-n>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
+keymap.set('n', '<S-p>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Octo (gh)

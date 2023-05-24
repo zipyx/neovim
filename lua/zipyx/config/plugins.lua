@@ -12,8 +12,10 @@ packer.startup(function(use)
     'svrana/neosolarized.nvim',
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
-  use 'nvim-lualine/lualine.nvim'         -- Statusline
+  -- Using packer
+  use { 'redbug312/cactusbuddy', requires = 'tjdevries/colorbuddy.vim' }
   use 'nvim-lua/plenary.nvim'             -- Common utilities
+  use 'nvim-lualine/lualine.nvim'         -- Statusline
   use 'onsails/lspkind-nvim'              -- Vscode-like pictograms
   use 'hrsh7th/cmp-buffer'                -- nvim-cmp source for buffer words
   use 'hrsh7th/cmp-nvim-lsp'              -- nvim-cmp source for neovim's built-in LSP
@@ -52,6 +54,7 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'                      -- Pairs such as quotes and brackers etc
   -- use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'                -- Color and theme related
+  use 'wojciechkepka/vim-github-dark'              -- Github dark theme
   -- use 'folke/zen-mode.nvim'
   use 'Pocco81/TrueZen.nvim'
   use({
@@ -73,8 +76,8 @@ packer.startup(function(use)
     'kristijanhusak/vim-dadbod-completion'
   } }
 
-  -- Running unit tests for javascript / typescript
-  use 'David-Kunz/jester'
+  -- Running tests
+  use 'vim-test/vim-test'
 
   -- Highlighting words
   use 'dwrdx/mywords.nvim'
@@ -102,6 +105,7 @@ packer.startup(function(use)
 
   -- Floating terminals
   use 'voldikss/vim-floaterm'
+
   -- Moving window buffers
   use 'c60cb859/bufMov.nvim'
 
@@ -122,13 +126,14 @@ packer.startup(function(use)
   use 'NTBBloodbath/rest.nvim'
 
   -- Vim utilties
-  use 'tpope/vim-commentary'    -- Commenting stuff out
-  use 'tpope/vim-surround'      -- Wrapping text with quotes, brackets etc
-  use 'junegunn/vim-easy-align' -- Aligning text/syntax based on selector
-  use 'lotabout/skim'           -- Rust fuzzy finder = blazingly fast
-  use 'jbyuki/venn.nvim'        -- Draw ASCII diagrams in vim
-  use 'anuvyklack/hydra.nvim'   -- Heads (keybindings)
-  use 'edluffy/hologram.nvim'   -- Visualize images in (n)vim (breaking)
+  use 'tpope/vim-commentary'     -- Commenting stuff out
+  use 'tpope/vim-surround'       -- Wrapping text with quotes, brackets etc
+  use 'junegunn/vim-easy-align'  -- Aligning text/syntax based on selector
+  use 'lotabout/skim'            -- Rust fuzzy finder = blazingly fast
+  use 'jbyuki/venn.nvim'         -- Draw ASCII diagrams in vim
+  use 'anuvyklack/hydra.nvim'    -- Heads (keybindings)
+  use 'edluffy/hologram.nvim'    -- TODO Visualize images in (n)vim (breaking)
+  use 'folke/todo-comments.nvim' -- TODO comments
 
   -- Fun stuff
   use 'letieu/hacker.nvim'
@@ -138,4 +143,14 @@ packer.startup(function(use)
 
   -- Navigating vim panes with kitty
   use 'knubie/vim-kitty-navigator'
+
+  use 'Lilja/zellij.nvim'
+
+  -- Resizing buffers automatically
+  -- use { "anuvyklack/windows.nvim",
+  --   requires = "anuvyklack/middleclass",
+  --   config = function()
+  --     require('windows').setup()
+  --   end
+  -- }
 end)
