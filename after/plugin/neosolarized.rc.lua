@@ -13,7 +13,8 @@ local groups = cb.groups
 local styles = cb.styles
 
 Color.new('black', '#000000')
-Color.new('raisin_black', '#212738')
+-- Color.new('raisin_black', '#212738')
+Color.new('raisin_black', '#242936')
 Color.new('rust', '#A54242')
 Color.new('hub', '#0D1117')
 -- Group.new('CursorLine', colors.none, colors.base03, styles.NONE, colors.base1)

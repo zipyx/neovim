@@ -143,14 +143,4 @@ packer.startup(function(use)
 
   -- Navigating vim panes with kitty
   use 'knubie/vim-kitty-navigator'
-
-  use 'Lilja/zellij.nvim'
-
-  -- Resizing buffers automatically
-  -- use { "anuvyklack/windows.nvim",
-  --   requires = "anuvyklack/middleclass",
-  --   config = function()
-  --     require('windows').setup()
-  --   end
-  -- }
 end)
