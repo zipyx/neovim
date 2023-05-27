@@ -10,7 +10,18 @@ local opts = { noremap = true, silent = true }
 keymap.set({ "n", "t" }, "<leader>ta", better_term.open, { desc = "Open terminal" })
 
 -- Select term focus
-keymap.set({ "n", "t" }, "<leader>tn", better_term.select, { desc = "Select terminal" })
+keymap.set({ "n", "t" }, "<leader>ts", better_term.select, { desc = "Select terminal" })
+
+-- Create new term
+local current = 2
+vim.keymap.set(
+  { "n" }, "<leader>tn",
+  function()
+    better_term.open(current)
+    current = current + 1
+  end,
+  { desc = "New terminal" }
+)
 
 -- setup
 better_term.setup({

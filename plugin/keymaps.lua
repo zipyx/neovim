@@ -269,6 +269,7 @@ keymap.set('n', '<leader>la', ':lua require("harpoon.mark").add_file()<CR>', opt
 keymap.set('n', '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 keymap.set('n', '<S-n>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
 keymap.set('n', '<S-p>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
+keymap.set('n', '<leader>lt', ':lua require("harpoon.ui").gotoTerminal(1)<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Octo (gh)
