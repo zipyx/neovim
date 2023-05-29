@@ -167,7 +167,7 @@ local opt_code_execution = layer({
       vim.bo.modifiable = false
     end,
     on_exit = function() print("exit-layer-code-execution") end,
-    timeout = 6000, --milliseconds
+    timeout = 100, --milliseconds
   }
 })
 
