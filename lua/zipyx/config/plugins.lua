@@ -104,15 +104,16 @@ packer.startup(function(use)
   use 'mtth/scratch.vim'
 
   -- Floating terminals
-  use 'voldikss/vim-floaterm'
+  -- use 'voldikss/vim-floaterm'
 
   -- Moving window buffers
   use 'c60cb859/bufMov.nvim'
 
   -- Git
-  use 'tpope/vim-fugitive'      -- Git actions
+  -- use 'tpope/vim-fugitive'      -- Git actions
+  use 'TimUntersberger/neogit'  -- Git actions
   use 'lewis6991/gitsigns.nvim' -- Git signs along lines
-  use 'dinhhuy258/git.nvim'     -- Git blame and browse
+  -- use 'dinhhuy258/git.nvim'     -- Git blame and browse
   use 'kdheepak/lazygit.nvim'   -- Floating git window with actions
 
   -- Code runner within neovim
