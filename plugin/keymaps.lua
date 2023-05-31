@@ -144,7 +144,7 @@ keymap.set('n', '<leader>ov', '<Plug>MarkdownPreview', opts)
 -- <leader>gn = Creates a merge request
 -- <leader>ga = Get ASCII, Hex and Octal value
 -- <leader>gp = Open a pull request
-keymap.set('n', '<leader>ga', ':LazyGit<CR>', opts)
+keymap.set('n', '<leader>ga', ':Neogit<CR>', opts)
 -- keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>', opts)
 -- keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>', opts)
 -- keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>', opts)
