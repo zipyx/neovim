@@ -133,7 +133,7 @@ packer.startup(function(use)
   use 'lotabout/skim'            -- Rust fuzzy finder = blazingly fast
   use 'jbyuki/venn.nvim'         -- Draw ASCII diagrams in vim
   use 'anuvyklack/hydra.nvim'    -- Heads (keybindings)
-  use 'edluffy/hologram.nvim'    -- TODO Visualize images in (n)vim (breaking)
+  -- use 'edluffy/hologram.nvim'    -- TODO Visualize images in (n)vim (breaking)
   use 'folke/todo-comments.nvim' -- TODO comments
 
   -- Fun stuff

@@ -5,8 +5,6 @@ local status_builtin, builtin = pcall(require, "telescope.builtin")
 local status_gitsigns, gitsigns = pcall(require, "gitsigns")
 local status_bufmove, bufmove = pcall(require, "bufMov")
 
--- TODO: add a layer for telescope
-
 -- status
 if (not status) then return end
 if (not status_layer) then return end

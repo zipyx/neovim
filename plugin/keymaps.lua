@@ -256,7 +256,8 @@ keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_confi
 
 -- ===================================================================================
 -- [Terminal] Taskwarrior-tui
-keymap.set('n', '<leader>ty', '40jVG', opts)
+-- keymap.set('n', '<leader>ty', '40jVG', opts)
+keymap.set('n', '<leader>ty', '40jV/#<CR>ky:noh<CR>', opts)
 
 -- ===================================================================================
 -- [Terminal] Gitui
@@ -269,7 +270,23 @@ keymap.set('n', '<leader>la', ':lua require("harpoon.mark").add_file()<CR>', opt
 keymap.set('n', '<leader>ll', ':lua require("harpoon.ui").toggle_quick_menu()<CR>', opts)
 keymap.set('n', '<S-l>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
 keymap.set('n', '<S-h>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
-keymap.set('n', '<leader>lt', ':lua require("harpoon.ui").gotoTerminal(1)<CR>', opts)
+
+-- ===================================================================================
+-- [Plugin] Todo-comments
+keymap.set('n', '<leader>lt', ':TodoTelescope<CR>', opts)
+keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
+
+-- You can also specify a list of valid jump keywords
+-- keymap.set("n", "]t", function()
+--   require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
+-- end, { desc = "Next error/warning todo comment" })
+
 
 -- ===================================================================================
 -- [Plugin] Octo (gh)
@@ -297,4 +314,4 @@ keymap.set('n', '<leader>gl', ':Octo issue list<CR>', opts)
 keymap.set('n', '<leader>gs', ':Octo issue search<CR>', opts)
 keymap.set('n', '<leader>is', ':Octo issue ', opts)
 keymap.set('n', '<leader>pr', ':Octo pr ', opts)
-keymap.set('n', '<leader>gg', ':Octo review ', opts)
+keymap.set('n', '<leader>re', ':Octo review ', opts)

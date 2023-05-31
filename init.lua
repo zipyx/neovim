@@ -1,6 +1,26 @@
 -- Requires: zipyx directory
 require('zipyx')
 
+-- WARNING: make sure you don't delete this file, it is used to structure
+-- PERF: this needs to be resolved asap to improve performance on this problem
+-- BUG: I'm not sure what's going on here but it could be improved
+-- HACK: see what happens here
+-- FIXME: this is a problem that needs to be fixed
+-- NOTE: might need to check up on this in the future as this relates to a lot of issues
+-- FIXIT: this is a problem that needs to be fixed
+-- TODO: revisit this for the future incase something happens like this
+-- PASSED: this test has passed
+-- PERF: yolo
+-- XXX: not sure what to put here
+-- FAILED: this is what failing looks like
+-- TEST: see what happens here
+-- INFO: try doing something here
+-- TEST: what do we do here
+-- PERF: and what about this one?
+-- INFO: what is going on here
+-- INFO: what can I do here
+-- INFO: test somethign here so that we can check if it works
+
 -- Structure:
 -- The below is a structure outlining the init files that connect to the
 -- rest of the repository. The init files are used to structure this project.
