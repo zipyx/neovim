@@ -113,7 +113,6 @@ packer.startup(function(use)
   -- use 'tpope/vim-fugitive'      -- Git actions
   use 'TimUntersberger/neogit'  -- Git actions
   use 'lewis6991/gitsigns.nvim' -- Git signs along lines
-  -- use 'dinhhuy258/git.nvim'     -- Git blame and browse
   use 'kdheepak/lazygit.nvim'   -- Floating git window with actions
 
   -- Code runner within neovim
@@ -133,7 +132,6 @@ packer.startup(function(use)
   use 'lotabout/skim'            -- Rust fuzzy finder = blazingly fast
   use 'jbyuki/venn.nvim'         -- Draw ASCII diagrams in vim
   use 'anuvyklack/hydra.nvim'    -- Heads (keybindings)
-  -- use 'edluffy/hologram.nvim'    -- TODO Visualize images in (n)vim (breaking)
   use 'folke/todo-comments.nvim' -- TODO comments
 
   -- Fun stuff
