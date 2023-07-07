@@ -111,7 +111,8 @@ packer.startup(function(use)
 
   -- Git
   -- use 'tpope/vim-fugitive'      -- Git actions
-  use 'TimUntersberger/neogit'  -- Git actions
+  -- use 'TimUntersberger/neogit'  -- Git actions
+  use 'NeogitOrg/neogit'        -- Git actions
   use 'lewis6991/gitsigns.nvim' -- Git signs along lines
   use 'kdheepak/lazygit.nvim'   -- Floating git window with actions
 

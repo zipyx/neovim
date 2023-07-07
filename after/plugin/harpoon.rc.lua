@@ -1,7 +1,11 @@
 local status, harpoon = pcall(require, "harpoon")
 if (not status) then return end
 
-harpoon.setup {}
+harpoon.setup {
+  menu = {
+    width = vim.api.nvim_win_get_width(0) - 40,
+  }
+}
 
 vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#63698c')
 vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
