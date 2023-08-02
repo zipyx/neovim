@@ -134,6 +134,7 @@ packer.startup(function(use)
   use 'jbyuki/venn.nvim'         -- Draw ASCII diagrams in vim
   use 'anuvyklack/hydra.nvim'    -- Heads (keybindings)
   use 'folke/todo-comments.nvim' -- TODO comments
+  use 'lervag/vimtex'            -- Latex support
 
   -- Fun stuff
   use 'letieu/hacker.nvim'
