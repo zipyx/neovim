@@ -130,7 +130,6 @@ nvim_lsp.html.setup {
 }
 
 nvim_lsp.jsonls.setup {
-  -- filetypes = { "json" },
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -222,10 +221,10 @@ nvim_lsp.spectral.setup {
 -- Setting up SQL language server, works but
 -- callback causing issue to always print
 -- ###########################################
-nvim_lsp.sqlls.setup {
-  on_attach = on_attach,
-  capabilities = capabilities
-}
+-- nvim_lsp.sqlls.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities
+-- }
 
 nvim_lsp.tailwindcss.setup {
   on_attach = on_attach,
@@ -269,6 +268,11 @@ nvim_lsp.yamlls.setup {
 }
 
 nvim_lsp.zls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.texlab.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
