@@ -98,6 +98,11 @@ nvim_lsp.dockerls.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.docker_compose_language_service.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp.eslint.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -183,12 +188,27 @@ nvim_lsp.marksman.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.nil_ls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.ocamllsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 local omnisharp_bin = "/usr/bin/omnisharp"
 -- local omnisharp_mason = "~/.local/share/nvim/mason/bin/omnisharp"
 nvim_lsp.omnisharp.setup {
   on_attach = on_attach,
   filetypes = { "cs", "vb" },
   cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+  capabilities = capabilities,
+}
+
+nvim_lsp.powershell_es.setup {
+  on_attach = on_attach,
   capabilities = capabilities,
 }
 
@@ -202,7 +222,7 @@ nvim_lsp.pyright.setup {
   capabilities = capabilities,
 }
 
-nvim_lsp.quick_lint_js.setup {
+nvim_lsp.r_language_server.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
@@ -225,6 +245,10 @@ nvim_lsp.spectral.setup {
 --   on_attach = on_attach,
 --   capabilities = capabilities
 -- }
+nvim_lsp.sqls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 nvim_lsp.tailwindcss.setup {
   on_attach = on_attach,
@@ -237,6 +261,11 @@ nvim_lsp.taplo.setup {
 }
 
 nvim_lsp.terraformls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+nvim_lsp.texlab.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
@@ -267,12 +296,12 @@ nvim_lsp.yamlls.setup {
   }
 }
 
-nvim_lsp.zls.setup {
+nvim_lsp.volar.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-nvim_lsp.texlab.setup {
+nvim_lsp.zls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
