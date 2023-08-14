@@ -193,11 +193,6 @@ nvim_lsp.nil_ls.setup {
   capabilities = capabilities,
 }
 
-nvim_lsp.ocamllsp.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
 local omnisharp_bin = "/usr/bin/omnisharp"
 -- local omnisharp_mason = "~/.local/share/nvim/mason/bin/omnisharp"
 nvim_lsp.omnisharp.setup {
@@ -241,13 +236,14 @@ nvim_lsp.spectral.setup {
 -- Setting up SQL language server, works but
 -- callback causing issue to always print
 -- ###########################################
--- nvim_lsp.sqlls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities
--- }
-nvim_lsp.sqls.setup {
+nvim_lsp.sqlls.setup {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
+}
+
+nvim_lsp.svelte.setup {
+  on_attach = on_attach,
+  capabilities = capabilities
 }
 
 nvim_lsp.tailwindcss.setup {
