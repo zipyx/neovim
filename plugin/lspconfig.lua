@@ -217,6 +217,11 @@ nvim_lsp.pyright.setup {
   capabilities = capabilities,
 }
 
+nvim_lsp.quick_lint_js.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 nvim_lsp.r_language_server.setup {
   on_attach = on_attach,
   capabilities = capabilities,

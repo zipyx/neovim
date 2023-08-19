@@ -37,7 +37,10 @@ packer.startup(function(use)
   use 'L3MON4D3/LuaSnip' -- LSP
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    run = function()
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end,
   }
 
   -- File tree neovim
