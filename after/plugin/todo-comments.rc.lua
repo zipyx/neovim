@@ -1,6 +1,9 @@
 local status, todo_comments = pcall(require, "todo-comments")
 if (not status) then return end
 
+local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
+
 todo_comments.setup {
   signs = true,      -- show icons in the signs column
   sign_priority = 8, -- sign priority
@@ -8,8 +11,8 @@ todo_comments.setup {
   -- keywords recognized as todo comments
   keywords = {
     FIX = {
-      icon = " ",                              -- icon used for the sign, and in search results
-      color = "error",                            -- can be a hex color, or a named color (see below)
+      icon = " ", -- icon used for the sign, and in search results
+      color = "error", -- can be a hex color, or a named color (see below)
       alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
       -- signs = false, -- configure signs for some keywords individually
     },
@@ -74,3 +77,16 @@ todo_comments.setup {
   },
 
 }
+
+-- You can also specify a list of valid jump keywords
+-- keymap.set("n", "]t", function()
+--   require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
+-- end, { desc = "Next error/warning todo comment" })
+keymap.set('n', '<leader>lt', ':TodoTelescope<CR>', opts)
+keymap.set("n", "]t", function()
+  require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+keymap.set("n", "[t", function()
+  require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })

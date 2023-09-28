@@ -4,6 +4,7 @@ local status_layer, layer = pcall(require, "hydra.layer")
 local status_builtin, builtin = pcall(require, "telescope.builtin")
 local status_gitsigns, gitsigns = pcall(require, "gitsigns")
 local status_bufmove, bufmove = pcall(require, "bufMov")
+local status_venn, venn = pcall(require, "venn")
 
 -- status
 if (not status) then return end
@@ -11,16 +12,18 @@ if (not status_layer) then return end
 if (not status_builtin) then return end
 if (not status_gitsigns) then return end
 if (not status_bufmove) then return end
+if (not status_venn) then return end
 
 -- options / states
 local opts = { noremap = true, silent = true }
 local opts_nowait = { noremap = true, nowait = true, silent = true }
-local state = { exit = true }
 
 -- https://github.com/anuvyklack/hydra.nvim/tree/master/lua/hydra/layer
 -- table = { mode, key, command, opts }
 local mode_n = 'n'
 local mode_nx = { 'n', 'x' }
+local mode_nv = { 'n', 'v' }
+local exit_n = { mode_n, '<Esc>', nil, { exit = true } }
 
 -- Side scrolling
 local opt_side_scroll = layer({
@@ -35,11 +38,11 @@ local opt_side_scroll = layer({
     { mode_nx, 'l', '5zl', opts },
     { mode_nx, 'h', '5zh', opts },
     { mode_nx, 'H', 'zH',  opts },
-    { mode_nx, 'L', 'zL',  opts }
+    { mode_nx, 'L', 'zL',  opts },
   },
 
   exit = {
-    { mode_nx, 'i' }
+    { mode_n, 'i' },
   },
 
   config = {
@@ -55,12 +58,7 @@ local opt_side_scroll = layer({
 -- Resize buffer
 local opt_resize_buffer = layer({
   enter = {
-    { mode_n, '<leader>wl', ':vertical resize +7<CR>', opts_nowait },
-    { mode_n, '<leader>wh', ':vertical resize -7<CR>', opts_nowait },
-    { mode_n, '<leader>wk', ':resize +7<CR>',          opts_nowait },
-    { mode_n, '<leader>wj', ':resize -7<CR>',          opts_nowait },
-    { mode_n, '<leader>wz', '<C-W>_ \\| <C-W>\\|<CR>', opts_nowait },
-    { mode_n, '<leader>wo', '<C-W>=<CR>',              opts_nowait }
+    { mode_n, '<leader>w' },
   },
 
   layer = {
@@ -69,11 +67,11 @@ local opt_resize_buffer = layer({
     { mode_n, 'k', ':resize +7<CR>',          opts_nowait },
     { mode_n, 'j', ':resize -7<CR>',          opts_nowait },
     { mode_n, 'z', '<C-W>_ \\| <C-W>\\|<CR>', opts_nowait },
-    { mode_n, 'o', '<C-W>=<CR>',              opts_nowait }
+    { mode_n, 'o', '<C-W>=<CR>',              opts_nowait },
   },
 
   exit = {
-    { mode_n, 'i' }
+    { mode_n, 'i' },
   },
   config = {
     on_enter = function()
@@ -105,7 +103,7 @@ local opt_gitsigns = layer({
     { mode_n, 't', gitsigns.toggle_current_line_blame, opts_nowait },
   },
   exit = {
-    { mode_n, 'i' }
+    exit_n,
   },
   config = {
     on_enter = function()
@@ -148,13 +146,14 @@ local opt_buffmover = layer({
 -- Rearrange buffers in current window
 local opt_code_execution = layer({
   enter = {
-    { mode_n, '<leader>e' },
+    { mode_nv, '<leader>e' },
   },
   layer = {
-    { mode_n, 'l',  ":RunCode<CR>",     opts_nowait },
-    { mode_n, 'f',  ":TestFile<CR>",    opts },
-    { mode_n, 'fa', ":TestSuite<CR>",   opts_nowait },
-    { mode_n, 'fn', ":TestNearest<CR>", opts_nowait },
+    { mode_n,  'e', ":RunCode<CR>",      opts_nowait },
+    { mode_n,  'r', ":SnipReset<CR>",    opts_nowait },
+    { mode_n,  'c', ":SnipClose<CR>",    opts_nowait },
+    { mode_n,  'l', ":SnipRun<CR>",      opts_nowait },
+    { mode_nv, 'L', ":'<,'>SnipRun<CR>", opts_nowait },
   },
   exit = {
     { mode_n, 'i' }
@@ -165,7 +164,7 @@ local opt_code_execution = layer({
       vim.bo.modifiable = false
     end,
     on_exit = function() print("exit-layer-code-execution") end,
-    timeout = 100, --milliseconds
+    timeout = 10, --milliseconds
   }
 })
 

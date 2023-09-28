@@ -26,7 +26,6 @@ packer.startup(function(use)
   use 'jay-babu/mason-nvim-dap.nvim'      -- Debugging langauage protocol (update)
   use 'jose-elias-alvarez/null-ls.nvim'   -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
-  -- use 'glepnir/lspsaga.nvim' -- LSP UIs
   use({
     "glepnir/lspsaga.nvim",
     branch = "main",
@@ -49,7 +48,7 @@ packer.startup(function(use)
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
 
-  -- use 'itchyny/calendar.vim' -- Utility plugins open mail
+  use 'itchyny/calendar.vim'                       -- Utility Calendar
   use 'kyazdani42/nvim-web-devicons'               -- File icons
   use 'nvim-telescope/telescope.nvim'              -- Browsing, fuzzy finder etc
   use 'nvim-telescope/telescope-file-browser.nvim' -- File Browser
@@ -58,93 +57,69 @@ packer.startup(function(use)
   -- use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'                -- Color and theme related
   use 'wojciechkepka/vim-github-dark'              -- Github dark theme
-  -- use 'folke/zen-mode.nvim'
   use 'Pocco81/TrueZen.nvim'
   use({
     "iamcco/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
   })
-  use 'akinsho/nvim-bufferline.lua'
-  use 'github/copilot.vim'
-
-  -- Debugging
-  use { 'rcarriga/nvim-dap-ui', requires = { 'mfussenegger/nvim-dap', 'jbyuki/one-small-step-for-vimkind' } }
-
-  -- Database Access
-  use 'dinhhuy258/vim-database'
-  use { 'kristijanhusak/vim-dadbod-ui', requires = {
-    'tpope/vim-dadbod',
-    'tpope/vim-dotenv',
-    -- 'ellisonleao/dotenv.nvim',
-    'kristijanhusak/vim-dadbod-completion'
-  } }
-
-  -- Running tests
-  use 'vim-test/vim-test'
-
-  -- Highlighting words
-  use 'dwrdx/mywords.nvim'
 
   -- Vimwiki (Can't use plugin to export from neorg to markdown as per this issue below)
   -- https://github.com/nvim-neorg/neorg/issues/668
   -- [Solution]: We need to temp disable plugin before exporting in neorg
   -- use 'vimwiki/vimwiki'
 
-  -- Neorg
-  -- use {
-  --   "nvim-neorg/neorg",
-  --   run = ":Neorg sync-parsers",
-  --   requires = "nvim-lua/plenary.nvim",
-  -- }
-
-  -- Pomodoro
-  use {
+  -- ===================================================================================
+  -- [Productivity]
+  use 'folke/todo-comments.nvim' -- TODO comments
+  use 'mtth/scratch.vim'         -- Scratchpad (temp)
+  use {                          -- Pomodoro timer
     'wthollingsworth/pomodoro.nvim',
     requires = 'MunifTanjim/nui.nvim',
   }
 
-  -- Scratchpad
-  use 'mtth/scratch.vim'
+  -- ===================================================================================
+  -- [Vim-Specific]
+  use 'c60cb859/bufMov.nvim'        -- Moving buffers around
+  use 'rcarriga/nvim-notify'        -- Notifications (nvim notifications)
+  use 'akinsho/nvim-bufferline.lua' -- Bufferline
 
-  -- Floating terminals
-  -- use 'voldikss/vim-floaterm'
+  -- ===================================================================================
+  -- [Development]
+  use 'github/copilot.vim'                            -- GitHub copilot
+  use 'NTBBloodbath/rest.nvim'                        -- REST client
+  use 'https://git.sr.ht/~soywod/himalaya-vim'        -- Email client
+  use { 'michaelb/sniprun', run = 'sh ./install.sh' } -- Code execution (1)
+  use 'CRAG666/code_runner.nvim'                      -- Code execution (2)
+  use 'voldikss/vim-floaterm'                         -- Floating terminal (1)
+  use 'numToStr/FTerm.nvim'                           -- Floating terminal (2)
+  use 'CRAG666/betterTerm.nvim'                       -- Terminal
+  use 'NeogitOrg/neogit'                              -- Git actions
+  use 'lewis6991/gitsigns.nvim'                       -- Git signs along lines
+  use { 'rcarriga/nvim-dap-ui', requires = {          -- Debugging
+    'mfussenegger/nvim-dap',
+    'jbyuki/one-small-step-for-vimkind'
+  } }
+  use 'dinhhuy258/vim-database'                      -- Database (1)
+  use { 'kristijanhusak/vim-dadbod-ui', requires = { -- Database (2)
+    'tpope/vim-dadbod',                              -- Database UI
+    'tpope/vim-dotenv',                              -- Environment variables
+    'kristijanhusak/vim-dadbod-completion'           -- Database auto completion
+  } }
 
-  -- Moving window buffers
-  use 'c60cb859/bufMov.nvim'
 
-  -- Git
-  -- use 'tpope/vim-fugitive'      -- Git actions
-  -- use 'TimUntersberger/neogit'  -- Git actions
-  use 'NeogitOrg/neogit'        -- Git actions
-  use 'lewis6991/gitsigns.nvim' -- Git signs along lines
-  use 'kdheepak/lazygit.nvim'   -- Floating git window with actions
+  -- ===================================================================================
+  -- [Text-Manipulation]
+  use 'tpope/vim-surround'      -- Text wrapper (quotes, brackets etc)
+  use 'junegunn/vim-easy-align' -- Text aligning (expression)
+  use 'dwrdx/mywords.nvim'      -- Text highlighting
+  use 'lervag/vimtex'           -- Latex support
 
-  -- Code runner within neovim
-  use 'CRAG666/code_runner.nvim'
-  use 'CRAG666/betterTerm.nvim'
-
-  -- Email Client based on Himalaya CLI installation
-  use 'https://git.sr.ht/~soywod/himalaya-vim'
-
-  -- Sending REST http requests
-  use 'NTBBloodbath/rest.nvim'
-
-  -- Vim utilties
-  use 'tpope/vim-commentary'     -- Commenting stuff out
-  use 'tpope/vim-surround'       -- Wrapping text with quotes, brackets etc
-  use 'junegunn/vim-easy-align'  -- Aligning text/syntax based on selector
-  use 'lotabout/skim'            -- Rust fuzzy finder = blazingly fast
-  use 'jbyuki/venn.nvim'         -- Draw ASCII diagrams in vim
-  use 'anuvyklack/hydra.nvim'    -- Heads (keybindings)
-  use 'folke/todo-comments.nvim' -- TODO comments
-  use 'lervag/vimtex'            -- Latex support
-
-  -- Fun stuff
-  use 'letieu/hacker.nvim'
-
-  -- Navigating just the immediate working files in a project
-  use 'ThePrimeagen/harpoon'
-
-  -- Navigating vim panes with kitty
-  use 'knubie/vim-kitty-navigator'
+  -- ===================================================================================
+  -- [Utilities]
+  use 'tpope/vim-commentary'       -- Code commenting
+  use 'jbyuki/venn.nvim'           -- Draw ASCII diagrams in vim
+  use 'anuvyklack/hydra.nvim'      -- Keybindings with layers
+  use 'letieu/hacker.nvim'         -- Hacker fun stuff
+  use 'ThePrimeagen/harpoon'       -- File naviation
+  use 'knubie/vim-kitty-navigator' -- Navigating vim panes along kitty
 end)

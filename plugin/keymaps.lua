@@ -6,29 +6,12 @@ if (not status2) then return end
 local keymap = vim.keymap
 
 -- ===================================================================================
--- Move between window buffers
--- keymap.set('n', '<Space>', '<C-w>w', opts)
--- keymap.set('n', '<S-h>', '<C-w>h', opts)
--- keymap.set('n', '<S-k>', '<C-w>k', opts)
--- keymap.set('n', '<S-j>', '<C-w>j', opts)
--- keymap.set('n', '<S-l>', '<C-w>l', opts)
-
--- ===================================================================================
 -- Set silent noremap
 local opts = { noremap = true, silent = true }
 
 -- ===================================================================================
 -- Refresh file
 keymap.set('n', '<leader>R', ':luafile %<CR>', opts)
-
--- ===================================================================================
--- Resize window
--- keymap.set('n', '<leader>wl', ':vertical resize +7<CR>', opts)
--- keymap.set('n', '<leader>wh', ':vertical resize -7<CR>', opts)
--- keymap.set('n', '<leader>wk', ':resize +7<CR>', opts)
--- keymap.set('n', '<leader>wj', ':resize -7<CR>', opts)
--- keymap.set('n', '<leader>zi', '<C-W>_ \\| <C-W>\\|<CR>', opts)
--- keymap.set('n', '<leader>zo', '<C-W>=<CR>', opts)
 
 -- ===================================================================================
 -- Move lines
@@ -39,16 +22,13 @@ keymap.set('v', '<C-u>', ":m '<-2<CR>gv=gv")
 
 -- ===================================================================================
 -- Open & exit terminal mode
--- toggle firts term
--- keymap.set('n', 'term', ':terminal<CR>', opts)
--- keymap.set('n', 'vterm', ':terminal<CR>', opts)
--- keymap.set('n', 't;w', '<C-\\><C-n>', opts)
--- keymap.set('t', 't;w', '<C-w><C-w>', opts)
+keymap.set({ 'n', 't' }, '<Esc>', '<C-\\><C-n><CR>', opts)
 
--- =================================================================================== [Plugin] Floating Terminals
+-- ===================================================================================
+-- [Plugin] Floating Terminals
 -- keymap.set('n', '<leader>tn', ':FloatermNew<CR>', opts)
-keymap.set({ 'n', 't' }, '<leader>tT', ':FloatermToggle<CR>', opts)
-keymap.set({ 'n', 't' }, '<leader>td', ':FloatermKill<CR>', opts)
+-- keymap.set({ 'n', 't' }, '<leader>tT', ':FloatermToggle<CR>', opts)
+-- keymap.set({ 'n', 't' }, '<leader>td', ':FloatermKill<CR>', opts)
 -- keymap.set('n', '<leader>tk', ':FloatermNext<CR>', opts)
 -- keymap.set('n', '<leader>tj', ':FloatermPrev<CR>', opts)
 -- keymap.set('t', '<leader>tn', '<C-\\><C-n>:FloatermNew<CR>', opts)
@@ -71,30 +51,15 @@ keymap.set('n', '<leader>mM', '<Plug>(himalaya-email-move)', opts)              
 keymap.set('n', '<leader>mD', '<Plug>(himalaya-email-delete)', opts)               -- Delete email
 
 -- ===================================================================================
--- [Terminal] Applications
-keymap.set('n', '<leader>oe', globals.float_email_config, opts)  -- Email
-keymap.set('n', '<leader>or', globals.float_ranger_config, opts) -- Ranger
--- keymap.set('n', '<leader>ot', globals.float_taskui_config, opts)     -- Taskwarrior
--- keymap.set('n', '<leader>ob', globals.float_browser_config, opts)    -- Browser
--- keymap.set('n', '<leader>oc', globals.float_calculator_config, opts) -- Calculator
-
--- ===================================================================================
 -- [Plugin] Neovim file tree
 keymap.set('n', '<leader>tt', ':NvimTreeToggle<CR>', opts)
--- keymap.set('n', '<leader>tc', ':NvimTreeCollapse<CR>', opts)
--- keymap.set('n', '<leader>tb', ':NvimTreeCollapseKeepBuffers<CR>', opts)
--- keymap.set('n', '<leader>tf', ':NvimTreeFindFile<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Neovim utility calendar
--- keymap.set('n', '<leader>uc', ':Calendar<CR>', opts)
+keymap.set('n', '<leader>oc', ':Calendar<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Moving window buffers
--- keymap.set('n', '<C-j>', "<cmd>lua require('bufMov', opts).movBuf('down', opts)<CR>", opts)
--- keymap.set('n', '<C-k>', ':MoveBufferUp<CR>', opts)
--- keymap.set('n', '<C-h>', ':MoveBufferLeft<CR>', opts)
--- keymap.set('n', '<C-l>', ':MoveBufferRight<CR>', opts)
 -- Other helpful window buffer tips
 -- mA = Mark window buffer with A
 -- mB = Mark window buffer with B
@@ -109,18 +74,6 @@ keymap.set('n', '<leader>lm', builtin.marks, {})
 keymap.set('n', '<leader>lr', builtin.registers, {})
 keymap.set('n', '<leader>lk', builtin.keymaps, {})
 keymap.set('n', '<leader>lf', builtin.current_buffer_fuzzy_find, {})
--- keymap.set('n', '<leader>l1', builtin.treesitter, {})
--- keymap.set('n', '<leader>fB', builtin.buffers, {})
--- keymap.set('n', '<leader>fT', builtin.help_tags, {})
--- keymap.set('n', '<leader>fq', builtin.quickfix, {})
--- keymap.set('n', '<leader>ft', builtin.current_buffer_tags, {})
--- keymap.set('n', '<leader>gg', builtin.git_status, {})
-
--- ===================================================================================
--- [Plugin] Jester - running unit tests for javascript/typescript
--- keymap.set('n', '<leader>ra', ':lua require"jester".run()<CR>', opts)
--- keymap.set('n', '<leader>rf', ':lua require"jester".run_file()<CR>', opts)
--- keymap.set('n', '<leader>ro', ':lua require"jester".run_last()<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Commenting stuff out
@@ -135,59 +88,10 @@ keymap.set('n', '<leader>ho', ':lua require"mywords".uhl_all()<CR>', opts)
 -- ===================================================================================
 -- [Plugin] Markdown preview
 keymap.set('n', '<leader>ov', '<Plug>MarkdownPreview', opts)
--- keymap.set('n', '<leader>pm', '<Plug>MarkdownPreviewStop', opts)
--- keymap.set('n', '<leader>mpt', '<Plug>MarkdownPreviewToggle', opts)
-
--- ===================================================================================
--- [Plugin] Gitsigns & Fugitive
--- <leader>go = Opens the current file in git
--- <leader>gn = Creates a merge request
--- <leader>ga = Get ASCII, Hex and Octal value
--- <leader>gp = Open a pull request
-keymap.set('n', '<leader>ga', ':Neogit<CR>', opts)
--- keymap.set('n', '<leader>gj', ':Gitsigns next_hunk<CR>', opts)
--- keymap.set('n', '<leader>gk', ':Gitsigns prev_hunk<CR>', opts)
--- keymap.set('n', '<leader>gs', ':Gitsigns stage_hunk<CR>', opts)
--- keymap.set('n', '<leader>gr', ':Gitsigns reset_hunk<CR>', opts)
--- keymap.set('n', '<leader>gu', ':Gitsigns undo_stage_hunk<CR>', opts)
--- keymap.set('n', '<leader>gS', ':Gitsigns stage_buffer<CR>', opts)
--- keymap.set('n', '<leader>gR', ':Gitsigns reset_buffer<CR>', opts)
--- keymap.set('n', '<leader>gU', ':Gitsigns reset_buffer_index<CR>', opts)
--- keymap.set('n', '<leader>gB', ':Gitsigns toggle_current_line_blame<CR>', opts)
 
 -- ===================================================================================
 -- [PlugIn] Database
-keymap.set('n', '<leader>oD', ':VDToggleDatabase<CR>', opts)
-keymap.set('n', '<leader>oQ', ':VDToggleQuery<CR>', opts)
-keymap.set('n', '<leader>od', ':DBUIToggle<CR>', opts)
--- keymap.set('n', '<leader>du', ':DBUIToggle<CR>', opts)
--- keymap.set('n', '<leader>df', ':DBUIFindBuffer<CR>', opts)
--- keymap.set('n', '<leader>dr', ':DBUIRenameBuffer<CR>', opts)
--- keymap.set('n', '<leader>dl', ':DBUILastQueryInfo<CR>', opts)
-
--- ===================================================================================
--- [Plugin] Code runner
--- use the best keymap for you
--- change 1 for other terminal id
--- Change "get_filetype_command()" to "get_project_command().command" for running projects
-
--- keymap.set("n", "<leader>el", function()
---   require("betterTerm").send(require("code_runner.commands").get_filetype_command(), 1,
---     { clean = false, interrupt = true }, opts)
--- end, { desc = "Excute File" })
--- keymap.set("v", "<leader>el", function()
---   require("betterTerm").send(require("code_runner.commands").get_filetype_command(), 1,
---     { clean = false, interrupt = true })
--- end, { desc = "Excute File" }, opts)
-
--- keymap.set('n', '<leader>el', ':RunCode<CR>', opts)
--- keymap.set('v', '<leader>el', ':RunCode<CR>', opts)
--- keymap.set('n', '<leader>ef', ':RunFile<CR>', opts)
--- keymap.set('n', '<leader>et', ':RunFile tab<CR>', opts)
--- keymap.set('n', '<leader>ep', ':RunProject<CR>', opts)
--- keymap.set('n', '<leader>eq', ':RunClose<CR>', opts)
--- keymap.set('n', '<leader>crf', ':CRFiletype<CR>', opts)
--- keymap.set('n', '<leader>crp', ':CRProjects<CR>', opts)
+-- keymap.set('n', '<leader>od', ':DBUIToggle<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Debugging protocol
@@ -227,14 +131,6 @@ keymap.set('n', '<leader>nq', globals.neorg_return_cmd, opts)
 -- ===================================================================================
 -- [Plugin] True-Zen
 keymap.set('n', '<leader>sf', ':TZFocus<CR>', opts)
--- keymap.set('n', '<leader>sh', ':TZNarrow<CR>', opts)
--- keymap.set('v', '<leader>sh', ":'<,'>:TZNarrow<CR>", opts)
--- keymap.set('n', '<leader>sm', ':TZMinimalist<CR>', opts)
--- keymap.set('n', '<leader>sa', ':TZAtaraxis<CR>', opts)
-
--- ===================================================================================
--- [Plugin] LSP Lines
--- keymap.set('', '<leader>nl', require('lsp_lines').toggle, { desc = "Toggle lsp_lines" }, opts)
 
 -- ===================================================================================
 -- [Plugin] Pomodoro
@@ -256,13 +152,7 @@ keymap.set('n', '<leader>lP', string.format('%s %s<CR>', globals.float_dbs_confi
 
 -- ===================================================================================
 -- [Terminal] Taskwarrior-tui
--- keymap.set('n', '<leader>ty', '40jVG', opts)
 keymap.set('n', '<leader>ty', '40jV/#<CR>ky:noh<CR>', opts)
-
--- ===================================================================================
--- [Terminal] Gitui
--- keymap.set('n', '<leader>gi', globals.float_gitui_config, opts)
-keymap.set('n', '<leader>sk', ':SK<CR>', opts)
 
 -- ===================================================================================
 -- [Plugin] Harpoon
@@ -272,21 +162,11 @@ keymap.set('n', '<S-l>', ':lua require("harpoon.ui").nav_next()<CR>', opts)
 keymap.set('n', '<S-h>', ':lua require("harpoon.ui").nav_prev()<CR>', opts)
 
 -- ===================================================================================
--- [Plugin] Todo-comments
-keymap.set('n', '<leader>lt', ':TodoTelescope<CR>', opts)
-keymap.set("n", "]t", function()
-  require("todo-comments").jump_next()
-end, { desc = "Next todo comment" })
-
-keymap.set("n", "[t", function()
-  require("todo-comments").jump_prev()
-end, { desc = "Previous todo comment" })
-
--- You can also specify a list of valid jump keywords
--- keymap.set("n", "]t", function()
---   require("todo-comments").jump_next({ keywords = { "ERROR", "WARNING" } })
--- end, { desc = "Next error/warning todo comment" })
-
+-- [Plugin] Vim-Kitty-Navigator
+keymap.set({ "n", "t" }, "<C-w>h", ":KittyNavigateLeft<CR>", opts)
+keymap.set({ "n", "t" }, "<C-w>j", ":KittyNavigateDown<CR>", opts)
+keymap.set({ "n", "t" }, "<C-w>k", ":KittyNavigateUp<CR>", opts)
+keymap.set({ "n", "t" }, "<C-w>l", ":KittyNavigateRight<CR>", opts)
 
 -- ===================================================================================
 -- [Plugin] Octo (gh)

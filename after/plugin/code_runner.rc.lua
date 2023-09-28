@@ -3,7 +3,7 @@ if (not status) then return end
 
 code_runner.setup {
   -- Mode options = ["term", "toggle", "float", "tab", "toggleterm", "buf"]
-  mode = "tab",
+  mode = "term",
   focus = true,
   -- Configurations for the intergrated terminal fields.
   term = {
