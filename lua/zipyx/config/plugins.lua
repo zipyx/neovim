@@ -109,10 +109,11 @@ packer.startup(function(use)
 
   -- ===================================================================================
   -- [Text-Manipulation]
-  use 'tpope/vim-surround'      -- Text wrapper (quotes, brackets etc)
-  use 'junegunn/vim-easy-align' -- Text aligning (expression)
-  use 'dwrdx/mywords.nvim'      -- Text highlighting
-  use 'lervag/vimtex'           -- Latex support
+  use 'tpope/vim-surround'          -- Text wrapper (quotes, brackets etc)
+  use 'junegunn/vim-easy-align'     -- Text aligning (expression)
+  use 'dwrdx/mywords.nvim'          -- Text highlighting
+  use 'lervag/vimtex'               -- Latex support
+  use 'andrewferrier/wrapping.nvim' -- Text wrapping
 
   -- ===================================================================================
   -- [Utilities]
